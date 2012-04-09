@@ -1,13 +1,18 @@
 #summary One-sentence summary of this page.
-
+#labels Featured
+<wiki:toc max_depth="2" />
 = 개요 =
 
-로봇에 대한 정의
+* 로봇에 대한 정의
 
 
 = 상세 =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+로봇이라는 용어는 1920년 체코의 작가 Karel Capek의 R.U.R(Rhssum's Universal Robots)에서 유래되었다. 체코어로 로봇은 노동을 의미하는 것으로 RUR에서 로봇은 일종의 인조인간이다. 
+
+== 로봇의 정의 ==
+ * 원하는 작업을 수행하기 위하여 주변을 동작하며, 어느 정도의 자율성을 가진 2축 이상의 프로그램이 가능한 구동 기계
+ * *산업용 로봇*  산업자동화 분야에 사용되는 3축 이상의 프로그래밍이 가능하며 자동제어 및 재프로그램이 가능한 고정 또는 이동형의 다목적 매니퓰레이터
+ * *서비스 로봇*  인간, 사회, 장비의 목적에 유용한 로봇으로서, 산업 자동화 응용을 제외한 로봇
+    * *개인 서비스 로봇*  일반적으로 훈련받지 않은 개인이 비영리적 목적으로 사용하는 서비스로봇
+    * *전문 서비스 로봇*  일반적으로 적절히 훈련된 작업자가 영리적 목적으로 사용하는 서비스 로봇
