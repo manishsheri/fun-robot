@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Jama" default="jars" basedir=".">
+	<property name="src.dir" value="./src/"></property>
+	<property name="build.dir" value="./bin/"></property>
+	<property name="classpath" value="./bin"></property>
+	<target name="compile">
+		<javac srcdir="${src.dir}" destdir="${build.dir}"  classpath="${classpath}">
+		</javac>
+	</target>
+	<target name="jars" depends="compile"></target>
+</project>
