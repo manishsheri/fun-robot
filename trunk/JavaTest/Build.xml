@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Jama" default="jars" basedir=".">
+<project name="JavaTest" default="jars" basedir=".">
 	<property name="src.dir" value="./src/"></property>
 	<property name="build.dir" value="./bin/"></property>
 	<property name="classpath" value="./bin"></property>
