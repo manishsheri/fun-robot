@@ -78,6 +78,35 @@ public class VectoR implements Cloneable, java.io.Serializable{
 			return 0.0;
 		}
 	}
+	
+	public double[] getElement(int is, int ie) {
+		try {
+			if(this.size < ie)
+				throw new Exception();
+			int resultSize = ie - is + 1;
+			int i;
+			double[] result = new double[resultSize];
+			
+			for(i = 0 ; i < resultSize ; i++)
+				result[i] = this.getElement(i + is);
+			return result;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public VectoR getSubVector(int is, int ie) {
+
+		VectoR result = new VectoR(ie-is+1);
+		double[] d = this.getElement(is, ie);
+			
+		if(d != null) {
+			result = new VectoR(d);
+		}
+		return result;
+	}
 		
 	public void setElement(int index, double d) {
 			
@@ -96,8 +125,10 @@ public class VectoR implements Cloneable, java.io.Serializable{
 			if((this.size - index) < d.length) {
 				VectoR vtemp = new VectoR(index);
 				for( i = 0 ; i < index ; i++)
-			}
-			
+					vtemp.setElement(i, this.getElement(i));
+				this.element = new double[d.length];
+				this.size = d.length;
+			}			
 			
 			for(i = index ; i < this.size ; i++ )
 				this.element[i] = d[i-index];
@@ -139,4 +170,112 @@ public class VectoR implements Cloneable, java.io.Serializable{
 			return null;
 		}
 	}	
+	
+	public VectoR plus(double[] d) {
+		int i;
+		try {
+			if(this.size != d.length)
+				throw new Exception();
+			VectoR result = new VectoR(this.size);
+			
+			for(i = 0 ; i < this.size ; i++)
+				result.setElement(i, this.element[i] + d[i]);
+			
+			return result;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}	
+	}
+	
+	public VectoR minus(VectoR v) {
+		int i;
+		
+		try {
+			if(this.size != v.getSize())
+				 throw new Exception();
+			VectoR result = new VectoR(this.size);
+			
+			for(i = 0 ; i < this.size ; i++)
+				result.setElement(i, this.element[i] - v.getElement(i));
+			
+			return result;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}	
+	
+	public VectoR minus(double[] d) {
+		int i;
+		try {
+			if(this.size != d.length)
+				throw new Exception();
+			VectoR result = new VectoR(this.size);
+			
+			for(i = 0 ; i < this.size ; i++)
+				result.setElement(i, this.element[i] - d[i]);
+			
+			return result;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}	
+	}
+	
+	public VectoR mul(double d){
+		VectoR result = new VectoR(this.size);
+		int i;
+		
+		for(i = 0 ; i < this.size ; i++) {
+			result.setElement(i, this.element[i] * d) ;
+		}
+		return result;
+	}
+	
+	public VectoR div(double d) {
+		return this.mul(1.0 / d);
+	}
+	
+	public double norm(Double r){
+		try {
+			if (r.doubleValue() == 0)
+				throw new Exception();
+			double result = 0;
+			int i;
+			
+			if(r == Double.POSITIVE_INFINITY) {
+				result = this.element[0];
+				for(i = 1 ; i < this.size ; i++)
+					result = result < this.element[i] ? this.element[i] : result;
+			}
+			else if(r == Double.NEGATIVE_INFINITY) {
+				result = this.element[0];
+				for(i = 1 ; i < this.size ; i++)
+					result = result > this.element[i] ? this.element[i] : result;
+			}
+			else if(r.intValue() == 1) {
+				for(i = 0 ; i < this.size ; i++)
+					result += Math.abs(this.element[i]);
+			}
+			else if(r.intValue() == 2) {
+				for(i = 0 ; i < this.size ; i++)
+					result += Math.abs(this.element[i] * this.element[i]);
+				result = Math.sqrt(result);
+			}
+			else {
+				for(i = 0 ; i < this.size ; i++)
+					result += Math.pow(this.element[i], r.doubleValue());
+			}
+			result = Math.pow(result, 1.0/r.doubleValue());
+			return result;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return Double.NaN;
+		}		
+	}
 }
