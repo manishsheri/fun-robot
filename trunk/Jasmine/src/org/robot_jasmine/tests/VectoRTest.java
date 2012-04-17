@@ -19,7 +19,7 @@ public class VectoRTest {
 		double[] v1Array = {3.0 , 2.0, 5.0};
 		
 		v1 = new VectoR(v1Array);
-		v2 = new VectoR(3, 2.0);
+	//	v2 = new VectoR(3, 2.0);
 		
 		d = v1.getElement(0);
 		assertTrue(d == 3.0);
@@ -107,5 +107,46 @@ public class VectoRTest {
 		assertTrue(-5.0 == v8.getElement(0));
 		assertTrue(-5.0 == v8.getElement(1));
 		assertTrue(2.0 == v8.getElement(2));
+		
+		v8.setElement(1, 7.0);
+		assertTrue(14.0 == v8.norm(1.0));
+		
+		d = v8.norm(2.0);
+		
+		assertTrue(8.8318 - v8.norm(2.0) < 0.0001);
+
+		d = v8.norm(10.0);
+		assertTrue(7.0238 - d < 0.0001);
+		assertTrue(2.0 == v8.norm(Double.NEGATIVE_INFINITY));
+		assertTrue(7.0 == v8.norm(Double.POSITIVE_INFINITY));
+		
+		assertTrue(8.8318 - v8.norm() < 0.0001);
+	
+		double[] v4Array = {1.0, 2.0, 3.0};
+		double[] v5Array = {2.0, 5.0, 7.0};
+		v1 = new VectoR(v4Array);
+		v2 = new VectoR(v5Array);
+		assertTrue(33.0 == v1.dot(v2));
+		v3 = new VectoR(v1.getSize());
+		v3 = v1.mul(v2);
+		assertTrue(2.0 == v3.getElement(0));
+		assertTrue(10.0 == v3.getElement(1));
+		assertTrue(21.0 == v3.getElement(2));
+		
+		v3 = v1.cross(v2);
+		assertTrue(-1.0 == v3.getElement(0));
+		assertTrue(-1.0 == v3.getElement(1));
+		assertTrue(1.0 == v3.getElement(2));
+		
+		
+		v3 = v4.cross(v2);
+
+		
+		assertTrue(!v1.equals(v2));
+		
+		v2 = new VectoR(v4Array);
+		assertTrue(v1.equals(v2));
+		
+		System.out.println(v1.toString());
 	}
 }

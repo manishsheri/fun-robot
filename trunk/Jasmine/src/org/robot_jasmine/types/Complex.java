@@ -27,7 +27,6 @@
  */
 package org.robot_jasmine.types;
 
-import java.math.*;
 
 public class Complex extends Object implements Cloneable {
 	protected double re;
