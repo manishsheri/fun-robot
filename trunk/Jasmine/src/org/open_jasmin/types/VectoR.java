@@ -22,7 +22,9 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.robot_jasmine.types;
+package org.open_jasmin.types;
+
+import org.open_jasmin.operators.Op;
 
 
 /**
@@ -34,11 +36,25 @@ public class VectoR implements Cloneable, java.io.Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 7179653000794622792L;
+	/**
+	 * @uml.property  name="size"
+	 */
 	protected int 		size;
+	/**
+	 * @uml.property  name="element"
+	 */
 	protected double[] 	element;
 	
+	public VectoR() {
+		this.size = Op.DEFAULT_VECTOR_SIZE;
+		this.element = new double[this.size];
+		int i;
+		
+		for(i = 0 ; i < this.size ; i++)
+			this.element[i] = 0.0;
+	}
+	
 	public VectoR(double[] element) {
-		super();
 		this.size = element.length;
 		this.element = element;
 	}
@@ -47,6 +63,10 @@ public class VectoR implements Cloneable, java.io.Serializable{
 		super();
 		this.size = size;
 		this.element = new double[size];
+		int i;
+		
+		for(i = 0 ; i < this.size ; i++)
+			this.element[i] = 0.0;
 	}
 		
 	public VectoR(int size, double d) {
@@ -66,43 +86,6 @@ public class VectoR implements Cloneable, java.io.Serializable{
 				return super.clone();
 	}
 		
-	public VectoR cross(VectoR v) {
-		try {
-			if(this.size != 3 || v.getSize() != 3)
-				throw new Exception();
-			VectoR result = new VectoR(3);
-			result.setElement(0, this.element[1] * v.getElement(2) - this.element[2] * v.getElement(1));
-			result.setElement(1, this.element[2] * v.getElement(0) - this.element[0] * v.getElement(2));
-			result.setElement(2, this.element[0] * v.getElement(1) - this.element[1] * v.getElement(0));
-			return result;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-		
-	public VectoR div(double d) {
-		return this.mul(1.0 / d);
-	}
-	
-	public double dot(VectoR v) {
-		try {
-			if(this.size != v.getSize())
-				throw new Exception();
-			double result = 0;
-			int i;
-			
-			for(i = 0 ; i < this.size ; i++){
-				result += this.element[i] * v.getElement(i);
-			}
-			
-			return result;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return 0.0;
-		}
-	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		boolean result = false;
@@ -123,6 +106,9 @@ public class VectoR implements Cloneable, java.io.Serializable{
 		return result;
 	}
 		
+	/**
+	 * @return
+	 */
 	public double[] getElement() {
 		return element;
 	}
@@ -162,6 +148,9 @@ public class VectoR implements Cloneable, java.io.Serializable{
 			result[i] = this.element[i];
 		return result;
 	}
+	/**
+	 * @return
+	 */
 	public int getSize() {
 		return this.size;
 	}
@@ -176,69 +165,7 @@ public class VectoR implements Cloneable, java.io.Serializable{
 		return result;
 	}	
 	
-	public VectoR minus(double[] d) {
-		int i;
-		try {
-			if(this.size != d.length)
-				throw new Exception();
-			VectoR result = new VectoR(this.size);
-			
-			for(i = 0 ; i < this.size ; i++)
-				result.setElement(i, this.element[i] - d[i]);
-			
-			return result;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}	
-	}
-	
-	public VectoR minus(VectoR v) {
-		int i;
-		
-		try {
-			if(this.size != v.getSize())
-				 throw new Exception();
-			VectoR result = new VectoR(this.size);
-			
-			for(i = 0 ; i < this.size ; i++)
-				result.setElement(i, this.element[i] - v.getElement(i));
-			
-			return result;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}	
-	
-	public VectoR mul(double d) {
-		VectoR result = new VectoR(this.size);
-		int i;
-		
-		for(i = 0 ; i < this.size ; i++) {
-			result.setElement(i, this.element[i] * d) ;
-		}
-		return result;
-	}
-	
-	public VectoR mul(VectoR d) {
-		try {
-			if(this.size != d.getSize())
-				throw new Exception();
-			VectoR result = new VectoR(this.size);
-			int i;
-			
-			for(i = 0 ; i < this.size ; i++) {
-				result.setElement(i, this.element[i] * d.getElement(i));
-			}
-			return result;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
+
 	public double norm() {
 		return norm(2.0);
 	}
@@ -281,41 +208,9 @@ public class VectoR implements Cloneable, java.io.Serializable{
 		}		
 	}
 	
-	public VectoR plus(double[] d) {
-		int i;
-		try {
-			if(this.size != d.length)
-				throw new Exception();
-			VectoR result = new VectoR(this.size);
-			
-			for(i = 0 ; i < this.size ; i++)
-				result.setElement(i, this.element[i] + d[i]);
-			
-			return result;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}	
-	}
-	
-	public VectoR plus(VectoR v) {
-		int i;
-		
-		try {
-			if(this.size != v.getSize())
-				 throw new Exception();
-			VectoR result = new VectoR(this.size);
-			
-			for(i = 0 ; i < this.size ; i++)
-				result.setElement(i, this.element[i] + v.getElement(i));
-			
-			return result;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
+	/**
+	 * @param d
+	 */
 	public void setElement(double[] d) {
 		int i;
 		

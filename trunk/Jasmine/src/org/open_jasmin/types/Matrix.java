@@ -1,7 +1,17 @@
-package org.robot_jasmine.types;
+package org.open_jasmin.types;
 
 public class Matrix {
-	int row, col;
+	/**
+	 * @uml.property  name="row"
+	 */
+	int row;
+	/**
+	 * @uml.property  name="col"
+	 */
+	int col;
+	/**
+	 * @uml.property  name="element"
+	 */
 	double [][] element;
 	public Matrix() {
 		row = 3;
@@ -26,18 +36,38 @@ public class Matrix {
 		col = m.getCol();
 		element = m.getElementCopy();
 	}
+	/**
+	 * @return
+	 * @uml.property  name="row"
+	 */
 	public int getRow() {
 		return row;
 	}
+	/**
+	 * @param row
+	 * @uml.property  name="row"
+	 */
 	public void setRow(int row) {
 		this.row = row;
 	}
+	/**
+	 * @return
+	 * @uml.property  name="col"
+	 */
 	public int getCol() {
 		return col;
 	}
+	/**
+	 * @param col
+	 * @uml.property  name="col"
+	 */
 	public void setCol(int col) {
 		this.col = col;
 	}
+	/**
+	 * @return
+	 * @uml.property  name="element"
+	 */
 	public double[][] getElement() {
 		return element;
 	}
@@ -50,6 +80,10 @@ public class Matrix {
 		return element.clone();
 	}
 	
+	/**
+	 * @param element
+	 * @uml.property  name="element"
+	 */
 	public void setElement(double[][] element) {
 		this.element = element;
 	}

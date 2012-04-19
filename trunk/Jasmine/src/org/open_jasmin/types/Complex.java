@@ -25,11 +25,17 @@
  * @author elecage@gmail.com
  *
  */
-package org.robot_jasmine.types;
+package org.open_jasmin.types;
 
 
 public class Complex extends Object implements Cloneable {
+	/**
+	 * @uml.property  name="re"
+	 */
 	protected double re;
+	/**
+	 * @uml.property  name="im"
+	 */
 	protected double im;
 
 	public Complex() {
@@ -65,18 +71,6 @@ public class Complex extends Object implements Cloneable {
 		return result;
 	}
 
-	public Complex div(Complex m) {
-		// Complex result = new Complex();
-		double mRe = m.getRe();
-		double mIm = m.getIm();
-		double denom = mRe * mRe + mIm * mIm;
-
-		Complex result = this.mul(m.conj());
-		result.set(result.getRe() / denom, result.getIm() / denom);
-
-		return result;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -96,37 +90,20 @@ public class Complex extends Object implements Cloneable {
 		return result;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="im"
+	 */
 	public double getIm() {
 		return im;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="re"
+	 */
 	public double getRe() {
 		return re;
-	}
-
-	public Complex minus(Complex m) {
-		Complex result = new Complex(this.re - m.getRe(), this.im - m.getIm());
-
-		return result;
-	}
-
-	public Complex mul(Complex m) {
-		Complex result = new Complex(this.re * m.getRe() - this.im * m.getIm(),
-				this.re * m.getIm() + this.im * m.getRe());
-
-		return result;
-	}
-
-	public Complex mul(double d) {
-		Complex result = new Complex(d * this.re, d * this.im);
-
-		return result;
-	}
-
-	public Complex plus(Complex m) {
-		Complex result = new Complex(this.re + m.getRe(), this.im + m.getIm());
-
-		return result;
 	}
 
 	public void set(double re, double im) {
@@ -134,10 +111,18 @@ public class Complex extends Object implements Cloneable {
 		this.im = im;
 	}
 
+	/**
+	 * @param im
+	 * @uml.property  name="im"
+	 */
 	public void setIm(double im) {
 		this.im = im;
 	}
 
+	/**
+	 * @param re
+	 * @uml.property  name="re"
+	 */
 	public void setRe(double re) {
 		this.re = re;
 	}
