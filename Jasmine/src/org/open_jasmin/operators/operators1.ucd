@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="operators1" size="741,803" id="org.open_jasmin.operators" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D3130204A61736D696E65">
+  <children xsi:type="editmodel:ClassEditModel" name="Op" location="50,50" size="91,733" id="org.open_jasmin.operators/Op">
+    <children xsi:type="editmodel:CompartmentEditModel" size="68,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="tol" id="org.open_jasmin.operators/Op#TOL"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="58,666">
+      <children xsi:type="editmodel:MethodEditModel" name="cross" id="org.open_jasmin.operators/Op#cross([DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cross" id="org.open_jasmin.operators/Op#cross(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cross" id="org.open_jasmin.operators/Op#cross(Lorg.open_jasmin.types.VectoR;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cross" id="org.open_jasmin.operators/Op#cross([D[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="divide" id="org.open_jasmin.operators/Op#divide(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="divide" id="org.open_jasmin.operators/Op#divide(Lorg.open_jasmin.types.Complex;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="divide" id="org.open_jasmin.operators/Op#divide(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="divide" id="org.open_jasmin.operators/Op#divide(DLorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dot" id="org.open_jasmin.operators/Op#dot([DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dot" id="org.open_jasmin.operators/Op#dot(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dot" id="org.open_jasmin.operators/Op#dot([D[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dot" id="org.open_jasmin.operators/Op#dot(Lorg.open_jasmin.types.VectoR;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(Lorg.open_jasmin.types.Complex;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus([DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(Lorg.open_jasmin.types.VectoR;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus([D[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(DLorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(Lorg.open_jasmin.types.Complex;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(DLorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus([DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus([D[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(Lorg.open_jasmin.types.VectoR;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(Lorg.open_jasmin.types.VectoR;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times([DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(Lorg.open_jasmin.types.VectoR;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(Lorg.open_jasmin.types.Complex;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(DLorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times([D[D)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" level="-1" showScope="InPackage" properties="wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>
