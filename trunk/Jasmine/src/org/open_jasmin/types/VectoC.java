@@ -18,11 +18,6 @@ public class VectoC implements Cloneable, java.io.Serializable{
 	 */
 	protected Complex[] element;
 	
-	public VectoC(int size) {
-		super();
-		this.size = size;
-	}
-
 	public VectoC() {
 		this.size = Op.DEFAULT_VECTOR_SIZE;
 		this.element = new Complex[this.size];
@@ -35,6 +30,11 @@ public class VectoC implements Cloneable, java.io.Serializable{
 	public VectoC(Complex[] element) {
 		this.size = element.length;
 		this.element = element;
+	}
+
+	public VectoC(int size) {
+		super();
+		this.size = size;
 	}
 
 	public VectoC(int size, Complex c) {
@@ -56,13 +56,50 @@ public class VectoC implements Cloneable, java.io.Serializable{
 		return super.equals(obj);
 	}
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+	/**
+	 * Getter of the property <tt>element</tt>
+	 * @return  Returns the element.
+	 */
+	public Complex[] getElement() {
+		return element;
 	}
 
 
+
+	/**
+	 * Getter of the property <tt>element</tt>
+	 * @return  Returns the element of index.
+	 */
+	public Complex getElement(int index) {
+		try {
+			return element[index];
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * Getter of the property <tt>element</tt>
+	 * @return  Returns the element.
+	 */
+	public Complex[] getElement(int is, int ie) {
+		try {
+			if(this.size < ie)
+				throw new Exception();
+			int resultSize = ie - is + 1;
+			int i;
+			Complex[] result = new Complex[resultSize];
+			
+			for(i = 0 ; i < resultSize ; i++)
+				result[i] = this.getElement(i + is);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	/**
 	 * Getter of the property <tt>size</tt>
@@ -72,27 +109,76 @@ public class VectoC implements Cloneable, java.io.Serializable{
 		return size;
 	}
 
-	/**
-	 * Setter of the property <tt>size</tt>
-	 * @param size  The size to set.
-	 */
-	public void setSize(int size) {
-		this.size = size;
-	}
+	public VectoC getSubVector(int is, int ie) {
 
-	/**
-	 * Getter of the property <tt>element</tt>
-	 * @return  Returns the element.
-	 */
-	public Complex[] getElement() {
-		return element;
+		VectoC result = new VectoC(ie-is+1);
+		Complex[] d = this.getElement(is, ie);
+			
+		if(d != null) {
+			result = new VectoC(d);
+		}
+		return result;
 	}
-
+	
 	/**
 	 * Setter of the property <tt>element</tt>
 	 * @param element  The element to set.
 	 */
 	public void setElement(Complex[] element) {
 		this.element = element;
+	}
+	
+	/**
+	 * Setter of the property <tt>size</tt>
+	 * @param size  The size to set.
+	 */
+	public void setSize(int size) {
+		this.size = size;
+	}	
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
+	public double norm(Double r){
+		try {
+			if (r.doubleValue() == 0.0)
+				throw new Exception();
+			double result = 0;
+			int i;
+			
+			if(r == Double.POSITIVE_INFINITY) {
+				result = this.element[0].abs();
+				for(i = 1 ; i < this.size ; i++)
+					result = result < this.element[i].abs() ? this.element[i].abs() : result;
+			}
+			else if(r == Double.NEGATIVE_INFINITY) {
+				result = this.element[0].abs();
+				for(i = 1 ; i < this.size ; i++)
+					result = result > this.element[i].abs() ? this.element[i].abs() : result;
+			}
+			else if(r.intValue() == 1) {
+				for(i = 0 ; i < this.size ; i++)
+					result += this.element[i].abs();
+			}
+			else if(r.intValue() == 2) {
+				for(i = 0 ; i < this.size ; i++)
+					result = result + Op.times(this.element[i], this.element[i]).abs();
+				result = Math.sqrt(result);
+			}
+			else {
+				// TODDO : 복소벡터의 노름
+	/*			for(i = 0 ; i < this.size ; i++)
+					result += Math.pow(this.element[i], r.doubleValue());
+				result = Math.pow(result, 1.0/r.doubleValue());
+				*/
+			}
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Double.POSITIVE_INFINITY;
+		}		
 	}
 }

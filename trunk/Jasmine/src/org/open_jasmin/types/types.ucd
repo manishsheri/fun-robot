@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="types" size="758,434" id="org.open_jasmin.types" metadata="uml2-1.0" initialized="true" scrolledY="17" tag="10" key="32303037303533312D3130204A61736D696E65">
-  <children xsi:type="editmodel:ClassEditModel" name="VectoC" location="210,50" size="126,265" id="org.open_jasmin.types/VectoC" runTimeClassModel="setSize(I),element,VectoC(),setElement([Lorg.open_jasmin.types.Complex;),getSize(),VectoC(ILorg.open_jasmin.types.Complex;),equals(Ljava.lang.Object;),getElement(),VectoC(I),VectoC([Lorg.open_jasmin.types.Complex;),toString(),size">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="types" size="811,871" id="org.open_jasmin.types" metadata="uml2-1.0" initialized="true" zoom="0.75" scrolledY="3" tag="10" key="32303037303533312D3130204A61736D696E65">
+  <children xsi:type="editmodel:ClassEditModel" name="VectoC" location="219,286" size="126,283" id="org.open_jasmin.types/VectoC" runTimeClassModel="element,setSize(I),getSubVector(II),VectoC(ILorg.open_jasmin.types.Complex;),getSize(),getElement(),VectoC(I),VectoC([Lorg.open_jasmin.types.Complex;),size,toString(),VectoC(),setElement([Lorg.open_jasmin.types.Complex;),getElement(I),equals(Ljava.lang.Object;),getElement(II)">
     <children xsi:type="editmodel:CompartmentEditModel" size="103,36">
       <children xsi:type="editmodel:AttributeEditModel" name="element" id="org.open_jasmin.types/VectoC#element"/>
       <children xsi:type="editmodel:AttributeEditModel" name="size" id="org.open_jasmin.types/VectoC#size"/>
     </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="82,180">
+    <children xsi:type="editmodel:CompartmentEditModel" size="96,198">
       <children xsi:type="editmodel:MethodEditModel" name="VectoC" id="org.open_jasmin.types/VectoC#VectoC(ILorg.open_jasmin.types.Complex;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="VectoC" id="org.open_jasmin.types/VectoC#VectoC([Lorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getElement" location="12,155" id="org.open_jasmin.types/VectoC#getElement(II)"/>
       <children xsi:type="editmodel:MethodEditModel" name="VectoC" id="org.open_jasmin.types/VectoC#VectoC(I)"/>
       <children xsi:type="editmodel:MethodEditModel" name="VectoC" id="org.open_jasmin.types/VectoC#VectoC()"/>
       <children xsi:type="editmodel:MethodEditModel" name="equals" id="org.open_jasmin.types/VectoC#equals(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="getElement" id="org.open_jasmin.types/VectoC#getElement()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="getSize" id="org.open_jasmin.types/VectoC#getSize()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="setElement" id="org.open_jasmin.types/VectoC#setElement([Lorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSize" location="17,262" id="org.open_jasmin.types/VectoC#getSize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSubVector" id="org.open_jasmin.types/VectoC#getSubVector(II)"/>
       <children xsi:type="editmodel:MethodEditModel" name="setSize" id="org.open_jasmin.types/VectoC#setSize(I)"/>
       <children xsi:type="editmodel:MethodEditModel" name="toString" id="org.open_jasmin.types/VectoC#toString()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getElement" location="13,178" id="org.open_jasmin.types/VectoC#getElement(I)"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.open_jasmin.types/VectoC->java.lang/Exception*org.open_jasmin.types/VectoC->java.lang/Exception*org.open_jasmin.types/VectoC-Soyatec::Import->java.lang/Exception*org.open_jasmin.types/VectoC->java.lang/Exception" source="//@children.0" target="//@children.4" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import, Send, Instantiate»" size="150,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,283" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="145,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.open_jasmin.types/VectoC-Soyatec::Import->org.open_jasmin.types/Complex*org.open_jasmin.types/VectoC->org.open_jasmin.types/Complex*org.open_jasmin.types/VectoC->org.open_jasmin.types/Complex" source="//@children.0" target="//@children.3" targetEnd="//@children.0/@sourceConnections.1/@children.2" label="//@children.0/@sourceConnections.1/@children.0" sourceEnd="//@children.0/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import, Instantiate»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="114,283" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="11,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.open_jasmin.types/VectoC-Soyatec::Access->org.open_jasmin.operators/Op" source="//@children.0" target="//@children.5" targetEnd="//@children.0/@sourceConnections.2/@children.2" label="//@children.0/@sourceConnections.2/@children.0" sourceEnd="//@children.0/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Access»" size="50,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,141" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,368"/>
+    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="VectoR" location="50,50" size="130,391" id="org.open_jasmin.types/VectoR" runTimeClassModel="element,getSubVector(II),getSize(),setElement(ILorg.open_jasmin.types.VectoR;),getElement(),size,toString(),VectoR(ID),setElement(ID),getElementCopy(),VectoR(),norm(Ljava.lang.Double;),VectoR(I),getElement(I),equals(Ljava.lang.Object;),setElement(I[D),norm(),VectoR([D),getElement(II),setElement([D)">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.1" name="VectoR" location="65,49" size="130,391" id="org.open_jasmin.types/VectoR" runTimeClassModel="element,getSubVector(II),getSize(),setElement(ILorg.open_jasmin.types.VectoR;),getElement(),size,toString(),VectoR(ID),setElement(ID),getElementCopy(),VectoR(),norm(Ljava.lang.Double;),VectoR(I),getElement(I),setElement(I[D),equals(Ljava.lang.Object;),norm(),VectoR([D),getElement(II),setElement([D)">
     <children xsi:type="editmodel:CompartmentEditModel" size="94,36">
       <children xsi:type="editmodel:AttributeEditModel" name="element" id="org.open_jasmin.types/VectoR#element"/>
       <children xsi:type="editmodel:AttributeEditModel" name="size" id="org.open_jasmin.types/VectoR#size"/>
@@ -45,9 +61,14 @@
       <children xsi:type="editmodel:MethodEditModel" name="toString" id="org.open_jasmin.types/VectoR#toString()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="org.open_jasmin.types/VectoR-Soyatec::Access->org.open_jasmin.operators/Op" source="//@children.1" target="//@children.5" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Access»" size="50,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="129,128" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="-1,113"/>
+    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Matrix" location="360,50" size="130,229" id="org.open_jasmin.types/Matrix" runTimeClassModel="element,col,Matrix(Lorg.open_jasmin.types.Matrix;),Matrix(II),getElementCopy(),setElement(IID),Matrix([[D),getElement(II),row,Matrix()">
+  <children xsi:type="editmodel:ClassEditModel" name="Matrix" location="780,59" size="130,229" id="org.open_jasmin.types/Matrix" runTimeClassModel="element,col,Matrix(Lorg.open_jasmin.types.Matrix;),Matrix(II),getElementCopy(),setElement(IID),Matrix([[D),getElement(II),row,Matrix()">
     <children xsi:type="editmodel:CompartmentEditModel" size="94,54">
       <children xsi:type="editmodel:AttributeEditModel" name="col" id="org.open_jasmin.types/Matrix#col"/>
       <children xsi:type="editmodel:AttributeEditModel" name="element" id="org.open_jasmin.types/Matrix#element"/>
@@ -65,7 +86,7 @@
     <children xsi:type="editmodel:CompartmentEditModel"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Complex" location="586,50" size="99,211" id="org.open_jasmin.types/Complex" runTimeClassModel="Complex(),conj(),set(DD),abs(),equals(Ljava.lang.Object;),re,im,Complex(DD),toString()">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.1 //@children.5/@sourceConnections.0" name="Complex" location="480,1005" size="99,211" id="org.open_jasmin.types/Complex" runTimeClassModel="Complex(),conj(),set(DD),abs(),equals(Ljava.lang.Object;),re,im,Complex(DD),toString()">
     <children xsi:type="editmodel:CompartmentEditModel" size="67,36">
       <children xsi:type="editmodel:AttributeEditModel" name="im" id="org.open_jasmin.types/Complex#im"/>
       <children xsi:type="editmodel:AttributeEditModel" name="re" id="org.open_jasmin.types/Complex#re"/>
@@ -80,6 +101,78 @@
       <children xsi:type="editmodel:MethodEditModel" name="toString" id="org.open_jasmin.types/Complex#toString()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="Exception" location="74,735" size="147,153" id="java.lang/Exception" runTimeClassModel="Exception(Ljava.lang.String;),Exception(Ljava.lang.Throwable;),Exception(),serialVersionUID,Exception(Ljava.lang.String;Ljava.lang.Throwable;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="124,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="serialVersionUID" id="java.lang/Exception#serialVersionUID"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="77,72">
+      <children xsi:type="editmodel:MethodEditModel" name="Exception" id="java.lang/Exception#Exception(Ljava.lang.Throwable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Exception" id="java.lang/Exception#Exception(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Exception" id="java.lang/Exception#Exception(Ljava.lang.String;Ljava.lang.Throwable;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Exception" id="java.lang/Exception#Exception()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.2 //@children.1/@sourceConnections.0" name="Op" location="435,59" size="205,801" id="org.open_jasmin.operators/Op" runTimeClassModel="dot([D[D),plus(Lorg.open_jasmin.types.Complex;D),minus(Lorg.open_jasmin.types.Complex;D),plus(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;),divide(Lorg.open_jasmin.types.Complex;D),plus([DLorg.open_jasmin.types.VectoR;),dEFAULT_MATRIX_COL_SIZE,times(Lorg.open_jasmin.types.Complex;D),minus([D[D),times(Lorg.open_jasmin.types.VectoR;D),times(DLorg.open_jasmin.types.VectoR;),plus(DD),times(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;),minus(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;),dEFAULT_VECTOR_SIZE,cross([DLorg.open_jasmin.types.VectoR;),minus(DLorg.open_jasmin.types.Complex;),dot([DLorg.open_jasmin.types.VectoR;),minus(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;),cross(Lorg.open_jasmin.types.VectoR;[D),plus(DLorg.open_jasmin.types.Complex;),minus([DLorg.open_jasmin.types.VectoR;),tOL,times(DLorg.open_jasmin.types.Complex;),minus(Lorg.open_jasmin.types.VectoR;[D),times([DLorg.open_jasmin.types.VectoR;),divide(DLorg.open_jasmin.types.Complex;),dot(Lorg.open_jasmin.types.VectoR;[D),times(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;),plus(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;),divide(DD),minus(DD),divide(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;),plus([D[D),times([D[D),dEFAULT_MATRIX_ROW_SIZE,cross(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;),times(Lorg.open_jasmin.types.VectoR;[D),plus(Lorg.open_jasmin.types.VectoR;[D),dot(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;),cross([D[D)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="182,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="dEFAULT_MATRIX_COL_SIZE" id="org.open_jasmin.operators/Op#dEFAULT_MATRIX_COL_SIZE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dEFAULT_MATRIX_ROW_SIZE" id="org.open_jasmin.operators/Op#dEFAULT_MATRIX_ROW_SIZE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dEFAULT_VECTOR_SIZE" id="org.open_jasmin.operators/Op#dEFAULT_VECTOR_SIZE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tOL" id="org.open_jasmin.operators/Op#tOL"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="58,666">
+      <children xsi:type="editmodel:MethodEditModel" name="cross" id="org.open_jasmin.operators/Op#cross([DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cross" id="org.open_jasmin.operators/Op#cross([D[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cross" id="org.open_jasmin.operators/Op#cross(Lorg.open_jasmin.types.VectoR;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cross" id="org.open_jasmin.operators/Op#cross(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="divide" id="org.open_jasmin.operators/Op#divide(DLorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="divide" id="org.open_jasmin.operators/Op#divide(Lorg.open_jasmin.types.Complex;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="divide" id="org.open_jasmin.operators/Op#divide(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="divide" id="org.open_jasmin.operators/Op#divide(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dot" id="org.open_jasmin.operators/Op#dot([DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dot" id="org.open_jasmin.operators/Op#dot([D[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dot" id="org.open_jasmin.operators/Op#dot(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dot" id="org.open_jasmin.operators/Op#dot(Lorg.open_jasmin.types.VectoR;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(Lorg.open_jasmin.types.Complex;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus([D[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus([DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(DLorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.open_jasmin.operators/Op#minus(Lorg.open_jasmin.types.VectoR;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus([DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(Lorg.open_jasmin.types.VectoR;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(DLorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus(Lorg.open_jasmin.types.Complex;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.open_jasmin.operators/Op#plus([D[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(DLorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(Lorg.open_jasmin.types.Complex;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(Lorg.open_jasmin.types.VectoR;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(Lorg.open_jasmin.types.VectoR;Lorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(Lorg.open_jasmin.types.VectoR;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times(Lorg.open_jasmin.types.Complex;Lorg.open_jasmin.types.Complex;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times([DLorg.open_jasmin.types.VectoR;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.open_jasmin.operators/Op#times([D[D)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.open_jasmin.operators/Op->org.open_jasmin.types/Complex*org.open_jasmin.operators/Op->org.open_jasmin.types/Complex*org.open_jasmin.operators/Op-Soyatec::Import->org.open_jasmin.types/Complex" source="//@children.5" target="//@children.3" targetEnd="//@children.5/@sourceConnections.0/@children.2" label="//@children.5/@sourceConnections.0/@children.0" sourceEnd="//@children.5/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import, Instantiate»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="94,801" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="49,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.open_jasmin.operators/Op->org.open_jasmin.types/VectoR*org.open_jasmin.operators/Op->org.open_jasmin.types/VectoR*org.open_jasmin.operators/Op-Soyatec::Import->org.open_jasmin.types/VectoR" source="//@children.5" target="//@children.1" targetEnd="//@children.5/@sourceConnections.1/@children.2" label="//@children.5/@sourceConnections.1/@children.0" sourceEnd="//@children.5/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import, Instantiate»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,190" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="130,200"/>
+    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
   <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="wireOptions=1;Product=eUML2"/>
