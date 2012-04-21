@@ -1,7 +1,6 @@
 package org.open_jasmin.operators;
 
-import org.open_jasmin.types.Complex;
-import org.open_jasmin.types.VectoR;
+import org.open_jasmin.types.*;
 
 public class Op {
 	public static double TOL = 0.0001;
@@ -566,6 +565,23 @@ public class Op {
 						
 						for(i = 0 ; i < va.length ; i++)
 							result.setElement(i, va[i] * d);
+						
+						return result;
+					}
+
+						
+						/**
+						 */
+					public static Polar complexToPolar(Complex c){
+						Polar result = new Polar();
+						
+						result.fromComplex(c);
+						
+						return result; 
+					}
+					
+					public static Complex polarToComplex(Polar p) {
+						Complex result = p.toComplex();
 						
 						return result;
 					}
