@@ -101,6 +101,17 @@ public class VectoC implements Cloneable, java.io.Serializable{
 		}
 	}
 
+	public Complex[] getElementCopy() {
+		Complex[] result = new Complex[this.size];
+		int i;
+		
+		for(i = 0 ; i < this.size ; i++) {
+			result[i].setRe(this.element[i].getRe());
+			result[i].setIm(this.element[i].getIm());
+		}
+		return result;
+	}
+	
 	/**
 	 * Getter of the property <tt>size</tt>
 	 * @return  Returns the size.
@@ -118,28 +129,6 @@ public class VectoC implements Cloneable, java.io.Serializable{
 			result = new VectoC(d);
 		}
 		return result;
-	}
-	
-	/**
-	 * Setter of the property <tt>element</tt>
-	 * @param element  The element to set.
-	 */
-	public void setElement(Complex[] element) {
-		this.element = element;
-	}
-	
-	/**
-	 * Setter of the property <tt>size</tt>
-	 * @param size  The size to set.
-	 */
-	public void setSize(int size) {
-		this.size = size;
-	}	
-	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
 	}
 	
 	public double norm(Double r){
@@ -180,5 +169,64 @@ public class VectoC implements Cloneable, java.io.Serializable{
 			e.printStackTrace();
 			return Double.POSITIVE_INFINITY;
 		}		
+	}
+	
+	public double norm() {
+		return norm(2.0);
+	}
+	/**
+	 * Setter of the property <tt>element</tt>
+	 * @param element  The element to set.
+	 */
+	public void setElement(Complex[] element) {
+		this.size = element.length;
+		this.element = element;
+	}	
+	
+	public void setElement(int index, Complex c) {
+		
+		try {
+			element[index] = c;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void setElement(int index, Complex[] c) {
+		try {
+			int i;
+			
+			if((this.size - index) < c.length) {
+				VectoC vtemp = new VectoC(index);
+				for( i = 0 ; i < index ; i++)
+					vtemp.setElement(i, this.getElement(i));
+				this.element = new Complex[c.length];
+				this.size = c.length;
+			}			
+			
+			for(i = index ; i < this.size ; i++ )
+				this.element[i] = c[i-index];
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void setElement(int index, VectoC v) {
+		setElement(index, v.getElement());
+	}
+	
+	/**
+	 * Setter of the property <tt>size</tt>
+	 * @param size  The size to set.
+	 */
+	public void setSize(int size) {
+		this.size = size;
+		this.element = new Complex[size];
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
 }

@@ -211,15 +211,9 @@ public class VectoR implements Cloneable, java.io.Serializable{
 	/**
 	 * @param d
 	 */
-	public void setElement(double[] d) {
-		int i;
-		
-		if(this.size < d.length) {
-			this.size = d.length;
-			this.element = new double[d.length];
-		}
-		for(i = 0 ; i < d.length ; i++)
-			this.element[i] = d[i];	
+	public void setElement(double[] element) {
+		this.size = element.length;
+		this.element = element;
 	}
 	
 	public void setElement(int index, double d) {
@@ -252,6 +246,11 @@ public class VectoR implements Cloneable, java.io.Serializable{
 
 	public void setElement(int index, VectoR v) {
 		setElement(index, v.getElement());
+	}
+	
+	public void setSize(int size) {
+		this.size = size;
+		this.element = new double[size];
 	}
 
 	@Override
