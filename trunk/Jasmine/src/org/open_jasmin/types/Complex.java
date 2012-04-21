@@ -139,4 +139,41 @@ public class Complex extends Object implements Cloneable {
 		else
 			return "(" + this.re + "-" + Math.abs(this.im) + "i)";
 	}
+	
+	public void fromPolar(Polar p) {
+		double re = p.getR();
+		double im = p.getTheta();
+		this.re = re * Math.cos(im);
+		this.im = re * Math.sin(im);
+	}
+	
+	public Polar toPolar() {
+		Polar p = new Polar();
+		double theta = 0;
+		p.setR(Math.sqrt(this.re * this.re + this.im * this.im));
+		
+		if(this.re > 0 && this.im >= 0) {
+			theta = Math.atan2(this.im, this.re);
+		}
+		else if(this.re > 0 && this.im < 0) {
+			theta = Math.atan2(this.im, this.re) + 2 * Math.PI;
+		}
+		else if(re < 0) {
+			theta = Math.atan2(this.im, this.re) + Math.PI;
+		}
+		else if(re == 0 && im > 0) {
+			theta = Math.PI / 2.0;
+		}
+		else if(re == 0 && im < 0) {
+			theta = 3.0 * Math.PI / 2.0;
+		}
+		while(theta > Math.PI)
+			theta -= Math.PI;
+		while(theta < 0)
+			theta += Math.PI;
+		
+		p.setTheta(theta);
+		
+		return p;
+	}
 }

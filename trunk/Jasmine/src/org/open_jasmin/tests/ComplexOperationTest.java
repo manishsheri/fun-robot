@@ -1,5 +1,25 @@
-/**
+/*
+ * Copyright (c) <2012> <Hyeon-min.shim(elecage@gmail.com)>
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following
+ * conditions:
  * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
  */
 package org.open_jasmin.tests;
 
@@ -9,6 +29,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.open_jasmin.operators.Op;
 import org.open_jasmin.types.Complex;
+import org.open_jasmin.types.Polar;
 
 
 /**
@@ -287,5 +308,25 @@ public class ComplexOperationTest {
 		
 		System.out.println("[JASMIN-TC-COMPLEX-019a] Conjugate number of " + c1 + " is " + c3);
 		System.out.println("[JASMIN-TC-COMPLEX-019b] Conjugate number of " + c2 + " is " + c4);
+		
+		/**
+		 * [JASMIN-TC-COMPLEX-020] Convert Complex to Polar
+		 * input a : c1 - Complex: 3.0 + 4.0i
+		 * expected output : p - Polar: 5.0¡Ð0.9272952180016122
+		 */
+		Polar p = new Polar();
+		
+		p = c1.toPolar();
+		
+		System.out.println("[JASMIN-TC-COMPLEX-020] " + c1 + " -> " + p);
+		
+		/**
+		 * [JASMIN-TC-COMPLEX-020] Convert Complex to Polar
+		 * input a : p - 5.0¡Ð0.9272952180016122
+		 * expected output : c3 - Complex: 3.0 + 4.0i
+		 */
+		
+		c3.fromPolar(p);
+		System.out.println("[JASMIN-TC-COMPLEX-021] " + p + " -> " + c3);
 	}
 }
