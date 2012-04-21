@@ -521,4 +521,52 @@ public class Op {
 			return null;
 		}
 	}
+
+		
+		/**
+		 */
+		public static double times(double d1, double d2){
+		return d1 * d2;
+		}
+
+			
+			/**
+			 */
+			public static double abs(double d){
+			return Math.abs(d); }
+
+				
+				/**
+				 */
+				public static double abs(Complex c){
+				return c.abs(); }
+
+					
+					/**
+					 */
+					public static Complex conj(Complex c){
+					return c.conj(); }
+
+						
+						/**
+						 */
+					public static VectoR times(double[] va, double d){
+						int i;
+						VectoR result = new VectoR(va.length);
+						
+						for(i = 0 ; i < va.length ; i++)
+							result.setElement(i, va[i] * d);
+						
+						return result;
+					 }
+
+					public static VectoR times(double d, double[] va) {
+						int i;
+						VectoR result = new VectoR(va.length);
+						
+						for(i = 0 ; i < va.length ; i++)
+							result.setElement(i, va[i] * d);
+						
+						return result;
+					}
 }

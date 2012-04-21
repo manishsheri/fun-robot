@@ -58,7 +58,8 @@ public class VectoC implements Cloneable, java.io.Serializable{
 
 	/**
 	 * Getter of the property <tt>element</tt>
-	 * @return  Returns the element.
+	 * @return   Returns the element.
+	 * @uml.property  name="element"
 	 */
 	public Complex[] getElement() {
 		return element;
@@ -114,7 +115,8 @@ public class VectoC implements Cloneable, java.io.Serializable{
 	
 	/**
 	 * Getter of the property <tt>size</tt>
-	 * @return  Returns the size.
+	 * @return   Returns the size.
+	 * @uml.property  name="size"
 	 */
 	public int getSize() {
 		return size;
@@ -176,7 +178,8 @@ public class VectoC implements Cloneable, java.io.Serializable{
 	}
 	/**
 	 * Setter of the property <tt>element</tt>
-	 * @param element  The element to set.
+	 * @param element   The element to set.
+	 * @uml.property  name="element"
 	 */
 	public void setElement(Complex[] element) {
 		this.size = element.length;
@@ -217,7 +220,8 @@ public class VectoC implements Cloneable, java.io.Serializable{
 	
 	/**
 	 * Setter of the property <tt>size</tt>
-	 * @param size  The size to set.
+	 * @param size   The size to set.
+	 * @uml.property  name="size"
 	 */
 	public void setSize(int size) {
 		this.size = size;
