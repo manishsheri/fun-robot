@@ -134,6 +134,9 @@ public class Complex extends Object implements Cloneable {
 	 */
 	@Override
 	public String toString() {
-		return this.re + " + " + this.im + "i";
+		if(this.im >= 0)
+			return "(" + this.re + "+" + this.im + "i)";
+		else
+			return "(" + this.re + "-" + Math.abs(this.im) + "i)";
 	}
 }

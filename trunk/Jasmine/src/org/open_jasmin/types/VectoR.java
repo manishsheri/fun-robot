@@ -108,6 +108,7 @@ public class VectoR implements Cloneable, java.io.Serializable{
 		
 	/**
 	 * @return
+	 * @uml.property  name="element"
 	 */
 	public double[] getElement() {
 		return element;
@@ -150,6 +151,7 @@ public class VectoR implements Cloneable, java.io.Serializable{
 	}
 	/**
 	 * @return
+	 * @uml.property  name="size"
 	 */
 	public int getSize() {
 		return this.size;
@@ -209,7 +211,8 @@ public class VectoR implements Cloneable, java.io.Serializable{
 	}
 	
 	/**
-	 * @param d
+	 * @param  d
+	 * @uml.property  name="element"
 	 */
 	public void setElement(double[] element) {
 		this.size = element.length;
@@ -248,6 +251,10 @@ public class VectoR implements Cloneable, java.io.Serializable{
 		setElement(index, v.getElement());
 	}
 	
+	/**
+	 * @param size
+	 * @uml.property  name="size"
+	 */
 	public void setSize(int size) {
 		this.size = size;
 		this.element = new double[size];
@@ -255,11 +262,12 @@ public class VectoR implements Cloneable, java.io.Serializable{
 
 	@Override
 	public String toString() {
-		String str="[\t";
+		String str="[";
 		int i;
-		for(i = 0 ; i < this.size ; i++) {
-			str += this.element[i];
+		str += this.element[0];
+		for(i = 1 ; i < this.size ; i++) {
 			str += "\t";
+			str += this.element[i];
 		}
 		str += "]";
 		return str;
