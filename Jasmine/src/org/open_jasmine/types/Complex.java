@@ -25,7 +25,7 @@
  * @author elecage@gmail.com
  *
  */
-package org.open_jasmin.types;
+package org.open_jasmine.types;
 
 
 public class Complex extends Object implements Cloneable {

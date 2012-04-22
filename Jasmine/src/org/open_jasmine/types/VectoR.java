@@ -22,9 +22,9 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.open_jasmin.types;
+package org.open_jasmine.types;
 
-import org.open_jasmin.operators.Op;
+import org.open_jasmine.operators.Op;
 
 
 /**

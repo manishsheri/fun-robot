@@ -21,7 +21,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package org.open_jasmin.types;
+package org.open_jasmine.types;
 
 public class Polar {
 	protected double r;

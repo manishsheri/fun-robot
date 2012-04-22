@@ -21,7 +21,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package org.open_jasmin.types;
+package org.open_jasmine.types;
 
 public class Matrix {
 	/**
@@ -72,6 +72,16 @@ public class Matrix {
 	 */
 	public void setRow(int row) {
 		this.row = row;
+		try {
+			if(this.row == 0 || this.col == 0)
+				throw new Exception();
+			
+			this.element = new double[this.row][this.col];
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	/**
 	 * @return
@@ -86,6 +96,30 @@ public class Matrix {
 	 */
 	public void setCol(int col) {
 		this.col = col;
+		try {
+			if(this.row == 0 || this.col == 0)
+				throw new Exception();
+			
+			this.element = new double[this.row][this.col];
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void setSize(int row, int col) {
+		this.row = row;
+		this.col = col;
+		
+		try {
+			if(this.row == 0 || this.col == 0)
+				throw new Exception();
+			
+			this.element = new double[this.row][this.col];
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * @return
@@ -115,5 +149,38 @@ public class Matrix {
 
 	}
 	
-
+	public void transpose() {
+		Matrix result = new Matrix(col, row);
+		int i, j;
+		
+		for(i = 0 ; i < col ; i++) {
+			for(j = 0 ; j < row ; j++) {
+				result.setElement(i, j, this.element[j][i]);
+			}
+		}
+	}
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+	@Override
+	public String toString() {
+		int i, j;
+		String str ="";
+		for(i = 0 ; i < row ; i++) {
+			str += ("[" + this.element[i][0]);
+			
+			for(j = 1 ; j < col ; j++) {
+				str += ("\t" + this.element[i][j]);
+			}
+			str += "]\n";
+		}
+		return str;
+	}
 }
