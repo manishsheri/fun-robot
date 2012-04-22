@@ -39,7 +39,9 @@ public class MatrixOperationTest {
 		System.out.println("m3 - m4 = \n" + m5);
 		
 		
+		m4 = m5.transpose();
 		
+		System.out.println("transpose of m5 = \n" + m4);
 	}
 
 }
