@@ -22,14 +22,14 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.open_jasmin.tests;
+package org.open_jasmine.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.open_jasmin.types.Complex;
-import org.open_jasmin.types.Polar;
+import org.open_jasmine.types.Complex;
+import org.open_jasmine.types.Polar;
 
 public class PolarTest {
 

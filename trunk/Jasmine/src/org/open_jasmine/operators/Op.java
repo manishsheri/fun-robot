@@ -1,6 +1,6 @@
-package org.open_jasmin.operators;
+package org.open_jasmine.operators;
 
-import org.open_jasmin.types.*;
+import org.open_jasmine.types.*;
 
 public class Op {
 	public static double TOL = 0.0001;
