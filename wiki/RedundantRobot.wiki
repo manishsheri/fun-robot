@@ -1,0 +1,5 @@
+#summary One-sentence summary of this page.
+
+= 여유자유도 로봇 =
+
+필요한 자유도에 비해 실제 더 많은 자유도를 갖는 로봇
