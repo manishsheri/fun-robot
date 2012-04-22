@@ -1,0 +1,7 @@
+#summary One-sentence summary of this page.
+
+= 순기구학(Forward Kinematics) =
+
+로봇의 각 조인트 공간에서 각(_q_)이 주어졌을 경우에 직교공간에서 로봇팔 끝의 위치(_X_)를 나타내는 것.
+
+ * InverseKinematics
