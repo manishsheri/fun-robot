@@ -3,116 +3,99 @@ package org.openjasmine.types;
 
 public class VectoR implements Operation {
 
-	@Override
-	public Object plus(Object obj) {
-		try {
-			if(this.size != ((VectoR)obj).getSize())
-				throw new Exception();
-	
-			int i;
-			VectoR result = new VectoR(((VectoR)obj).getSize());
-			
-			Complex temp;
-			if(this.element instanceof Complex[]) {
-				for(i = 0 ; i < this.size ; i++)
-				{
-					temp = (Complex)((VectoR)obj).getElement(i);
-					result.setElement(i, ((Complex[])this.element)[i].plus(temp));
-				}
-			}
-			else if(this.element instanceof Double[]){
-				Object o =  ((VectoR)obj).getElement();
-				if( o instanceof Complex[]) {
-					for(i = 0 ; i < this.size ; i++) {
-						temp = (Complex)((VectoR)obj).getElement(i);
-						result.setElement(i, temp.plus(this.element[i]));
-					}
-				}
-				else if(this.element instanceof Double[]) {
-					for(i = 0 ; i < this.size ; i++)
-						result.setElement(i, (Double)this.element[i] + (Double)((VectoR)obj).getElement(i));
-				}
-			}
+	/** 
+	 * @uml.property name="element" multiplicity="(0 -1)" dimension="1"
+	 */
+	protected Object[] element;
 
-			return (Object)result;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
+	/**
+	 * @uml.property  name="size"
+	 */
+	protected int size;
+
+	public VectoR(int size) {
+		super();
+		this.size = size;
+		element = new Object[size];
+	}
+
+	public VectoR(Object[] element) {
+		super();
+		this.element = element;
+		this.size = this.element.length;
 	}
 
 	@Override
-	public Object minus(Object obj) {
-		try {
-			if(this.size != ((VectoR)obj).getSize())
-				throw new Exception();
-	
-			int i;
-			VectoR result = new VectoR(((VectoR)obj).getSize());
+	public Object abs() {
+		Object result = new Double[this.size];;
+		int size = this.element.length;;
+		/**
+		 * element가 복소수
+		 */
+		if(this.element instanceof Complex[]) {
+			for(int i = 0 ; i < size ; i++) {
+				((Double[])result)[i] = (Double)(((Complex[])element)[i].abs());
+			}
 			
-			Complex temp;
-			if(this.element instanceof Complex[]) {
-				for(i = 0 ; i < this.size ; i++)
-				{
-					temp = (Complex)((VectoR)obj).getElement(i);
-					result.setElement(i, ((Complex[])this.element)[i].minus(temp));
-				}
-			}
-			else if(this.element instanceof Double[]){
-				Object o =  ((VectoR)obj).getElement();
-				if( o instanceof Complex[]) {
-					for(i = 0 ; i < this.size ; i++) {
-						temp = ((Complex)((VectoR)obj).getElement(i)).diff();
-						result.setElement(i, temp.plus(this.element[i]));
-					}
-				}
-				else if(this.element instanceof Double[]) {
-					for(i = 0 ; i < this.size ; i++)
-						result.setElement(i, (Double)this.element[i] - (Double)((VectoR)obj).getElement(i));
-				}
-			}
-
-			return (Object)result;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
 		}
+		/**
+		 * element가 실수
+		 */
+		else if(this.element instanceof Double[]) {
+			for(int i = 0 ; i < size ; i++) {
+				((Double[])result)[i] = (Double)(Math.abs(((Double[])element)[i]));
+			}
+		}
+		/**
+		 * element가 벡터
+		 */
+		/*
+		else if(this.element instanceof VectoR[]) {
+			
+		}
+		*/
+		return result;
 	}
 
-	@Override
-	public Object times(Object obj) {
+	public VectoR cross(VectoR v) {
 		try {
-			if(this.size != ((VectoR)obj).getSize())
+			if(this.size != 3 || v.getSize() != 3)
 				throw new Exception();
-	
-			int i;
-			VectoR result = new VectoR(((VectoR)obj).getSize());
+			VectoR result = new VectoR(3);
 			
-			Complex temp;
 			if(this.element instanceof Complex[]) {
-				for(i = 0 ; i < this.size ; i++)
-				{
-					temp = (Complex)((VectoR)obj).getElement(i);
-					result.setElement(i, ((Complex[])this.element)[i].times(temp));
-				}
+				Complex mtemp1 = new Complex(0., 0.);
+				Complex mtemp2 = new Complex(0., 0.);
+				
+				mtemp1 = (Complex) ((Complex)this.element[1]).times((Complex)v.getElement(2));
+				mtemp2 = (Complex) ((Complex)this.element[2]).times((Complex)v.getElement(1));
+				result.setElement(0, mtemp1.minus(mtemp2));
+				
+				mtemp1 = (Complex) ((Complex)this.element[2]).times((Complex)v.getElement(0));
+				mtemp2 = (Complex) ((Complex)this.element[0]).times((Complex)v.getElement(2));
+				result.setElement(1, mtemp1.minus(mtemp2));
+				
+				mtemp1 = (Complex) ((Complex)this.element[0]).times((Complex)v.getElement(1));
+				mtemp2 = (Complex) ((Complex)this.element[1]).times((Complex)v.getElement(0));
+				result.setElement(2, mtemp1.minus(mtemp2));
+				
 			}
-			else if(this.element instanceof Double[]){
-				Object o =  ((VectoR)obj).getElement();
-				if( o instanceof Complex[]) {
-					for(i = 0 ; i < this.size ; i++) {
-						temp = (Complex)((VectoR)obj).getElement(i);
-						result.setElement(i, temp.times(this.element[i]));
-					}
-				}
-				else if(this.element instanceof Double[]) {
-					for(i = 0 ; i < this.size ; i++)
-						result.setElement(i, (Double)this.element[i] * (Double)((VectoR)obj).getElement(i));
-				}
+			else if(this.element instanceof Double[]) {
+				double dtemp1, dtemp2;
+				
+				dtemp1 = ((Double)this.element[1]).doubleValue() * ((Double)v.getElement(2)).doubleValue();
+				dtemp2 = ((Double)this.element[2]).doubleValue() * ((Double)v.getElement(1)).doubleValue();
+				result.setElement(0, dtemp1 - dtemp2);
+				
+				dtemp1 = ((Double)this.element[2]).doubleValue() * ((Double)v.getElement(0)).doubleValue();
+				dtemp2 = ((Double)this.element[0]).doubleValue() * ((Double)v.getElement(2)).doubleValue();
+				result.setElement(1, dtemp1 - dtemp2);
+				
+				dtemp1 = ((Double)this.element[0]).doubleValue() * ((Double)v.getElement(1)).doubleValue();
+				dtemp2 = ((Double)this.element[1]).doubleValue() * ((Double)v.getElement(0)).doubleValue();
+				result.setElement(2, dtemp1 - dtemp2);
 			}
-
-			return (Object)result;
+			return result;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -159,119 +142,6 @@ public class VectoR implements Operation {
 		}
 	}
 
-	@Override
-	public Object abs() {
-		Object result = new Double[this.size];;
-		int size = this.element.length;;
-		/**
-		 * element가 복소수
-		 */
-		if(this.element instanceof Complex[]) {
-			for(int i = 0 ; i < size ; i++) {
-				((Double[])result)[i] = (Double)(((Complex[])element)[i].abs());
-			}
-			
-		}
-		/**
-		 * element가 실수
-		 */
-		else if(this.element instanceof Double[]) {
-			for(int i = 0 ; i < size ; i++) {
-				((Double[])result)[i] = (Double)(Math.abs(((Double[])element)[i]));
-			}
-		}
-		/**
-		 * element가 벡터
-		 */
-		/*
-		else if(this.element instanceof VectoR[]) {
-			
-		}
-		*/
-		return result;
-	}
-
-	public VectoR(int size) {
-		super();
-		this.size = size;
-		element = new Object[size];
-	}
-
-	public VectoR(Object[] element) {
-		super();
-		this.element = element;
-		this.size = this.element.length;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		String str = "[";
-		str += this.element[0];
-				
-		for(int i = 1 ; i < size ; i++){
-			str = str + "\t" + this.element[i];
-		}
-		str += "]";
-		return str;
-	}
-
-	/**
-	 * @uml.property  name="size"
-	 */
-	protected int size;
-
-	/**
-	 * Getter of the property <tt>size</tt>
-	 * @return  Returns the size.
-	 * @uml.property  name="size"
-	 */
-	public int getSize() {
-		return size;
-	}
-
-	/**
-	 * Setter of the property <tt>size</tt>
-	 * @param size  The size to set.
-	 * @uml.property  name="size"
-	 */
-	public void setSize(int size) {
-		this.size = size;
-	}
-
-	/** 
-	 * @uml.property name="element" multiplicity="(0 -1)" dimension="1"
-	 */
-	protected Object[] element;
-
-	/** 
-	 * Getter of the property <tt>element</tt>
-	 * @return  Returns the element.
-	 * @uml.property  name="element"
-	 */
-	public Object[] getElement() {
-		return element;
-	}
-
-	public Object getElement(int index) {
-		return element[index];
-	}
-	/** 
-	 * Setter of the property <tt>element</tt>
-	 * @param element  The element to set.
-	 * @uml.property  name="element"
-	 */
-	public void setElement(Object[] element) {
-		this.element = element;
-	}
-	
-	public void setElement(int index, Object element) {
-		this.element[index] = element;
-	}
-
-		
 	/**
 	 */
 	public Object dot(VectoR v){
@@ -286,10 +156,19 @@ public class VectoR implements Operation {
 			if(this.element instanceof Complex[]) {
 				result = new Complex(0.0, 0.0);
 				Complex temp;
-				for(i = 0 ; i < this.size ; i++) {
-					temp = (Complex) (((Complex[])this.element)[i]).times(((Complex[])obj)[i]);
-					result = ((Complex)result).plus(temp);
+				if(obj instanceof Complex[]) {
+					for(i = 0 ; i < this.size ; i++) {
+						temp = (Complex) (((Complex[])this.element)[i]).times(((Complex[])obj)[i].conj());
+						result = ((Complex)result).plus(temp);
+					}
 				}
+				else if(obj instanceof Double[]) {
+					for(i = 0 ; i < this.size ; i++) {
+						temp = (Complex) (((Complex[])this.element)[i]).times(((Double[])obj)[i]);
+						result = ((Complex)result).plus(temp);
+					}
+				}
+				result = ((Complex)result).conj();
 				
 			}
 			else if(this.element instanceof Double[]) {
@@ -297,9 +176,10 @@ public class VectoR implements Operation {
 					result = new Complex(0.0, 0.0);
 					Complex temp;
 					for(i = 0 ; i < this.size ; i++) {
-						temp = (Complex) ((Complex)obj[i]).times(((Double[])this.element)[i]);
+						temp = (Complex) (((Complex) ((Complex)obj[i])).conj()).times(((Double[])this.element)[i]);
 						result = ((Complex)result).plus(temp);
 					}
+					result = ((Complex)result).conj();
 				}
 				else if(obj instanceof Double[]) {
 					result = new Double(0.0);
@@ -314,6 +194,318 @@ public class VectoR implements Operation {
 			return result;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/** 
+	 * Getter of the property <tt>element</tt>
+	 * @return  Returns the element.
+	 * @uml.property  name="element"
+	 */
+	public Object[] getElement() {
+		return element;
+	}
+
+	public Object getElement(int index) {
+		return element[index];
+	}
+
+	/**
+	 * Getter of the property <tt>size</tt>
+	 * @return  Returns the size.
+	 * @uml.property  name="size"
+	 */
+	public int getSize() {
+		return size;
+	}
+
+	@Override
+	public Object minus(Object obj) {
+		try {
+			if(this.size != ((VectoR)obj).getSize())
+				throw new Exception();
+	
+			int i;
+			VectoR result = new VectoR(((VectoR)obj).getSize());
+			
+			Complex temp;
+			if(this.element instanceof Complex[]) {
+				for(i = 0 ; i < this.size ; i++)
+				{
+					temp = (Complex)((VectoR)obj).getElement(i);
+					result.setElement(i, ((Complex[])this.element)[i].minus(temp));
+				}
+			}
+			else if(this.element instanceof Double[]){
+				Object o =  ((VectoR)obj).getElement();
+				if( o instanceof Complex[]) {
+					for(i = 0 ; i < this.size ; i++) {
+						temp = ((Complex)((VectoR)obj).getElement(i)).diff();
+						result.setElement(i, temp.plus(this.element[i]));
+					}
+				}
+				else if(this.element instanceof Double[]) {
+					for(i = 0 ; i < this.size ; i++)
+						result.setElement(i, (Double)this.element[i] - (Double)((VectoR)obj).getElement(i));
+				}
+			}
+
+			return (Object)result;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public double norm() {
+		return norm(2.0);
+	}
+
+	public double norm(Double n) {
+		double result = 0;
+		double temp;
+		int i = 0;
+		if(this.element instanceof Double[]){		
+			
+			if(n == Double.POSITIVE_INFINITY) {
+				result = Math.abs((Double)this.element[0]);
+				for(i = 1 ; i < this.size ; i++) {
+					temp = Math.abs((Double)this.element[i]);
+					result = result > temp ? result : temp;
+				}
+			}
+			else if(n == Double.NEGATIVE_INFINITY) {
+				result = (Double)this.element[0];
+				for(i = 1 ; i < this.size ; i++) {
+					temp = Math.abs((Double)this.element[i]);
+					result = result < temp ? result : temp;
+				}
+			}
+			else if(n.doubleValue() == 1.0) {
+				for(i = 0 ; i < this.size ; i++) {
+					result = result + Math.abs(((Double)this.element[i]).doubleValue());
+				}
+			}
+			else if(n.doubleValue() == 2.0) {
+				for(i = 0 ; i < this.size ; i++) {
+					temp = Math.abs(((Double)this.element[i]).doubleValue());
+					result = result + temp * temp;
+				}
+				result = Math.sqrt(result);
+			}
+			
+			else {
+				for(i = 0 ; i < this.size ; i++) {
+					temp = Math.abs(((Double)this.element[i]).doubleValue());
+					result = result + Math.pow(temp, n.doubleValue());
+				}
+				temp = 1/n.doubleValue();
+				result = Math.pow(result, temp);
+			}
+			
+		}
+		else if(this.element instanceof Complex[]) {
+		
+			if(n == Double.POSITIVE_INFINITY) {
+				result =(Double) ((Complex)this.element[0]).abs();
+				for(i = 1 ; i < this.size ; i++) {
+					temp = (Double) ((Complex)this.element[i]).abs();
+					result = result > temp ? result : temp;
+				}
+			}
+			else if(n == Double.NEGATIVE_INFINITY) {
+				result =(Double) ((Complex)this.element[0]).abs();
+				for(i = 1 ; i < this.size ; i++) {
+					temp = (Double) ((Complex)this.element[i]).abs();
+					result = result < temp ? result : temp;
+				}
+			}
+			else if(n.doubleValue() == 1.0) {
+				for(i = 0 ; i < this.size ; i++) {
+					temp = (Double) ((Complex)this.element[i]).abs();
+					result += temp;
+				}
+			}
+			else if(n.doubleValue() == 2.0) {
+				for(i = 0 ; i < this.size ; i++) {
+					temp = (Double) ((Complex)this.element[i]).abs();
+					result += temp*temp;
+				}
+				result = Math.sqrt(result);
+			}
+			
+			else {
+				result = 0.0;
+				for(i = 0 ; i < this.size ; i++) {
+					temp = (Double) ((Complex)this.element[i]).abs();
+					temp = Math.pow(temp, n.doubleValue());
+					result += temp;
+				}
+				temp = 1.0 / n.doubleValue();
+				result = Math.pow(result, temp);
+			}
+		}
+		
+		return result;
+	}
+	@Override
+	public Object plus(Object obj) {
+		try {
+			if(this.size != ((VectoR)obj).getSize())
+				throw new Exception();
+	
+			int i;
+			VectoR result = new VectoR(((VectoR)obj).getSize());
+			
+			Complex temp;
+			if(this.element instanceof Complex[]) {
+				for(i = 0 ; i < this.size ; i++)
+				{
+					temp = (Complex)((VectoR)obj).getElement(i);
+					result.setElement(i, ((Complex[])this.element)[i].plus(temp));
+				}
+			}
+			else if(this.element instanceof Double[]){
+				Object o =  ((VectoR)obj).getElement();
+				if( o instanceof Complex[]) {
+					for(i = 0 ; i < this.size ; i++) {
+						temp = (Complex)((VectoR)obj).getElement(i);
+						result.setElement(i, temp.plus(this.element[i]));
+					}
+				}
+				else if(this.element instanceof Double[]) {
+					for(i = 0 ; i < this.size ; i++)
+						result.setElement(i, (Double)this.element[i] + (Double)((VectoR)obj).getElement(i));
+				}
+			}
+
+			return (Object)result;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public void setElement(int index, Object element) {
+		this.element[index] = element;
+	}
+
+	/** 
+	 * Setter of the property <tt>element</tt>
+	 * @param element  The element to set.
+	 * @uml.property  name="element"
+	 */
+	public void setElement(Object[] element) {
+		this.element = element;
+	}
+	/**
+	 * Setter of the property <tt>size</tt>
+	 * @param size  The size to set.
+	 * @uml.property  name="size"
+	 */
+	public void setSize(int size) {
+		this.size = size;
+		this.element = new Object[size];
+	}
+		
+	@Override
+	public Object times(Object obj) {
+		VectoR result = null;
+		int i;
+		if(obj instanceof VectoR) {
+			try {
+				if(this.size != ((VectoR)obj).getSize())
+					throw new Exception();
+		
+				result = new VectoR(((VectoR)obj).getSize());
+				
+				Complex temp;
+				if(this.element instanceof Complex[]) {
+					for(i = 0 ; i < this.size ; i++)
+					{
+						temp = (Complex)((VectoR)obj).getElement(i);
+						result.setElement(i, ((Complex[])this.element)[i].times(temp));
+					}
+				}
+				else if(this.element instanceof Double[]){
+					Object o =  ((VectoR)obj).getElement();
+					if( o instanceof Complex[]) {
+						for(i = 0 ; i < this.size ; i++) {
+							temp = (Complex)((VectoR)obj).getElement(i);
+							result.setElement(i, temp.times(this.element[i]));
+						}
+					}
+					else if(this.element instanceof Double[]) {
+						for(i = 0 ; i < this.size ; i++)
+							result.setElement(i, (Double)this.element[i] * (Double)((VectoR)obj).getElement(i));
+					}
+				}
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		else if(obj instanceof Double) {
+			result = new VectoR(this.size);
+			if(this.element instanceof Double[]) {
+				for(i = 0 ; i < this.size ; i++) {
+					result.setElement(i, ((Double)obj).doubleValue() * ((Double)this.element[i]).doubleValue());
+				}
+			}
+			else if(this.element instanceof Complex[]) {
+				Complex temp;
+				for(i = 0 ; i < this.size ; i++) {
+					temp = (Complex) ((Complex)this.element[i]).times((Double)obj);
+					result.setElement(i, temp);
+				}	
+			}
+		}
+		else if(obj instanceof Complex) {
+			result = new VectoR(this.size);
+			Complex temp;
+			for(i = 0 ; i < this.size ; i++) {
+				temp = (Complex)((Complex)obj).times(this.element[i]);
+				result.setElement(i, temp);
+			}
+			
+		}
+		return (Object)result;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		String str = "[";
+		str += this.element[0];
+				
+		for(int i = 1 ; i < size ; i++){
+			str = str + "\t" + this.element[i];
+		}
+		str += "]";
+		return str;
+	}
+	
+	public VectoR getSubVector(int start, int end) {
+		int nSize = end - start + 1;
+		try {
+			if(nSize > this.size || end > this.size)
+				throw new Exception();
+			
+			VectoR result = new VectoR(nSize);
+			int i;
+			
+			for(i = 0 ; i < nSize ; i++)
+				result.setElement(i, this.element[i+start]);
+			
+			return result;
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
