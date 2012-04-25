@@ -1,63 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="types" size="732,454" id="org.openjasmine.types" metadata="uml2-1.0" initialized="true" scrolledY="195" tag="10" key="32303037303533312D3130204F70656E4A61736D696E65">
-  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.1/@sourceConnections.1 //@children.2/@sourceConnections.0" name="Operation" location="400,70" size="180,153" id="org.openjasmine.types/Operation" runTimeClassModel="plus(Ljava.lang.Object;),div(Ljava.lang.Object;),abs(),minus(Ljava.lang.Object;),times(Ljava.lang.Object;)">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="types" size="732,454" id="org.openjasmine.types" metadata="uml2-1.0" initialized="true" scrolledY="91" tag="10" key="32303037303533312D3130204F70656E4A61736D696E65">
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.2/@sourceConnections.0" name="Operation" location="400,70" size="180,153" id="org.openjasmine.types/Operation" runTimeClassModel="plus(Ljava.lang.Object;),div(Ljava.lang.Object;),abs(),minus(Ljava.lang.Object;),times(Ljava.lang.Object;)">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="157,90">
       <children xsi:type="editmodel:MethodEditModel" name="abs" id="org.openjasmine.types/Operation#abs()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.openjasmine.types/Operation#times(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="div" id="org.openjasmine.types/Operation#div(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.openjasmine.types/Operation#minus(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.openjasmine.types/Operation#plus(Ljava.lang.Object;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="times" location="7,108" id="org.openjasmine.types/Operation#times(Ljava.lang.Object;)"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Name" methodSorter="Name" innerClassSorter="Name" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Complex" location="85,70" size="282,337" id="org.openjasmine.types/Complex" runTimeClassModel="plus(Ljava.lang.Object;),div(Ljava.lang.Object;),Complex(Ljava.lang.Double;Ljava.lang.Double;),set(Ljava.lang.Double;Ljava.lang.Double;),re,im,toString(),Complex(),getComplex(Ljava.lang.Double;Ljava.lang.Double;),conj(),abs(),inv(),minus(Ljava.lang.Object;),times(Ljava.lang.Object;),equals(Ljava.lang.Object;),diff()">
+  <children xsi:type="editmodel:ClassEditModel" name="Complex" location="85,70" size="282,373" id="org.openjasmine.types/Complex" runTimeClassModel="plus(Ljava.lang.Object;),div(Ljava.lang.Object;),Complex(Ljava.lang.Double;Ljava.lang.Double;),set(Ljava.lang.Double;Ljava.lang.Double;),im,re,toString(),Complex(),getComplex(Ljava.lang.Double;Ljava.lang.Double;),conj(),abs(),inv(),minus(Ljava.lang.Object;),times(Ljava.lang.Object;),equals(Ljava.lang.Object;),diff()">
     <children xsi:type="editmodel:CompartmentEditModel" size="67,36">
       <children xsi:type="editmodel:AttributeEditModel" name="re" location="-2,20" id="org.openjasmine.types/Complex#re"/>
       <children xsi:type="editmodel:AttributeEditModel" name="im" id="org.openjasmine.types/Complex#im"/>
     </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="259,252">
+    <children xsi:type="editmodel:CompartmentEditModel" size="259,288">
       <children xsi:type="editmodel:MethodEditModel" name="Complex" id="org.openjasmine.types/Complex#Complex()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="Complex" id="org.openjasmine.types/Complex#Complex(Ljava.lang.Double;Ljava.lang.Double;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="abs" id="org.openjasmine.types/Complex#abs()"/>
       <children xsi:type="editmodel:MethodEditModel" name="conj" id="org.openjasmine.types/Complex#conj()"/>
       <children xsi:type="editmodel:MethodEditModel" name="diff" id="org.openjasmine.types/Complex#diff()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="div" id="org.openjasmine.types/Complex#div(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="inv" id="org.openjasmine.types/Complex#inv()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="org.openjasmine.types/Complex#toString()"/>
       <children xsi:type="editmodel:MethodEditModel" name="equals" id="org.openjasmine.types/Complex#equals(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="getComplex" id="org.openjasmine.types/Complex#getComplex(Ljava.lang.Double;Ljava.lang.Double;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="inv" id="org.openjasmine.types/Complex#inv()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.openjasmine.types/Complex#minus(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.openjasmine.types/Complex#plus(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.openjasmine.types/Complex#minus(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="set" id="org.openjasmine.types/Complex#set(Ljava.lang.Double;Ljava.lang.Double;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="div" id="org.openjasmine.types/Complex#div(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Complex" id="org.openjasmine.types/Complex#Complex(Ljava.lang.Double;Ljava.lang.Double;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="times" id="org.openjasmine.types/Complex#times(Ljava.lang.Object;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="toString" id="org.openjasmine.types/Complex#toString()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="org.openjasmine.types/Operation&lt;-org.openjasmine.types/Complex" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
       <children xsi:type="editmodel:AssociationEndEditModel" location="282,76" attachSource="true"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="0,76"/>
     </sourceConnections>
-    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.openjasmine.types/Complex-Soyatec::Implement->org.openjasmine.types/Operation" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
-      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="282,56" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="0,80"/>
-    </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Name" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="VectoR" location="404,259" size="250,283" id="org.openjasmine.types/VectoR" runTimeClassModel="element,plus(Ljava.lang.Object;),div(Ljava.lang.Object;),dot(Lorg.openjasmine.types.VectoR;),size,toString(),setElement(ILjava.lang.Object;),VectoR(I),abs(),VectoR([Ljava.lang.Object;),minus(Ljava.lang.Object;),getElement(I),times(Ljava.lang.Object;)">
+  <children xsi:type="editmodel:ClassEditModel" name="VectoR" location="404,259" size="262,355" id="org.openjasmine.types/VectoR" runTimeClassModel="cross(Lorg.openjasmine.types.VectoR;),element,plus(Ljava.lang.Object;),div(Ljava.lang.Object;),getSubVector(II),dot(Lorg.openjasmine.types.VectoR;),size,toString(),setElement(ILjava.lang.Object;),norm(Ljava.lang.Double;),VectoR(I),VectoR([Ljava.lang.Object;),abs(),getElement(I),minus(Ljava.lang.Object;),times(Ljava.lang.Object;),norm()">
     <children xsi:type="editmodel:CompartmentEditModel" size="93,36">
       <children xsi:type="editmodel:AttributeEditModel" name="element" id="org.openjasmine.types/VectoR#element"/>
       <children xsi:type="editmodel:AttributeEditModel" name="size" id="org.openjasmine.types/VectoR#size"/>
     </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="227,198">
+    <children xsi:type="editmodel:CompartmentEditModel" size="239,270">
       <children xsi:type="editmodel:MethodEditModel" name="VectoR" id="org.openjasmine.types/VectoR#VectoR(I)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="VectoR" id="org.openjasmine.types/VectoR#VectoR([Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="VectoR" id="org.openjasmine.types/VectoR#VectoR(I)"/>
       <children xsi:type="editmodel:MethodEditModel" name="abs" id="org.openjasmine.types/VectoR#abs()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cross" id="org.openjasmine.types/VectoR#cross(Lorg.openjasmine.types.VectoR;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="div" id="org.openjasmine.types/VectoR#div(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="dot" id="org.openjasmine.types/VectoR#dot(Lorg.openjasmine.types.VectoR;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="getElement" id="org.openjasmine.types/VectoR#getElement(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSubVector" id="org.openjasmine.types/VectoR#getSubVector(II)"/>
       <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.openjasmine.types/VectoR#minus(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="norm" id="org.openjasmine.types/VectoR#norm()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="norm" id="org.openjasmine.types/VectoR#norm(Ljava.lang.Double;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.openjasmine.types/VectoR#plus(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="setElement" id="org.openjasmine.types/VectoR#setElement(ILjava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="times" id="org.openjasmine.types/VectoR#times(Ljava.lang.Object;)"/>

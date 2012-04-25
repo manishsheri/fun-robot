@@ -76,6 +76,105 @@ public class VectorTest {
 		
 		cr = (Complex)v3.dot(v4); // 문제 있다.
 		System.out.println("dot(v3, v4) = " + cr);
+		
+		cr = (Complex)v4.dot(v3);
+		System.out.println("dot(v4, v3) = " + cr);
+		
+		cr = (Complex)v3.dot(v1);
+		System.out.println("dot(v3, v1) = " + cr);
+		
+		cr = (Complex)v4.dot(v1);
+		System.out.println("dot(v4, v1) = " + cr);
+		
+		dr = (Double)v1.norm(0.0);
+		System.out.println("norm(v1, 0) = " + dr);
+		
+		dr = (Double)v1.norm(1.0);
+		System.out.println("norm(v1, 1) = " + dr);
+		dr = (Double)v1.norm(2.0);
+		System.out.println("norm(v1, 2) = " + dr);
+		dr = (Double)v1.norm(364.0); // maximum power value
+		System.out.println("norm(v1, 364) = " + dr);
+		dr = (Double)v1.norm(365.0);	// wrong result
+		System.out.println("norm(v1, 365) = " + dr);
+		dr = (Double)v1.norm(Double.NEGATIVE_INFINITY);
+		System.out.println("norm(v1, -inf) = " + dr);
+		dr = (Double)v1.norm(Double.POSITIVE_INFINITY);
+		System.out.println("norm(v1, inf) = " + dr);
+		
+		dr = (Double)v3.norm(1.0);
+		System.out.println("norm(v3, 1) = " + dr);
+		dr = (Double)v3.norm(2.0);
+		System.out.println("norm(v3, 2) = " + dr);
+		dr = (Double)v3.norm(308.0); // maximum power value
+		System.out.println("norm(v3, 308) = " + dr);
+		dr = (Double)v3.norm(309.0);	// wrong result
+		System.out.println("norm(v3, 309) = " + dr);
+		dr = (Double)v3.norm(Double.NEGATIVE_INFINITY);
+		System.out.println("norm(v3, -inf) = " + dr);
+		dr = (Double)v3.norm(Double.POSITIVE_INFINITY);
+		System.out.println("norm(v3, inf) = " + dr);
+		
+		dr = v2.norm();
+		System.out.println("norm(v2) = " + dr);
+		dr = v4.norm();
+		System.out.println("norm(v4) = " + dr);
+		
+		Double[] d3 = {0.2, -3.2, 4.3};
+		Double[] d4 = {3.7, 1.9, -2.3};
+		v1 = new VectoR(d3);
+		v2 = new VectoR(d4);
+		v3 = v1.cross(v2);
+		System.out.println("cross(v1, v2) = " + v3);
+		
+		Complex[] c3 = {Complex.getComplex(1.4, 2.7),
+						Complex.getComplex(-2.3, 3.9),
+						Complex.getComplex(0.8, -1.2)};
+		
+		Complex[] c4 = {Complex.getComplex(3.5, -3.4),
+						Complex.getComplex(1.8, 5.9),
+						Complex.getComplex(9.2, -3.3)};
+		
+		v1 = new VectoR(c3);
+		v2 = new VectoR(c4);
+		
+		v3 = v1.cross(v2);
+		
+		System.out.println("cross(v1, v2) = " + v3);
+		
+		Double[] d5 = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
+		
+		v1 = new VectoR(d5);
+		v2 = v1.getSubVector(2, 4);
+		
+		System.out.println("sub vector of v1 from 2 to 4 " + v2);
+		
+		Complex[] c5 = {Complex.getComplex(2.0, 3.4),
+						Complex.getComplex(3.5, 9.3),
+						Complex.getComplex(-2.3, 3.4),
+						Complex.getComplex(-0.3, 0.3),
+						Complex.getComplex(-2.4, 4.4),
+						Complex.getComplex(3.4, 3.2)};
+		
+		v1 = new VectoR(c5);
+		v2 = v1.getSubVector(2, 4);
+		System.out.println("sub vector of v1 from 2 to 4 " + v2);
+		
+		v1 = new VectoR(d1);
+		v2 = new VectoR(c1);
+		System.out.println("v1 = " + v1);
+		System.out.println("v2 = " + v2);
+		v3 = (VectoR)v1.times(2.3);
+		System.out.println(v1 + " * 2.3 = " + v3);
+		v4 = (VectoR)v2.times(2.3);
+		System.out.println(v2 + " * 2.3 = " + v4);
+		Complex cc1 = new Complex(2.3, 3.2);
+		v3 = (VectoR)v1.times(cc1);
+		System.out.println(v1 + " * (2.3 + 3.2i) = " + v3);
+		v4 = (VectoR)v2.times(Complex.getComplex(2.3, 3.2));
+		System.out.println(v2 + " * (2.3 + 3.2i) = " + v4);
+		
+		
 	}
 
 }
