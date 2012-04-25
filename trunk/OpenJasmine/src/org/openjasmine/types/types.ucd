@@ -45,13 +45,14 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Name" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="VectoR" location="404,259" size="250,265" id="org.openjasmine.types/VectoR" runTimeClassModel="element,plus(Ljava.lang.Object;),div(Ljava.lang.Object;),dot(Lorg.openjasmine.types.VectoR;),size,toString(),setElement(ILjava.lang.Object;),VectoR(I),abs(),VectoR([Ljava.lang.Object;),minus(Ljava.lang.Object;),getElement(I),times(Ljava.lang.Object;)">
+  <children xsi:type="editmodel:ClassEditModel" name="VectoR" location="404,259" size="250,283" id="org.openjasmine.types/VectoR" runTimeClassModel="element,plus(Ljava.lang.Object;),div(Ljava.lang.Object;),dot(Lorg.openjasmine.types.VectoR;),size,toString(),setElement(ILjava.lang.Object;),VectoR(I),abs(),VectoR([Ljava.lang.Object;),minus(Ljava.lang.Object;),getElement(I),times(Ljava.lang.Object;)">
     <children xsi:type="editmodel:CompartmentEditModel" size="93,36">
       <children xsi:type="editmodel:AttributeEditModel" name="element" id="org.openjasmine.types/VectoR#element"/>
       <children xsi:type="editmodel:AttributeEditModel" name="size" id="org.openjasmine.types/VectoR#size"/>
     </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="227,180">
+    <children xsi:type="editmodel:CompartmentEditModel" size="227,198">
       <children xsi:type="editmodel:MethodEditModel" name="VectoR" id="org.openjasmine.types/VectoR#VectoR(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="VectoR" id="org.openjasmine.types/VectoR#VectoR([Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="abs" id="org.openjasmine.types/VectoR#abs()"/>
       <children xsi:type="editmodel:MethodEditModel" name="div" id="org.openjasmine.types/VectoR#div(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="dot" id="org.openjasmine.types/VectoR#dot(Lorg.openjasmine.types.VectoR;)"/>

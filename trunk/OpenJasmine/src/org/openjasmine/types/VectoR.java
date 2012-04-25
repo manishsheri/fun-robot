@@ -287,7 +287,7 @@ public class VectoR implements Operation {
 				result = new Complex(0.0, 0.0);
 				Complex temp;
 				for(i = 0 ; i < this.size ; i++) {
-					temp = (Complex) ((Complex)this.element[i]).times((Complex)obj[i]);
+					temp = (Complex) (((Complex[])this.element)[i]).times(((Complex[])obj)[i]);
 					result = ((Complex)result).plus(temp);
 				}
 				
@@ -297,7 +297,7 @@ public class VectoR implements Operation {
 					result = new Complex(0.0, 0.0);
 					Complex temp;
 					for(i = 0 ; i < this.size ; i++) {
-						temp = (Complex) ((Complex)obj[i]).times((Double)this.element[i]);
+						temp = (Complex) ((Complex)obj[i]).times(((Double[])this.element)[i]);
 						result = ((Complex)result).plus(temp);
 					}
 				}
