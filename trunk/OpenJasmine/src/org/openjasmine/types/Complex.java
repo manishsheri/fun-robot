@@ -242,7 +242,7 @@ public class Complex implements Operation {
 				
 	/**
 	 */
-	public Complex inv(){
+	public Object inv(){
 		double df = this.re * this.re + this.im * this.im;
 		Complex result = this.conj();
 		result = (Complex)result.div(df);
