@@ -1,53 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="types" size="732,454" id="org.openjasmine.types" metadata="uml2-1.0" initialized="true" scrolledY="91" tag="10" key="32303037303533312D3130204F70656E4A61736D696E65">
-  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.2/@sourceConnections.0" name="Operation" location="400,70" size="180,153" id="org.openjasmine.types/Operation" runTimeClassModel="plus(Ljava.lang.Object;),div(Ljava.lang.Object;),abs(),minus(Ljava.lang.Object;),times(Ljava.lang.Object;)">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="157,90">
-      <children xsi:type="editmodel:MethodEditModel" name="abs" id="org.openjasmine.types/Operation#abs()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.openjasmine.types/Operation#times(Ljava.lang.Object;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="div" id="org.openjasmine.types/Operation#div(Ljava.lang.Object;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.openjasmine.types/Operation#minus(Ljava.lang.Object;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.openjasmine.types/Operation#plus(Ljava.lang.Object;)"/>
-    </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Name" methodSorter="Name" innerClassSorter="Name" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
-  </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Complex" location="85,70" size="282,373" id="org.openjasmine.types/Complex" runTimeClassModel="plus(Ljava.lang.Object;),div(Ljava.lang.Object;),Complex(Ljava.lang.Double;Ljava.lang.Double;),set(Ljava.lang.Double;Ljava.lang.Double;),im,re,toString(),Complex(),getComplex(Ljava.lang.Double;Ljava.lang.Double;),conj(),abs(),inv(),minus(Ljava.lang.Object;),times(Ljava.lang.Object;),equals(Ljava.lang.Object;),diff()">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="types" size="856,848" id="org.openjasmine.types" metadata="uml2-1.0" initialized="true" scrolledY="130" tag="10" key="32303037303533312D3130204F70656E4A61736D696E65">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="Complex" location="210,270" size="109,337" id="org.openjasmine.types/Complex" runTimeClassModel="plus(Ljava.lang.Object;),div(Ljava.lang.Object;),Complex(Ljava.lang.Double;Ljava.lang.Double;),set(Ljava.lang.Double;Ljava.lang.Double;),im,re,toString(),Complex(),getComplex(Ljava.lang.Double;Ljava.lang.Double;),conj(),abs(),inv(),minus(Ljava.lang.Object;),equals(Ljava.lang.Object;),times(Ljava.lang.Object;),diff()">
     <children xsi:type="editmodel:CompartmentEditModel" size="67,36">
-      <children xsi:type="editmodel:AttributeEditModel" name="re" location="-2,20" id="org.openjasmine.types/Complex#re"/>
       <children xsi:type="editmodel:AttributeEditModel" name="im" id="org.openjasmine.types/Complex#im"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="re" location="-2,20" id="org.openjasmine.types/Complex#re"/>
     </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="259,288">
+    <children xsi:type="editmodel:CompartmentEditModel" size="86,252">
       <children xsi:type="editmodel:MethodEditModel" name="Complex" id="org.openjasmine.types/Complex#Complex()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Complex" id="org.openjasmine.types/Complex#Complex(Ljava.lang.Double;Ljava.lang.Double;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="abs" id="org.openjasmine.types/Complex#abs()"/>
       <children xsi:type="editmodel:MethodEditModel" name="conj" id="org.openjasmine.types/Complex#conj()"/>
       <children xsi:type="editmodel:MethodEditModel" name="diff" id="org.openjasmine.types/Complex#diff()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="inv" id="org.openjasmine.types/Complex#inv()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="toString" id="org.openjasmine.types/Complex#toString()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="div" id="org.openjasmine.types/Complex#div(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="equals" id="org.openjasmine.types/Complex#equals(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="getComplex" id="org.openjasmine.types/Complex#getComplex(Ljava.lang.Double;Ljava.lang.Double;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.openjasmine.types/Complex#plus(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="inv" id="org.openjasmine.types/Complex#inv()"/>
       <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.openjasmine.types/Complex#minus(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.openjasmine.types/Complex#plus(Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="set" id="org.openjasmine.types/Complex#set(Ljava.lang.Double;Ljava.lang.Double;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="div" id="org.openjasmine.types/Complex#div(Ljava.lang.Object;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="Complex" id="org.openjasmine.types/Complex#Complex(Ljava.lang.Double;Ljava.lang.Double;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="times" id="org.openjasmine.types/Complex#times(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="org.openjasmine.types/Complex#toString()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="org.openjasmine.types/Operation&lt;-org.openjasmine.types/Complex" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
-      <children xsi:type="editmodel:AssociationEndEditModel" location="282,76" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="0,76"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="org.openjasmine.types/Operation&lt;-org.openjasmine.types/Complex" source="//@children.0" target="//@children.3" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="56,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,82" anchorKind="FixedAtEdge"/>
     </sourceConnections>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Name" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="org.openjasmine.types/Complex-Soyatec::Implement->org.openjasmine.types/Operation" source="//@children.0" target="//@children.3" targetEnd="//@children.0/@sourceConnections.1/@children.2" label="//@children.0/@sourceConnections.1/@children.0" sourceEnd="//@children.0/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="76,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,107"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Name" methodSorter="Name" innerClassSorter="Name" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="VectoR" location="404,259" size="262,355" id="org.openjasmine.types/VectoR" runTimeClassModel="cross(Lorg.openjasmine.types.VectoR;),element,plus(Ljava.lang.Object;),div(Ljava.lang.Object;),getSubVector(II),dot(Lorg.openjasmine.types.VectoR;),size,toString(),setElement(ILjava.lang.Object;),norm(Ljava.lang.Double;),VectoR(I),VectoR([Ljava.lang.Object;),abs(),getElement(I),minus(Ljava.lang.Object;),times(Ljava.lang.Object;),norm()">
+  <children xsi:type="editmodel:ClassEditModel" name="Matrix" location="555,270" size="116,337" id="org.openjasmine.types/Matrix" runTimeClassModel="element,plus(Ljava.lang.Object;),setElement(IILjava.lang.Object;),col,div(Ljava.lang.Object;),row,Matrix(),toString(),Matrix([[Ljava.lang.Object;),Matrix(II),Matrix(IILjava.lang.Object;),abs(),minus(Ljava.lang.Object;),times(Ljava.lang.Object;),equals(Ljava.lang.Object;),getElement(II)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="93,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="col" id="org.openjasmine.types/Matrix#col"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="element" id="org.openjasmine.types/Matrix#element"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="row" id="org.openjasmine.types/Matrix#row"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="82,234">
+      <children xsi:type="editmodel:MethodEditModel" name="Matrix" id="org.openjasmine.types/Matrix#Matrix(IILjava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Matrix" id="org.openjasmine.types/Matrix#Matrix()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Matrix" id="org.openjasmine.types/Matrix#Matrix(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Matrix" id="org.openjasmine.types/Matrix#Matrix([[Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="abs" id="org.openjasmine.types/Matrix#abs()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="div" id="org.openjasmine.types/Matrix#div(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="equals" id="org.openjasmine.types/Matrix#equals(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getElement" id="org.openjasmine.types/Matrix#getElement(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.openjasmine.types/Matrix#minus(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.openjasmine.types/Matrix#plus(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setElement" id="org.openjasmine.types/Matrix#setElement(IILjava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" id="org.openjasmine.types/Matrix#times(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="org.openjasmine.types/Matrix#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="org.openjasmine.types/Operation&lt;-org.openjasmine.types/Matrix" source="//@children.1" target="//@children.3" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="86,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="105,75" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="org.openjasmine.types/Matrix-Soyatec::Implement->org.openjasmine.types/Operation" source="//@children.1" target="//@children.3" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="44,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="105,112"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Name" methodSorter="Name" innerClassSorter="Name" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="VectoR" location="390,270" size="119,355" id="org.openjasmine.types/VectoR" runTimeClassModel="cross(Lorg.openjasmine.types.VectoR;),element,plus(Ljava.lang.Object;),div(Ljava.lang.Object;),getSubVector(II),dot(Lorg.openjasmine.types.VectoR;),size,toString(),setElement(ILjava.lang.Object;),norm(Ljava.lang.Double;),VectoR(I),VectoR([Ljava.lang.Object;),abs(),minus(Ljava.lang.Object;),getElement(I),times(Ljava.lang.Object;),norm()">
     <children xsi:type="editmodel:CompartmentEditModel" size="93,36">
       <children xsi:type="editmodel:AttributeEditModel" name="element" id="org.openjasmine.types/VectoR#element"/>
       <children xsi:type="editmodel:AttributeEditModel" name="size" id="org.openjasmine.types/VectoR#size"/>
     </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="239,270">
+    <children xsi:type="editmodel:CompartmentEditModel" size="96,270">
       <children xsi:type="editmodel:MethodEditModel" name="VectoR" id="org.openjasmine.types/VectoR#VectoR(I)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="VectoR" id="org.openjasmine.types/VectoR#VectoR(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="VectoR" id="org.openjasmine.types/VectoR#VectoR([Ljava.lang.Object;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="abs" id="org.openjasmine.types/VectoR#abs()"/>
       <children xsi:type="editmodel:MethodEditModel" name="cross" id="org.openjasmine.types/VectoR#cross(Lorg.openjasmine.types.VectoR;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="div" id="org.openjasmine.types/VectoR#div(Ljava.lang.Object;)"/>
@@ -63,11 +89,33 @@
       <children xsi:type="editmodel:MethodEditModel" name="toString" id="org.openjasmine.types/VectoR#toString()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="org.openjasmine.types/Operation&lt;-org.openjasmine.types/VectoR" source="//@children.2" target="//@children.0" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
-      <children xsi:type="editmodel:AssociationEndEditModel" location="87,0" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="91,153"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.openjasmine.types/VectoR-Standard::Call->org.openjasmine.types/Complex*org.openjasmine.types/VectoR-Standard::Instantiate->org.openjasmine.types/Complex*org.openjasmine.types/VectoR-Soyatec::Import->org.openjasmine.types/Complex" source="//@children.2" target="//@children.0" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call, Instantiate»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,168" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="109,168"/>
     </sourceConnections>
-    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Name" methodSorter="Name" innerClassSorter="Name" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="org.openjasmine.types/VectoR-Soyatec::Implement->org.openjasmine.types/Operation" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.1/@children.2" label="//@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="87,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="73,153"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="org.openjasmine.types/Operation&lt;-org.openjasmine.types/VectoR" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.2/@children.1" sourceEnd="//@children.2/@sourceConnections.2/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="49,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="35,153" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Name" methodSorter="Name" innerClassSorter="Name" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.0/@sourceConnections.0 //@children.1/@sourceConnections.0 //@children.2/@sourceConnections.1 //@children.0/@sourceConnections.1 //@children.1/@sourceConnections.1 //@children.2/@sourceConnections.2" name="Operation" location="404,14" size="105,153" id="org.openjasmine.types/Operation" runTimeClassModel="plus(Ljava.lang.Object;),div(Ljava.lang.Object;),abs(),minus(Ljava.lang.Object;),times(Ljava.lang.Object;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="58,90">
+      <children xsi:type="editmodel:MethodEditModel" name="abs" id="org.openjasmine.types/Operation#abs()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="div" location="13,73" id="org.openjasmine.types/Operation#div(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="minus" id="org.openjasmine.types/Operation#minus(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="plus" id="org.openjasmine.types/Operation#plus(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="times" location="7,108" id="org.openjasmine.types/Operation#times(Ljava.lang.Object;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Name" methodSorter="Name" innerClassSorter="Name" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
   <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="wireOptions=1;Product=eUML2"/>
   <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">

@@ -58,46 +58,62 @@ public class VectoR implements Operation {
 	}
 
 	public VectoR cross(VectoR v) {
+		Complex mtemp1 = new Complex(0., 0.);
+		Complex mtemp2 = new Complex(0., 0.);
 		try {
 			if(this.size != 3 || v.getSize() != 3)
 				throw new Exception();
 			VectoR result = new VectoR(3);
 			
 			if(this.element instanceof Complex[]) {
-				Complex mtemp1 = new Complex(0., 0.);
-				Complex mtemp2 = new Complex(0., 0.);
 				
-				mtemp1 = (Complex) ((Complex)this.element[1]).times((Complex)v.getElement(2));
-				mtemp2 = (Complex) ((Complex)this.element[2]).times((Complex)v.getElement(1));
+				mtemp1 = (Complex) ((Complex)this.element[1]).times(v.getElement(2));
+				mtemp2 = (Complex) ((Complex)this.element[2]).times(v.getElement(1));
 				result.setElement(0, mtemp1.minus(mtemp2));
 				
-				mtemp1 = (Complex) ((Complex)this.element[2]).times((Complex)v.getElement(0));
-				mtemp2 = (Complex) ((Complex)this.element[0]).times((Complex)v.getElement(2));
+				mtemp1 = (Complex) ((Complex)this.element[2]).times(v.getElement(0));
+				mtemp2 = (Complex) ((Complex)this.element[0]).times(v.getElement(2));
 				result.setElement(1, mtemp1.minus(mtemp2));
 				
-				mtemp1 = (Complex) ((Complex)this.element[0]).times((Complex)v.getElement(1));
-				mtemp2 = (Complex) ((Complex)this.element[1]).times((Complex)v.getElement(0));
+				mtemp1 = (Complex) ((Complex)this.element[0]).times(v.getElement(1));
+				mtemp2 = (Complex) ((Complex)this.element[1]).times(v.getElement(0));
 				result.setElement(2, mtemp1.minus(mtemp2));
 				
 			}
 			else if(this.element instanceof Double[]) {
+				Object[] o = v.getElement();
 				double dtemp1, dtemp2;
+				if(o instanceof Double[]) {			
 				
-				dtemp1 = ((Double)this.element[1]).doubleValue() * ((Double)v.getElement(2)).doubleValue();
-				dtemp2 = ((Double)this.element[2]).doubleValue() * ((Double)v.getElement(1)).doubleValue();
-				result.setElement(0, dtemp1 - dtemp2);
-				
-				dtemp1 = ((Double)this.element[2]).doubleValue() * ((Double)v.getElement(0)).doubleValue();
-				dtemp2 = ((Double)this.element[0]).doubleValue() * ((Double)v.getElement(2)).doubleValue();
-				result.setElement(1, dtemp1 - dtemp2);
-				
-				dtemp1 = ((Double)this.element[0]).doubleValue() * ((Double)v.getElement(1)).doubleValue();
-				dtemp2 = ((Double)this.element[1]).doubleValue() * ((Double)v.getElement(0)).doubleValue();
-				result.setElement(2, dtemp1 - dtemp2);
+					dtemp1 = ((Double)this.element[1]).doubleValue() * ((Double)v.getElement(2)).doubleValue();
+					dtemp2 = ((Double)this.element[2]).doubleValue() * ((Double)v.getElement(1)).doubleValue();
+					result.setElement(0, dtemp1 - dtemp2);
+					
+					dtemp1 = ((Double)this.element[2]).doubleValue() * ((Double)v.getElement(0)).doubleValue();
+					dtemp2 = ((Double)this.element[0]).doubleValue() * ((Double)v.getElement(2)).doubleValue();
+					result.setElement(1, dtemp1 - dtemp2);
+					
+					dtemp1 = ((Double)this.element[0]).doubleValue() * ((Double)v.getElement(1)).doubleValue();
+					dtemp2 = ((Double)this.element[1]).doubleValue() * ((Double)v.getElement(0)).doubleValue();
+					result.setElement(2, dtemp1 - dtemp2);
+				}
+				else if(o instanceof Complex[]) {
+					mtemp1 = (Complex) ((Complex)o[2]).times(this.element[1]);
+					mtemp2 = (Complex) ((Complex)o[1]).times(this.element[2]);
+					result.setElement(0, mtemp1.minus(mtemp2));
+					
+					mtemp1 = (Complex) ((Complex)o[0]).times(this.element[2]);
+					mtemp2 = (Complex) ((Complex)o[2]).times(this.element[0]);
+					result.setElement(1, mtemp1.minus(mtemp2));
+					
+					mtemp1 = (Complex) ((Complex)o[1]).times(this.element[0]);
+					mtemp2 = (Complex) ((Complex)o[0]).times(this.element[1]);
+					result.setElement(2, mtemp1.minus(mtemp2));
+				}
 			}
 			return result;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 			return null;
 		}
@@ -105,41 +121,78 @@ public class VectoR implements Operation {
 
 	@Override
 	public Object div(Object obj) {
-		try {
-			if(this.size != ((VectoR)obj).getSize())
-				throw new Exception();
-	
-			int i;
-			VectoR result = new VectoR(((VectoR)obj).getSize());
-			
-			Complex temp;
-			if(this.element instanceof Complex[]) {
-				for(i = 0 ; i < this.size ; i++)
-				{
-					temp = ((Complex)((VectoR)obj).getElement(i)).inv();
-					result.setElement(i, ((Complex[])this.element)[i].times(temp));
-				}
-			}
-			else if(this.element instanceof Double[]){
-				Object o =  ((VectoR)obj).getElement();
-				if( o instanceof Complex[]) {
-					for(i = 0 ; i < this.size ; i++) {
-						temp = ((Complex)((VectoR)obj).getElement(i)).inv();
-						result.setElement(i, temp.times(this.element[i]));
+		int i;
+		VectoR result = new VectoR(this.size);
+		if(obj instanceof VectoR) {
+			try {
+				if(this.size != ((VectoR)obj).getSize())
+					throw new Exception();
+				
+				Object temp;
+				Object[] o =  ((VectoR)obj).getElement();
+				if(this.element instanceof Complex[]) {
+					if(o instanceof Complex[]) {
+						for(i = 0 ; i < this.size ; i++) {
+							temp = ((Complex)((VectoR)obj).getElement(i)).inv();
+							result.setElement(i, ((Complex[])this.element)[i].times(temp));
+						}
+					}
+					else if(o instanceof Double[]) {
+						for(i = 0 ; i < this.size ; i++) {
+							double retemp, imtemp;
+							retemp = ((Double)((Complex)this.element[i]).getRe()).doubleValue() /((Double)o[i]).doubleValue();
+							imtemp = ((Double)((Complex)this.element[i]).getIm()).doubleValue() /((Double)o[i]).doubleValue();
+							result.setElement(i, Complex.getComplex(retemp, imtemp));							
+						}
 					}
 				}
-				else if(this.element instanceof Double[]) {
-					for(i = 0 ; i < this.size ; i++)
-						result.setElement(i, (Double)this.element[i] / (Double)((VectoR)obj).getElement(i));
+				else if(this.element instanceof Double[]){
+					
+					if( o instanceof Complex[]) {
+						for(i = 0 ; i < this.size ; i++) {
+							temp = ((Complex)((VectoR)obj).getElement(i)).inv();
+							result.setElement(i, ((Complex)temp).times(this.element[i]));
+						}
+					}
+					else if(this.element instanceof Double[]) {
+						for(i = 0 ; i < this.size ; i++)
+							result.setElement(i, (Double)this.element[i] / (Double)((VectoR)obj).getElement(i));
+					}
+				}
+	
+				return (Object)result;
+			} catch (Exception e) {
+	
+				e.printStackTrace();
+				return null;
+			}
+		}
+		else if (obj instanceof Complex) {
+			Complex c;
+			for(i = 0 ; i < this.size ; i++) {
+				c = (Complex)((Complex)((Complex)obj).div(this.element[i])).inv();
+				result.setElement(i, c);
+			}
+			
+			return result;
+		}
+		else if(obj instanceof Double) {
+			if(this.element instanceof Complex[]) {
+				Complex c;
+				for(i = 0 ; i < this.size ; i++) {
+					c = (Complex)((Complex)this.element[i]).div(obj);
+					result.setElement(i, c);
 				}
 			}
-
-			return (Object)result;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
+			else if(this.element instanceof Double[]) {
+				for(i = 0 ; i < this.size ; i++) {
+					result.setElement(i, ((Double)this.element[i]).doubleValue() / ((Double)obj).doubleValue());
+				}
+			}
+			return result;			
 		}
+		
+		return null;
 	}
 
 	/**
@@ -152,19 +205,19 @@ public class VectoR implements Operation {
 			if(this.size != v.getSize())
 				throw new Exception();
 			Object[] obj = v.getElement();
-			
+			Object temp;
 			if(this.element instanceof Complex[]) {
 				result = new Complex(0.0, 0.0);
-				Complex temp;
+				
 				if(obj instanceof Complex[]) {
 					for(i = 0 ; i < this.size ; i++) {
-						temp = (Complex) (((Complex[])this.element)[i]).times(((Complex[])obj)[i].conj());
+						temp = (((Complex[])this.element)[i]).times(((Complex[])obj)[i].conj());
 						result = ((Complex)result).plus(temp);
 					}
 				}
 				else if(obj instanceof Double[]) {
 					for(i = 0 ; i < this.size ; i++) {
-						temp = (Complex) (((Complex[])this.element)[i]).times(((Double[])obj)[i]);
+						temp = (((Complex[])this.element)[i]).times(((Double[])obj)[i]);
 						result = ((Complex)result).plus(temp);
 					}
 				}
@@ -174,26 +227,24 @@ public class VectoR implements Operation {
 			else if(this.element instanceof Double[]) {
 				if(obj instanceof Complex[]) {
 					result = new Complex(0.0, 0.0);
-					Complex temp;
 					for(i = 0 ; i < this.size ; i++) {
-						temp = (Complex) (((Complex) ((Complex)obj[i])).conj()).times(((Double[])this.element)[i]);
+						temp = (((Complex) ((Complex)obj[i])).conj()).times(((Double[])this.element)[i]);
 						result = ((Complex)result).plus(temp);
 					}
 					result = ((Complex)result).conj();
 				}
 				else if(obj instanceof Double[]) {
 					result = new Double(0.0);
-					double temp;
+	
 					for(i = 0 ; i < this.size ; i++) {
 						temp = ((Double)this.element[i]).doubleValue() * ((Double)obj[i]).doubleValue();
-						result = ((Double)result).doubleValue() + temp; 
+						result = ((Double)result).doubleValue() + ((Double)temp).doubleValue(); 
 					}
 				}
 			}
 			
 			return result;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -230,11 +281,11 @@ public class VectoR implements Operation {
 			int i;
 			VectoR result = new VectoR(((VectoR)obj).getSize());
 			
-			Complex temp;
+			Object temp;
 			if(this.element instanceof Complex[]) {
 				for(i = 0 ; i < this.size ; i++)
 				{
-					temp = (Complex)((VectoR)obj).getElement(i);
+					temp = ((VectoR)obj).getElement(i);
 					result.setElement(i, ((Complex[])this.element)[i].minus(temp));
 				}
 			}
@@ -243,7 +294,7 @@ public class VectoR implements Operation {
 				if( o instanceof Complex[]) {
 					for(i = 0 ; i < this.size ; i++) {
 						temp = ((Complex)((VectoR)obj).getElement(i)).diff();
-						result.setElement(i, temp.plus(this.element[i]));
+						result.setElement(i, ((Complex)temp).plus(this.element[i]));
 					}
 				}
 				else if(this.element instanceof Double[]) {
@@ -254,7 +305,6 @@ public class VectoR implements Operation {
 
 			return (Object)result;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -360,11 +410,11 @@ public class VectoR implements Operation {
 			int i;
 			VectoR result = new VectoR(((VectoR)obj).getSize());
 			
-			Complex temp;
+			Object temp;
 			if(this.element instanceof Complex[]) {
 				for(i = 0 ; i < this.size ; i++)
 				{
-					temp = (Complex)((VectoR)obj).getElement(i);
+					temp = ((VectoR)obj).getElement(i);
 					result.setElement(i, ((Complex[])this.element)[i].plus(temp));
 				}
 			}
@@ -372,8 +422,9 @@ public class VectoR implements Operation {
 				Object o =  ((VectoR)obj).getElement();
 				if( o instanceof Complex[]) {
 					for(i = 0 ; i < this.size ; i++) {
+						//temp = (Complex)((VectoR)obj).getElement(i);
 						temp = (Complex)((VectoR)obj).getElement(i);
-						result.setElement(i, temp.plus(this.element[i]));
+						result.setElement(i, ((Complex)temp).plus(this.element[i]));
 					}
 				}
 				else if(this.element instanceof Double[]) {
@@ -384,7 +435,6 @@ public class VectoR implements Operation {
 
 			return (Object)result;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -416,6 +466,7 @@ public class VectoR implements Operation {
 	public Object times(Object obj) {
 		VectoR result = null;
 		int i;
+		Object temp;
 		if(obj instanceof VectoR) {
 			try {
 				if(this.size != ((VectoR)obj).getSize())
@@ -423,11 +474,11 @@ public class VectoR implements Operation {
 		
 				result = new VectoR(((VectoR)obj).getSize());
 				
-				Complex temp;
+				
 				if(this.element instanceof Complex[]) {
 					for(i = 0 ; i < this.size ; i++)
 					{
-						temp = (Complex)((VectoR)obj).getElement(i);
+						temp = ((VectoR)obj).getElement(i);
 						result.setElement(i, ((Complex[])this.element)[i].times(temp));
 					}
 				}
@@ -435,8 +486,8 @@ public class VectoR implements Operation {
 					Object o =  ((VectoR)obj).getElement();
 					if( o instanceof Complex[]) {
 						for(i = 0 ; i < this.size ; i++) {
-							temp = (Complex)((VectoR)obj).getElement(i);
-							result.setElement(i, temp.times(this.element[i]));
+							temp = ((VectoR)obj).getElement(i);
+							result.setElement(i, ((Complex)temp).times(this.element[i]));
 						}
 					}
 					else if(this.element instanceof Double[]) {
@@ -458,18 +509,17 @@ public class VectoR implements Operation {
 				}
 			}
 			else if(this.element instanceof Complex[]) {
-				Complex temp;
+		
 				for(i = 0 ; i < this.size ; i++) {
-					temp = (Complex) ((Complex)this.element[i]).times((Double)obj);
+					temp = ((Complex)this.element[i]).times((Double)obj);
 					result.setElement(i, temp);
 				}	
 			}
 		}
 		else if(obj instanceof Complex) {
 			result = new VectoR(this.size);
-			Complex temp;
 			for(i = 0 ; i < this.size ; i++) {
-				temp = (Complex)((Complex)obj).times(this.element[i]);
+				temp = ((Complex)obj).times(this.element[i]);
 				result.setElement(i, temp);
 			}
 			
