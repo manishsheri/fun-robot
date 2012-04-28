@@ -257,6 +257,7 @@ public class Matrix implements Operation {
 	 */
 	public void setCol(int col) {
 		this.col = col;
+		this.elements = new Object[this.row][this.col];
 	}
 
 	/**
@@ -290,4 +291,60 @@ public class Matrix implements Operation {
 		this.elements[row][col] = element;
 	}
 
+	public Matrix transpose()	{
+		Matrix result = new Matrix(this.col, this.row);
+		int i, j;
+		
+		for(i = 0 ; i < this.row ; i++) {
+			for(j = 0 ; j < this.col ; j++) {
+				result.setElement(j, i, this.elements[i][j]);
+			}
+		}
+		return result;
+	}
+	
+	static public Matrix eye(int size) {
+		Matrix result = new Matrix(size, size) ;
+		int i, j;
+		
+		for(i = 0 ; i < size ; i++) {
+			for(j = 0 ; j < size ; j++) {
+				if(i == j) {
+					result.setElement(i, j, 1.0);
+				}
+				else {
+					result.setElement(i, j, 0.0);
+				}	
+			}
+		}
+			
+		return result;
+	}
+	
+	public Object trace() {
+		Object result = null;
+		int i;
+		try {
+			if(this.row != this.col)
+				throw new Exception();
+			if(this.elements instanceof Double[][]) {
+				double rd = 0;
+				
+				for(i = 0 ; i < this.row ; i++)
+					rd += ((Double)this.elements[i][i]).doubleValue();
+				result = rd;
+			}
+			else if(this.elements instanceof Complex[][]) {
+				Complex rc = new Complex(0.0, 0.0);
+				
+				for(i = 0 ; i < this.row ; i++)
+					rc = (Complex) rc.plus(this.elements[i][i]);
+				result = rc;
+			}
+			new Matrix(this.row, this.col);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
