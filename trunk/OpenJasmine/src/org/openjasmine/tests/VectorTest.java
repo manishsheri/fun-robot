@@ -866,5 +866,36 @@ public class VectorTest {
 		
 		assertTrue(Math.abs(11.8000 - ((Complex)v5.getElement(3)).getRe()) < 0.0001);
 		assertTrue(Math.abs(-37.6 - ((Complex)v5.getElement(3)).getIm()) < 0.0001);
+		
+		/**
+		 * [OJ-VEC-TC-056] Vector<Complex> * Complex
+		 */
+		try {
+			v5 = (VectoR)v1.clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Clone : ");
+		System.out.println("v1 = " + v1);
+		System.out.println("v5 = " + v5);
+		assertTrue(v5.getSize() == v1.getSize());
+		assertTrue(v5.getElement(0) == v1.getElement(0));
+		assertTrue(v5.getElement(1) == v1.getElement(1));
+		assertTrue(v5.getElement(2) == v1.getElement(2));
+		assertTrue(v5.getElement(3) == v1.getElement(3));
+		
+		v1.setElement(0, 2.0);
+		v1.setElement(0, 3.0);
+		v1.setElement(0, 4.0);
+		v1.setElement(0, 5.0);
+		
+		System.out.println("v1 = " + v1);
+		System.out.println("v5 = " + v5);
+		assertTrue(v5.getElement(0) != v1.getElement(0));
+		assertTrue(v5.getElement(1) != v1.getElement(1));
+		assertTrue(v5.getElement(2) != v1.getElement(2));
+		assertTrue(v5.getElement(3) != v1.getElement(3));
+		
 	}
 }

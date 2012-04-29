@@ -131,6 +131,48 @@ public class ComplexTest {
 		
 		assertTrue(Math.abs(-1.0 - c3.getRe()) < 0.0001);
 		assertTrue(Math.abs(-3.0 - c3.getIm()) < 0.0001);
+		
+		/**
+		 *  [OJ-COMPLEX-TC-011] equal test
+		 */
+		c3.set(c1.getRe(), c1.getIm());
+		
+		if(c1 == c3)
+			System.out.println("C1 == c2");
+		
+		
+		/**
+		 *  [OJ-COMPLEX-TC-011] clone test
+		 */
+		c3.set(0.0, 0.0);
+		
+		/** 
+		 *  case : clone - memory not shared 
+		 */
+		try {
+			c3 = (Complex) c1.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("clone     : C1 = " + c1 + "\t" + "C3 = " + c3);
+		assertTrue(Math.abs(1.0 - c3.getRe()) < 0.0001);
+		assertTrue(Math.abs(3.0 - c3.getIm()) < 0.0001);
+		
+		
+		c1.set(2.0, 4.0);
+		System.out.println("change c1 : C1 = " + c1 + "\t" + "C3 = " + c3);
+		assertTrue(Math.abs(1.0 - c3.getRe()) < 0.0001);
+		assertTrue(Math.abs(3.0 - c3.getIm()) < 0.0001);
+		
+		/** 
+		 *  case : assignment - memory shared 
+		 */
+		c3 = c1;
+		System.out.println("assign    : C1 = " + c1 + "\t" + "C3 = " + c3);
+		c1.set(1.0, 3.0);
+		System.out.println("change c1 : C1 = " + c1 + "\t" + "C3 = " + c3);
+		assertTrue(Math.abs(1.0 - c3.getRe()) < 0.0001);
+		assertTrue(Math.abs(3.0 - c3.getIm()) < 0.0001);
 	}
 
 }
