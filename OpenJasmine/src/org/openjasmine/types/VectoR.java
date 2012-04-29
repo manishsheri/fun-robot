@@ -1,7 +1,43 @@
 package org.openjasmine.types;
 
 
-public class VectoR implements Operation {
+public class VectoR implements Operation, Cloneable {
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof VectoR) {
+			if(((VectoR)obj).getSize() == this.size) {
+				int i;
+				for(i = 0 ; i < this.size ; i++) {
+					if(this.element[i] != ((VectoR)obj).getElement(i))
+						return false;
+				}
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#clone()
+	 */
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 
 	/** 
 	 * @uml.property name="element" multiplicity="(0 -1)" dimension="1"

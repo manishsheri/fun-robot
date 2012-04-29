@@ -106,8 +106,19 @@ public class Matrix implements Operation {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		int i, j;
+		if(obj instanceof Matrix) {
+			if(((Matrix)obj).getCol() == this.col && ((Matrix)obj).getRow() == this.row) {
+				for(i = 0 ; i < this.row ; i++) {
+					for(j = 0 ; j < this.col ; j++) {
+						if(this.elements[i][j] != ((Matrix)obj).getElement(i, j))
+							return false;
+					}
+				}
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/* (non-Javadoc)

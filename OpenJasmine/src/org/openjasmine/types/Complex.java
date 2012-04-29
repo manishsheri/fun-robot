@@ -5,9 +5,27 @@ package org.openjasmine.types;
 /**
  * @author Hyeon-min.Shim(elecage@gmail.com)
  */
-public class Complex implements Operation {
+public class Complex implements Operation, Cloneable {
 
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#clone()
+	 */
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		
+		return super.clone();
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+
 	/**
 	 * add this complex and the other number
 	 * @param obj number to add. 

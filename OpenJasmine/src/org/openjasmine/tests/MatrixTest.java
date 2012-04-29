@@ -37,17 +37,22 @@ public class MatrixTest {
 		Complex[][] c2 = {{Complex.getComplex(-12.0, 5.4), Complex.getComplex(19.4, 7.2),  Complex.getComplex(8.4, -3.7),  Complex.getComplex(-3.6, -3.1)},
 				  		  {Complex.getComplex(-5.0, 8.4),  Complex.getComplex(3.4, 3.2),   Complex.getComplex(-7.0, -5.0), Complex.getComplex(2.4, 3.5)},
 				  		  {Complex.getComplex(22.4, 13.5), Complex.getComplex(3.3, 6.7),   Complex.getComplex(54.3, 3.7),  Complex.getComplex(-6.4, 3.2)}};
-
+		Complex[][] c3 = {{Complex.getComplex(4.0, 2.4), Complex.getComplex(4.7, 6.4), Complex.getComplex(2.7, -0.8), Complex.getComplex(3.4, -0.5)},
+						  {Complex.getComplex(-1.0, -3.6), Complex.getComplex(1.3, -6.3), Complex.getComplex(3.4, 0.5), Complex.getComplex(2.4, 3.7)},
+						  {Complex.getComplex(5.0, -7.4), Complex.getComplex(-2.7, 4.4), Complex.getComplex(7.6, -0.8), Complex.getComplex(1.9, 3.5)},
+						  {Complex.getComplex(8.0, 2.1), Complex.getComplex(8.1, 1.4), Complex.getComplex(-4.7, 7.4), Complex.getComplex(-1.4, 4.5)}};
+		
 		double dr;
+		Complex cr = new Complex(0.0, 0.0);
 		Matrix md1 = new Matrix(d1);
 		Matrix md2 = new Matrix(d2);
-		
 		Matrix md3 = new Matrix(d3);
 		Matrix md5;
 		
 		
 		Matrix mc1 = new Matrix(c1);
 		Matrix mc2 = new Matrix(c2);
+		Matrix mc3 = new Matrix(c3);
 		Matrix mc5;
 		
 		System.out.println("md1 = \n" + md1);
@@ -55,6 +60,7 @@ public class MatrixTest {
 		System.out.println("md3 = \n" + md3);
 		System.out.println("mc1 = \n" + mc1);
 		System.out.println("mc2 = \n" + mc2);
+		System.out.println("mc3 = \n" + mc3);
 		/**
 		 * [OJ-MAT-TC-001] Matrix<double> + Matrix<double>
 		 */
@@ -627,6 +633,16 @@ public class MatrixTest {
 		System.out.println("trace(md3)= " + dr);
 		assertTrue(Math.abs(21.0 - dr) < 0.001);
 		
+		/**
+		 * [OJ-MAT-TC-011] Matrix(Complex) trace
+		 */
+		cr = (Complex)mc3.trace();
+		
+		System.out.println("[OJ-MAT-TC-011] Matrix(Complex) trace");
+		System.out.println("trace(mc3)= " + cr);
+		
+		assertTrue(Math.abs(11.5 - cr.getRe()) < 0.001);
+		assertTrue(Math.abs(-0.2 - cr.getIm()) < 0.001);
 	}
 
 }
