@@ -1,5 +1,6 @@
 package org.openjasmine.types;
 /**
+ * Vector class
  * @filename VectoR.java
  * @author Hyeon-min.Shim(elecage@gmail.com)
  */

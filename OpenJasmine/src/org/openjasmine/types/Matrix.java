@@ -1,5 +1,6 @@
 package org.openjasmine.types;
 /**
+ * Matrix class
  * @filename Matrix.java
  * @author Hyeon-min.Shim(elecage@gmail.com)
  */

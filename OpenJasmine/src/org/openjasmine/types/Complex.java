@@ -1,6 +1,7 @@
 package org.openjasmine.types;
 
 /**
+ * Complex number class
  * @filename Complex.java
  * @author Hyeon-min.Shim(elecage@gmail.com)
  */
