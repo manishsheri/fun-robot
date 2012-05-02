@@ -2,6 +2,7 @@ package org.openjasmine.types;
 
 
 /** 
+ * operation interface
  * @filename Operation.java
  * @author Hyeon-min.shim(elecage@gmail.com)
  */
