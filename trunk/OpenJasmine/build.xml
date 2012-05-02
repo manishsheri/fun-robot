@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="OpenJasmine" default="complie" basedir=".">
+<project name="OpenJasmine" default="compile" basedir=".">
 	<property name="build.dir"		location="build"/>
 	<property name="build.prod.dir" location="${build.dir}/prod"/>
 	<property name="build.test.dir" location="${build.dir}/test"/>
@@ -22,12 +22,17 @@
 		<mkdir dir="${build.test.dir}"/>
 	</target>
 	<target name="compile"	depends="prepare">
-		<javac srcdir="${src.dir}"	destdir="${build.prod.dir}">
+		<javac srcdir="${src.dir}"	destdir="${build.prod.dir}" includeantruntime="false">
 			<classpath refid="project.classpath" />
 		</javac>
 	</target>
-	<target name="test" depends="compile">
-		<junit haltonfailure="true">
+	<target name="compile-test" depends="compile">
+		<javac srcdir="${test.dir}" destdir="${build.test.dir}" includeantruntime="false">
+			<classpath refid="project.classpath"/>
+		</javac>
+	</target>
+	<target name="test" depends="compile-test">
+		<junit haltonfailure="false">
 			<classpath refid="project.classpath"/>
 			<formatter type="brief" usefile="false"/>
 			<batchtest>
