@@ -16,18 +16,23 @@ import org.openjasmine.types.Matrix;
  */
 public class MatrixTest {
 
+	double dr;
+	Complex cr;
+	Matrix md1;
+	Matrix md2;
+	Matrix md3;
+	Matrix md5;
+	
+	
+	Matrix mc1;
+	Matrix mc2;
+	Matrix mc3;
+	Matrix mc5;
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@Test
-	public void test() {
-		/**
-		 * Set Data
-		 */
 		Double[][] d1 = {{1.0, 2.0, 3.0, 4.0},  {3.0, 4.0, 5.0, 6.0},    {6.0, 3.0, 7.0, 3.0}};
 		Double[][] d2 = {{3.0, 7.0, -2.0, 1.0}, {-1.0, 4.0, -5.0, -4.0}, {3.0, -9.0, 0.0, 4.0}};
 		Double[][] d3 = {{2.0, 3.0, 6.0, 9.4}, {9.0, 8.0, 2.0, 1.0}, {6.0,2.0,7.0 , 8.0}, {6.0, 2.0, 0.5, 4.0}};
@@ -42,29 +47,29 @@ public class MatrixTest {
 						  {Complex.getComplex(5.0, -7.4), Complex.getComplex(-2.7, 4.4), Complex.getComplex(7.6, -0.8), Complex.getComplex(1.9, 3.5)},
 						  {Complex.getComplex(8.0, 2.1), Complex.getComplex(8.1, 1.4), Complex.getComplex(-4.7, 7.4), Complex.getComplex(-1.4, 4.5)}};
 		
-		double dr;
-		Complex cr = new Complex(0.0, 0.0);
-		Matrix md1 = new Matrix(d1);
-		Matrix md2 = new Matrix(d2);
-		Matrix md3 = new Matrix(d3);
-		Matrix md5;
+		cr = new Complex(0.0, 0.0);
+		md1 = new Matrix(d1);
+		md2 = new Matrix(d2);
+		md3 = new Matrix(d3);
+
 		
 		
-		Matrix mc1 = new Matrix(c1);
-		Matrix mc2 = new Matrix(c2);
-		Matrix mc3 = new Matrix(c3);
-		Matrix mc5;
-		
+		mc1 = new Matrix(c1);
+		mc2 = new Matrix(c2);
+		mc3 = new Matrix(c3);
+
 		System.out.println("md1 = \n" + md1);
 		System.out.println("md2 = \n" + md2);
 		System.out.println("md3 = \n" + md3);
 		System.out.println("mc1 = \n" + mc1);
 		System.out.println("mc2 = \n" + mc2);
 		System.out.println("mc3 = \n" + mc3);
-		/**
-		 * [OJ-MAT-TC-001] Matrix<double> + Matrix<double>
-		 */
-		
+	}
+	/**
+	 * [OJ-MAT-TC-001] Matrix<double> + Matrix<double>
+	 */
+	@Test
+	public void ojMatTest001() {
 		md5 = (Matrix)md1.plus(md2);
 		System.out.println("[OJ-MAT-TC-001] Matrix<dobule> + Matrix<double>");
 		System.out.println("md1 + md2 = \n" + md5);
@@ -87,10 +92,13 @@ public class MatrixTest {
 		assertTrue(Math.abs(-6.0 - ((Double)md5.getElement(2, 1)).doubleValue()) < 0.0001);
 		assertTrue(Math.abs(7.0 - ((Double)md5.getElement(2, 2)).doubleValue()) < 0.0001);
 		assertTrue(Math.abs(7.0 - ((Double)md5.getElement(2, 3)).doubleValue()) < 0.0001);
-		
-		/**
-		 * [OJ-MAT-TC-002] Matrix<Complex> + Matrix<Complex>
-		 */
+	}
+	
+	/**
+	 * [OJ-MAT-TC-002] Matrix<Complex> + Matrix<Complex>
+	 */
+	@Test
+	public void ojMatTest002() {
 		mc5 = (Matrix)mc1.plus(mc2);
 		
 		System.out.println("[OJ-MAT-TC-002] Matrix<Complex> + Matrix<Complex>");
@@ -137,10 +145,13 @@ public class MatrixTest {
 
 		assertTrue(Math.abs(-9.8000 - ((Complex)mc5.getElement(2, 3)).getRe()) < 0.0001);
 		assertTrue(Math.abs(5.4000 - ((Complex)mc5.getElement(2, 3)).getIm()) < 0.0001);
-		
-		/**
-		 * [OJ-MAT-TC-003] Matrix<double> + Matrix<Complex>
-		 */
+	}
+	
+	/**
+	 * [OJ-MAT-TC-003] Matrix<double> + Matrix<Complex>
+	 */
+	@Test
+	public void ojMatTest003() {
 		mc5 = (Matrix)md1.plus(mc2);
 		System.out.println("[OJ-MAT-TC-003] Matrix<Complex> + Matrix<Complex>");
 		System.out.println("md1 + mc2 = \n" + mc5);
@@ -187,10 +198,13 @@ public class MatrixTest {
 
 		assertTrue(Math.abs(-3.4000 - ((Complex)mc5.getElement(2, 3)).getRe()) < 0.0001);
 		assertTrue(Math.abs(3.2000 - ((Complex)mc5.getElement(2, 3)).getIm()) < 0.0001);
-		
-		/**
-		 * [OJ-MAT-TC-004] Matrix<Complex> + Matrix<Double>
-		 */		
+	}
+	
+	/**
+	 * [OJ-MAT-TC-004] Matrix<Complex> + Matrix<Double>
+	 */		
+	@Test
+	public void ojMatTest004() {
 		mc5 = (Matrix)mc1.plus(md2);
 		System.out.println("[OJ-MAT-TC-004] Matrix<Complex> + Matrix<Double>");
 		System.out.println("mc1 + md2 = \n" + mc5);
@@ -237,10 +251,12 @@ public class MatrixTest {
 
 		assertTrue(Math.abs(0.6000 - ((Complex)mc5.getElement(2, 3)).getRe()) < 0.0001);
 		assertTrue(Math.abs(2.2000 - ((Complex)mc5.getElement(2, 3)).getIm()) < 0.0001);
-		
-		/**
-		 * [OJ-MAT-TC-005] Matrix<double> - Matrix<double>
-		 */
+	}
+	/**
+	 * [OJ-MAT-TC-005] Matrix<double> - Matrix<double>
+	 */
+	@Test
+	public void ojMatTest005() {
 		md5 = (Matrix)md1.minus(md2);
 
 		System.out.println("[OJ-MAT-TC-005] Matrix<double> - Matrix<double>");
@@ -268,10 +284,13 @@ public class MatrixTest {
 		assertTrue(Math.abs(12.0 - ((Double)md5.getElement(2, 1)).doubleValue()) < 0.0001);
 		assertTrue(Math.abs(7.0 - ((Double)md5.getElement(2, 2)).doubleValue()) < 0.0001);
 		assertTrue(Math.abs(-1.0 - ((Double)md5.getElement(2, 3)).doubleValue()) < 0.0001);
-		
-		/**
-		 * [OJ-MAT-TC-006] Matrix<Complex> - Matrix<Complex>
-		 */
+	}
+	
+	/**
+	 * [OJ-MAT-TC-006] Matrix<Complex> - Matrix<Complex>
+	 */
+	@Test
+	public void ojMatTest006() {
 		mc5 = (Matrix)mc1.minus(mc2);
 		System.out.println("[OJ-MAT-TC-006] Matrix<Complex> - Matrix<Complex>");
 		System.out.println("mc1 - mc2 = \n" + mc5);
@@ -318,9 +337,13 @@ public class MatrixTest {
 
 		assertTrue(Math.abs(3.0000 - ((Complex)mc5.getElement(2, 3)).getRe()) < 0.0001);
 		assertTrue(Math.abs(-1.0000 - ((Complex)mc5.getElement(2, 3)).getIm()) < 0.0001);
-		/**
-		 * [OJ-MAT-TC-007] Matrix<double> - Matrix<Complex>
-		 */
+	}
+	
+	/**
+	 * [OJ-MAT-TC-007] Matrix<double> - Matrix<Complex>
+	 */
+	@Test
+	public void ojMatTest007() {
 		mc5 = (Matrix)md1.minus(mc2);
 		System.out.println("[OJ-MAT-TC-007] Matrix<double> - Matrix<Complex>");
 		System.out.println("md1 - mc2 = \n" + mc5);
@@ -366,11 +389,14 @@ public class MatrixTest {
 		assertTrue(Math.abs(-3.7000 - ((Complex)mc5.getElement(2, 2)).getIm()) < 0.0001);
 
 		assertTrue(Math.abs(9.4000 - ((Complex)mc5.getElement(2, 3)).getRe()) < 0.0001);
-		assertTrue(Math.abs(-3.2000 - ((Complex)mc5.getElement(2, 3)).getIm()) < 0.0001);
-		
-		/**
-		 * [OJ-MAT-TC-008] Matrix<Complex> - Matrix<double>
-		 */
+		assertTrue(Math.abs(-3.2000 - ((Complex)mc5.getElement(2, 3)).getIm()) < 0.0001);	
+	}
+	
+	/**
+	 * [OJ-MAT-TC-008] Matrix<Complex> - Matrix<double>
+	 */
+	@Test
+	public void ojMatTest008() {
 		mc5 = (Matrix)mc1.minus(md2);
 		System.out.println("[OJ-MAT-TC-008] Matrix<Complex> - Matrix<double>");
 		System.out.println("mc1 - md2 = \n" + md5);
@@ -417,10 +443,13 @@ public class MatrixTest {
 
 		assertTrue(Math.abs(-7.4000 - ((Complex)mc5.getElement(2, 3)).getRe()) < 0.0001);
 		assertTrue(Math.abs(2.2000 - ((Complex)mc5.getElement(2, 3)).getIm()) < 0.0001);
-		
-		/**
-		 * [OJ-MAT-TC-009] transpose(Matrix<double>)
-		 */
+	}
+	
+	/**
+	 * [OJ-MAT-TC-009] transpose(Matrix<double>)
+	 */
+	@Test
+	public void ojMatTest009() {
 		md5 = md1.transpose();
 		
 		System.out.println("[OJ-MAT-TC-009] transpose(Matrix<double>)");
@@ -452,11 +481,14 @@ public class MatrixTest {
 		assertTrue(Math.abs(4.0 - ((Double)md5.getElement(3, 0)).doubleValue()) < 0.0001);
 		assertTrue(Math.abs(6.0 - ((Double)md5.getElement(3, 1)).doubleValue()) < 0.0001);
 		assertTrue(Math.abs(3.0 - ((Double)md5.getElement(3, 2)).doubleValue()) < 0.0001);
-		
-		/**
-		 * [OJ-MAT-TC-010] transpose(Matrix<Complex>)
-		 */
-		mc5 = mc1.transpose();
+	}
+	
+	/**
+	 * [OJ-MAT-TC-010] transpose(Matrix<Complex>)
+	 */
+	@Test
+	public void ojMatTest010() {
+mc5 = mc1.transpose();
 		
 		System.out.println("[OJ-MAT-TC-010] transpose(Matrix<Complex>)");
 		System.out.println("transpose(mdc)= \n" + mc5);
@@ -507,12 +539,14 @@ public class MatrixTest {
 		
 		assertTrue(Math.abs(-3.4000 - ((Complex)mc5.getElement(3, 2)).getRe()) < 0.0001);
 		assertTrue(Math.abs(2.2000 - ((Complex)mc5.getElement(3, 2)).getIm()) < 0.0001);
-
-		/**
-		 * [OJ-MAT-TC-010] Identity matrix
-		 */
+	}
+	/**
+	 * [OJ-MAT-TC-010] Identity matrix
+	 */
+	@Test
+	public void ojMatTest011() {
 		md5 = Matrix.eye(10);
-		System.out.println("[OJ-MAT-TC-010] Identity matrix");
+		System.out.println("[OJ-MAT-TC-011] Identity matrix");
 		System.out.println("transpose(md1)= \n" + md5);
 		
 		assertTrue(Math.abs(1.0 - ((Double)md5.getElement(0, 0)).doubleValue()) < 0.0001);
@@ -624,25 +658,29 @@ public class MatrixTest {
 		assertTrue(Math.abs(0.0 - ((Double)md5.getElement(7, 9)).doubleValue()) < 0.0001);
 		assertTrue(Math.abs(0.0 - ((Double)md5.getElement(8, 9)).doubleValue()) < 0.0001);
 		assertTrue(Math.abs(1.0 - ((Double)md5.getElement(9, 9)).doubleValue()) < 0.0001);
-		
-		/**
-		 * [OJ-MAT-TC-010] Matrix(double) trace
-		 */
+	}
+	
+	/**
+	 * [OJ-MAT-TC-012] Matrix(double) trace
+	 */
+	@Test
+	public void ojMatTest012() {
 		dr = ((Double)md3.trace()).doubleValue();
-		System.out.println("[OJ-MAT-TC-010] Matrix(double) trace");
+		System.out.println("[OJ-MAT-TC-012] Matrix(double) trace");
 		System.out.println("trace(md3)= " + dr);
 		assertTrue(Math.abs(21.0 - dr) < 0.001);
+	}
+	/**
+	 * [OJ-MAT-TC-013] Matrix(Complex) trace
+	 */
+	@Test
+	public void ojMatTest013() {
+cr = (Complex)mc3.trace();
 		
-		/**
-		 * [OJ-MAT-TC-011] Matrix(Complex) trace
-		 */
-		cr = (Complex)mc3.trace();
-		
-		System.out.println("[OJ-MAT-TC-011] Matrix(Complex) trace");
+		System.out.println("[OJ-MAT-TC-013] Matrix(Complex) trace");
 		System.out.println("trace(mc3)= " + cr);
 		
 		assertTrue(Math.abs(11.5 - cr.getRe()) < 0.001);
 		assertTrue(Math.abs(-0.2 - cr.getIm()) < 0.001);
 	}
-
 }
