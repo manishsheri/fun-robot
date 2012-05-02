@@ -42,4 +42,29 @@
 			<sysproperty key="index.dir"	value="${index.dir}"/>
 		</junit>
 	</target>
+	<target name="test-plain" depends="compile-test">
+		<junit haltonfailure="false">
+			<classpath refid="project.classpath"/>
+			<formatter type="plain" usefile="false"/>
+			<batchtest>
+				<fileset dir="${build.test.dir}" includes="**/*Test.class" />
+			</batchtest>
+			<sysproperty key="doc.dir"		value="${doc.dir}" />
+			<sysproperty key="index.dir"	value="${index.dir}"/>
+		</junit>
+	</target>
+	<target name="clean">
+		<delete file="${build.prod.dir}/*"/>
+		<delete file="${build.test.dir}/*"/>
+	</target>
+	<target name="javadoc-pub">
+		<javadoc packagenames="org.openjasmine.*"
+			sourcepath="src"
+		    defaultexcludes="yes"
+			destdir="doc"
+			author="true"
+			version="true"
+			use="true"
+			windowtitle="Open Jasmine"/>
+	</target>
 </project>
