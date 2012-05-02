@@ -1052,6 +1052,6 @@ public class VectorTest {
 		v1.setElement(0, 5.0);
 		
 		System.out.println("v1 = " + v1);
-		System.out.println("v5 = " + v5); // ¾ÆÁ÷ ¹®Á¦ ÀÖ´Ù.
+		System.out.println("v5 = " + v5); // ì•„ì§ ë¬¸ì œ ìˆìŒ
 	}
 }
