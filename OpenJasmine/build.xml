@@ -1,97 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="OpenJasmine" default="compile" basedir=".">
-	<property name="build.dir"			location="build"/>
-	<property name="build.prod.dir" 	location="${build.dir}/prod"/>
-	<property name="build.test.dir" 	location="${build.dir}/test"/>
-	<property name="doc.dir"			location="doc"/>
-	<property name="index.dir"			location="index"/>
-	<property name="src.dir"			location="src"/>
-	<property name="test.dir"			location="test"/>
-	<property name="vendor.lib.dir"		location="vendor/lib"/>
-	<property name="test.report.dir"	location="reports"/>
-	
+	<property name="build.dir" location="build" />
+	<property name="build.prod.dir" location="${build.dir}/prod" />
+	<property name="build.test.dir" location="${build.dir}/test" />
+	<property name="doc.dir" location="doc" />
+	<property name="index.dir" location="index" />
+	<property name="src.dir" location="src" />
+	<property name="test.dir" location="test" />
+	<property name="vendor.lib.dir" location="vendor/lib" />
+	<property name="test.report.dir" location="reports" />
+
 	<path id="project.classpath">
-		<pathelement location="${build.prod.dir}"/>
-		<pathelement location="${build.test.dir}"/>
-		
+		<pathelement location="${build.prod.dir}" />
+		<pathelement location="${build.test.dir}" />
+
 		<fileset dir="${vendor.lib.dir}">
-			<include name="*.jar"/>
+			<include name="*.jar" />
 		</fileset>
 	</path>
-	
+
 	<target name="prepare">
-		<mkdir dir="${build.prod.dir}"/>
-		<mkdir dir="${build.test.dir}"/>
-		<mkdir dir="${test.report.dir}"/>
-		<mkdir dir="${doc.dir}"/>
+		<mkdir dir="${build.prod.dir}" />
+		<mkdir dir="${build.test.dir}" />
+		<mkdir dir="${test.report.dir}" />
+		<mkdir dir="${doc.dir}" />
 	</target>
-	
-	<target name="compile"	depends="prepare">
-		<javac srcdir="${src.dir}"	destdir="${build.prod.dir}" includeantruntime="false">
+
+	<target name="compile" depends="prepare">
+		<javac srcdir="${src.dir}" destdir="${build.prod.dir}" includeantruntime="false">
 			<classpath refid="project.classpath" />
 		</javac>
 	</target>
-	
+
 	<target name="compile-test" depends="compile">
 		<javac srcdir="${test.dir}" destdir="${build.test.dir}" includeantruntime="false">
-			<classpath refid="project.classpath"/>
+			<classpath refid="project.classpath" />
 		</javac>
 	</target>
-	
-	
-	<target name="test" depends="compile-test">
-	        <junit printsummary="yes" haltonfailure="no">
-	                <classpath refid="project.classpath" />
-	                <formatter type="xml" />
 
-	                <batchtest fork="yes" todir="${test.report.dir}">
-	                        <fileset dir="${test.dir}">
-	                                <include name="**/*Test*.java" />
-	                                <exclude name="**/AllTests.java" />
-	                        </fileset>
-	                </batchtest>
-	        </junit>
+
+	<target name="test" depends="compile-test">
+		<junit printsummary="yes" haltonfailure="no">
+			<classpath refid="project.classpath" />
+			<formatter type="xml" />
+
+			<batchtest fork="yes" todir="${test.report.dir}">
+				<fileset dir="${test.dir}">
+					<include name="**/*Test*.java" />
+					<exclude name="**/AllTests.java" />
+				</fileset>
+			</batchtest>
+		</junit>
 	</target>
 
 	<target name="test.report" depends="test">
-	        <junitreport todir="${test.report.dir}">
-	                <fileset dir="${test.report.dir}">
-	                        <include name="TEST-*.xml" />
-	                </fileset>
-	                <report format="frames" todir="${test.report.dir}" />
-	        </junitreport>
+		<junitreport todir="${test.report.dir}">
+			<fileset dir="${test.report.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${test.report.dir}" />
+		</junitreport>
 	</target>
-	
+
 	<target name="test-plain" depends="compile-test">
 		<junit haltonfailure="false">
-			<classpath refid="project.classpath"/>
-			<formatter type="plain" usefile="false"/>
+			<classpath refid="project.classpath" />
+			<formatter type="plain" usefile="false" />
 			<batchtest>
 				<fileset dir="${build.test.dir}" includes="**/*Test.class" />
 			</batchtest>
-			<sysproperty key="doc.dir"		value="${doc.dir}" />
-			<sysproperty key="index.dir"	value="${index.dir}"/>
+			<sysproperty key="doc.dir" value="${doc.dir}" />
+			<sysproperty key="index.dir" value="${index.dir}" />
 		</junit>
 	</target>
 	<target name="clean">
-		<delete dir="${build.prod.dir}"/>
-		<delete dir="${build.test.dir}"/>
-		<delete dir="${doc.dir}"/>
-		<delete dir="${test.report.dir}/org"/>
-		<delete dir="${test.report.dir}/"/>
+		<delete dir="${build.prod.dir}" />
+		<delete dir="${build.test.dir}" />
+		<delete dir="${doc.dir}" />
+		<delete dir="${test.report.dir}/org" />
+		<delete dir="${test.report.dir}/" />
 	</target>
 	<target name="javadoc-pub">
-		<javadoc packagenames="org.openjasmine.*"
-			sourcepath="src"
-		    defaultexcludes="yes"
-			destdir="doc"
-			author="true"
-			version="true"
-			use="true"
-			locale="ko_KR"
-			encoding="UTF-8"
-			charset="UTF-8"
-			docencoding="UTF-8"
-			windowtitle="Open Jasmine"/>
+		<javadoc packagenames="org.openjasmine.*" sourcepath="src" defaultexcludes="yes" destdir="doc" author="true" version="true" use="true" locale="ko_KR" encoding="UTF-8" charset="UTF-8" docencoding="UTF-8" windowtitle="Open Jasmine" />
 	</target>
 </project>
