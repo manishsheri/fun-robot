@@ -8,11 +8,12 @@
 	<property name="src.dir"			location="src"/>
 	<property name="test.dir"			location="test"/>
 	<property name="vendor.lib.dir"		location="vendor/lib"/>
-	<property name="test.report.dir"	location="${build.dir}/test/report"/>
+	<property name="test.report.dir"	location="$reports/junit"/>
 	
 	<path id="project.classpath">
 		<pathelement location="${build.prod.dir}"/>
 		<pathelement location="${build.test.dir}"/>
+		
 		<fileset dir="${vendor.lib.dir}">
 			<include name="*.jar"/>
 		</fileset>
@@ -21,6 +22,7 @@
 	<target name="prepare">
 		<mkdir dir="${build.prod.dir}"/>
 		<mkdir dir="${build.test.dir}"/>
+		<mkdir dir="${test.report.dir}"/>
 		<mkdir dir="${doc.dir}"/>
 	</target>
 	
@@ -38,13 +40,14 @@
 	
 	
 	<target name="test" depends="compile-test">
-		<mkdir dir="${test.report.dir}"/>
-		<junit printsummary="yes" haltonfailure="false">
+		
+		<junit printsummary="yes" haltonfailure="no">
 			<classpath refid="project.classpath"/>
 			<formatter type="xml" usefile="false"/>
 			<batchtest>
 				<fileset dir="${build.test.dir}">
 					<include name="**/*Test.class" />
+					<exclude name="**/AllTests.java" />
 				</fileset>
 			</batchtest>
 			<sysproperty key="doc.dir"		value="${doc.dir}" />
