@@ -88,6 +88,7 @@
 			author="true"
 			version="true"
 			use="true"
+			locale="ko_KR"
 			encoding="ms949"
 			charset="ms949"
 			docencoding="ms949"
