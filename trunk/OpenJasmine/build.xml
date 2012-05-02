@@ -89,9 +89,9 @@
 			version="true"
 			use="true"
 			locale="ko_KR"
-			encoding="ms949"
-			charset="ms949"
-			docencoding="ms949"
+			encoding="UTF-8"
+			charset="UTF-8"
+			docencoding="UTF-8"
 			windowtitle="Open Jasmine"/>
 	</target>
 </project>
