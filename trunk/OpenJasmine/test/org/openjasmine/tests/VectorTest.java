@@ -35,25 +35,25 @@ public class VectorTest {
 		 */
 		Complex[] c1 = new Complex[4];					
 		
-		Complex[] c2 = {Complex.getComplex(3.0, 2.0), 
-						Complex.getComplex(5.0, -2.0),
-						Complex.getComplex(-6.0, 4.0),
-						Complex.getComplex(-2.0, -8.0)};
+		Complex[] c2 = {Complex.setComplex(3.0, 2.0), 
+						Complex.setComplex(5.0, -2.0),
+						Complex.setComplex(-6.0, 4.0),
+						Complex.setComplex(-2.0, -8.0)};
 		
-		Complex[] c3 = {Complex.getComplex(1.4, 2.7),
-						Complex.getComplex(-2.3, 3.9),
-						Complex.getComplex(0.8, -1.2)};
+		Complex[] c3 = {Complex.setComplex(1.4, 2.7),
+						Complex.setComplex(-2.3, 3.9),
+						Complex.setComplex(0.8, -1.2)};
 
-		Complex[] c4 = {Complex.getComplex(3.5, -3.4),
-						Complex.getComplex(1.8, 5.9),
-						Complex.getComplex(9.2, -3.3)};
+		Complex[] c4 = {Complex.setComplex(3.5, -3.4),
+						Complex.setComplex(1.8, 5.9),
+						Complex.setComplex(9.2, -3.3)};
 		
-		Complex[] c5 = {Complex.getComplex(2.0, 3.4),
-						Complex.getComplex(3.5, 9.3),
-						Complex.getComplex(-2.3, 3.4),
-						Complex.getComplex(-0.3, 0.3),
-						Complex.getComplex(-2.4, 4.4),
-						Complex.getComplex(3.4, 3.2)};
+		Complex[] c5 = {Complex.setComplex(2.0, 3.4),
+						Complex.setComplex(3.5, 9.3),
+						Complex.setComplex(-2.3, 3.4),
+						Complex.setComplex(-0.3, 0.3),
+						Complex.setComplex(-2.4, 4.4),
+						Complex.setComplex(3.4, 3.2)};
 		
 		cc1 = new Complex(2.3, 3.2);
 		for(int i = 0 ; i < 4 ; i++) {
@@ -1009,7 +1009,7 @@ public class VectorTest {
 	 */
 	@Test
 	public void ojVecTest056() {
-		v5 = (VectoR)v3.times(Complex.getComplex(2.3, 3.2));
+		v5 = (VectoR)v3.times(Complex.setComplex(2.3, 3.2));
 		System.out.println("[OJ-VEC-TC-056] Vector<Complex> * Complex");
 		System.out.println(v2 + " * (2.3 + 3.2i) = " + v4);
 		

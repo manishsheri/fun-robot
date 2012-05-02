@@ -1,7 +1,8 @@
-/**
- * 
- */
 package org.openjasmine.tests;
+/**
+ * @filename MatrixTest.java
+ * @author Hyeon-min.Shim(elecage@gmail.com)
+ */
 
 import static org.junit.Assert.*;
 
@@ -10,10 +11,6 @@ import org.junit.Test;
 import org.openjasmine.types.Complex;
 import org.openjasmine.types.Matrix;
 
-/**
- * @author Hyeon-min.Shim(elecage@gmail.com)
- *
- */
 public class MatrixTest {
 
 	double dr;
@@ -36,16 +33,16 @@ public class MatrixTest {
 		Double[][] d1 = {{1.0, 2.0, 3.0, 4.0},  {3.0, 4.0, 5.0, 6.0},    {6.0, 3.0, 7.0, 3.0}};
 		Double[][] d2 = {{3.0, 7.0, -2.0, 1.0}, {-1.0, 4.0, -5.0, -4.0}, {3.0, -9.0, 0.0, 4.0}};
 		Double[][] d3 = {{2.0, 3.0, 6.0, 9.4}, {9.0, 8.0, 2.0, 1.0}, {6.0,2.0,7.0 , 8.0}, {6.0, 2.0, 0.5, 4.0}};
-		Complex[][] c1 = {{Complex.getComplex(2.0, 3.4),   Complex.getComplex(-2.4, 3.2),  Complex.getComplex(5.4, -1.7),  Complex.getComplex(-3.4, -3.5)},
-						  {Complex.getComplex(-2.0, 1.4),  Complex.getComplex(-4.4, -5.2), Complex.getComplex(9.0, 4.0),   Complex.getComplex(0.4, 0.5)},
-						  {Complex.getComplex(22.0, 53.1), Complex.getComplex(36.5, 13.2), Complex.getComplex(5.4, 1.7),   Complex.getComplex(-3.4, 2.2)}};
-		Complex[][] c2 = {{Complex.getComplex(-12.0, 5.4), Complex.getComplex(19.4, 7.2),  Complex.getComplex(8.4, -3.7),  Complex.getComplex(-3.6, -3.1)},
-				  		  {Complex.getComplex(-5.0, 8.4),  Complex.getComplex(3.4, 3.2),   Complex.getComplex(-7.0, -5.0), Complex.getComplex(2.4, 3.5)},
-				  		  {Complex.getComplex(22.4, 13.5), Complex.getComplex(3.3, 6.7),   Complex.getComplex(54.3, 3.7),  Complex.getComplex(-6.4, 3.2)}};
-		Complex[][] c3 = {{Complex.getComplex(4.0, 2.4), Complex.getComplex(4.7, 6.4), Complex.getComplex(2.7, -0.8), Complex.getComplex(3.4, -0.5)},
-						  {Complex.getComplex(-1.0, -3.6), Complex.getComplex(1.3, -6.3), Complex.getComplex(3.4, 0.5), Complex.getComplex(2.4, 3.7)},
-						  {Complex.getComplex(5.0, -7.4), Complex.getComplex(-2.7, 4.4), Complex.getComplex(7.6, -0.8), Complex.getComplex(1.9, 3.5)},
-						  {Complex.getComplex(8.0, 2.1), Complex.getComplex(8.1, 1.4), Complex.getComplex(-4.7, 7.4), Complex.getComplex(-1.4, 4.5)}};
+		Complex[][] c1 = {{Complex.setComplex(2.0, 3.4),   Complex.setComplex(-2.4, 3.2),  Complex.setComplex(5.4, -1.7),  Complex.setComplex(-3.4, -3.5)},
+						  {Complex.setComplex(-2.0, 1.4),  Complex.setComplex(-4.4, -5.2), Complex.setComplex(9.0, 4.0),   Complex.setComplex(0.4, 0.5)},
+						  {Complex.setComplex(22.0, 53.1), Complex.setComplex(36.5, 13.2), Complex.setComplex(5.4, 1.7),   Complex.setComplex(-3.4, 2.2)}};
+		Complex[][] c2 = {{Complex.setComplex(-12.0, 5.4), Complex.setComplex(19.4, 7.2),  Complex.setComplex(8.4, -3.7),  Complex.setComplex(-3.6, -3.1)},
+				  		  {Complex.setComplex(-5.0, 8.4),  Complex.setComplex(3.4, 3.2),   Complex.setComplex(-7.0, -5.0), Complex.setComplex(2.4, 3.5)},
+				  		  {Complex.setComplex(22.4, 13.5), Complex.setComplex(3.3, 6.7),   Complex.setComplex(54.3, 3.7),  Complex.setComplex(-6.4, 3.2)}};
+		Complex[][] c3 = {{Complex.setComplex(4.0, 2.4), Complex.setComplex(4.7, 6.4), Complex.setComplex(2.7, -0.8), Complex.setComplex(3.4, -0.5)},
+						  {Complex.setComplex(-1.0, -3.6), Complex.setComplex(1.3, -6.3), Complex.setComplex(3.4, 0.5), Complex.setComplex(2.4, 3.7)},
+						  {Complex.setComplex(5.0, -7.4), Complex.setComplex(-2.7, 4.4), Complex.setComplex(7.6, -0.8), Complex.setComplex(1.9, 3.5)},
+						  {Complex.setComplex(8.0, 2.1), Complex.setComplex(8.1, 1.4), Complex.setComplex(-4.7, 7.4), Complex.setComplex(-1.4, 4.5)}};
 		
 		cr = new Complex(0.0, 0.0);
 		md1 = new Matrix(d1);
