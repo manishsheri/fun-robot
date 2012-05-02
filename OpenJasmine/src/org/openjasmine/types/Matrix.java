@@ -1,13 +1,13 @@
-/**
- * 
- */
 package org.openjasmine.types;
-
-/** 
+/**
+ * @filename Matrix.java
  * @author Hyeon-min.Shim(elecage@gmail.com)
  */
 public class Matrix implements Operation {
 
+	/**
+	 * Default Constructor
+	 */
 	public Matrix() {
 		super();
 		row = 3;	/// default row size = 3;
@@ -15,6 +15,12 @@ public class Matrix implements Operation {
 		elements = new Object[row][col];
 	}
 
+	/**
+	 * Constructor with size setting.<br>
+	 * 크기를 설정하는 생성자.
+	 * @param row row size of the Matrix class.
+	 * @param col column size of the Matrix class.
+	 */
 	public Matrix(int row, int col) {
 		super();
 		this.row = row;
@@ -22,6 +28,13 @@ public class Matrix implements Operation {
 		elements = new Object[row][col];
 	}
 
+	/**
+	 * Constructor with size setting and initial value - all elements has same value.<br>
+	 * 크기와 초기값을 설정하는 생성자. 모든 엘리먼트 값이 같도록 설정. 
+	 * @param row row size of the Matrix class.
+	 * @param col column size of the Matrix class.
+	 * @param value initial value of each elements.
+	 */
 	public Matrix(int row, int col, Object value) {
 		super();
 		this.row = row;
@@ -37,11 +50,21 @@ public class Matrix implements Operation {
 		}
 	}
 	
+	/**
+	 * Constructor with elements setting.
+	 * @param elements element setting
+	 */
 	public Matrix(Object[][] elements) {
 		super();
 		this.elements = elements;
 		this.row = elements.length;
 		this.col = elements[0].length;
+	}
+	
+	public Matrix(Matrix m) {
+		this.row = m.getRow();
+		this.col = m.getCol();
+		this.elements = m.getElement();
 	}
 
 	/* (non-Javadoc)
@@ -225,14 +248,13 @@ public class Matrix implements Operation {
 	}
 
 	/**
-	 * @uml.property  name="row"
+	 * row size of the Matrix class
 	 */
 	private int row;
 
 	/**
 	 * Getter of the property <tt>row</tt>
 	 * @return  Returns the row.
-	 * @uml.property  name="row"
 	 */
 	public int getRow() {
 		return row;
@@ -241,21 +263,19 @@ public class Matrix implements Operation {
 	/**
 	 * Setter of the property <tt>row</tt>
 	 * @param row  The row to set.
-	 * @uml.property  name="row"
 	 */
 	public void setRow(int row) {
 		this.row = row;
 	}
 
 	/**
-	 * @uml.property  name="col"
+	 * column size of the Matirx class
 	 */
 	private int col;
 
 	/**
 	 * Getter of the property <tt>col</tt>
 	 * @return  Returns the col.
-	 * @uml.property  name="col"
 	 */
 	public int getCol() {
 		return col;
@@ -264,7 +284,6 @@ public class Matrix implements Operation {
 	/**
 	 * Setter of the property <tt>col</tt>
 	 * @param col  The col to set.
-	 * @uml.property  name="col"
 	 */
 	public void setCol(int col) {
 		this.col = col;
@@ -272,14 +291,13 @@ public class Matrix implements Operation {
 	}
 
 	/**
-	 * @uml.property  name="element" multiplicity="(0 -1)" dimension="2"
+	 * elements of the Matrix class
 	 */
 	private Object[][] elements;
 
 	/**
 	 * Getter of the property <tt>element</tt>
 	 * @return  Returns the elements.
-	 * @uml.property  name="element"
 	 */
 	public Object[][] getElement() {
 		return this.elements;
@@ -292,12 +310,17 @@ public class Matrix implements Operation {
 	/**
 	 * Setter of the property <tt>element</tt>
 	 * @param element  The elements to set.
-	 * @uml.property  name="element"
 	 */
 	public void setElement(Object[][] element) {
 		elements = element;
 	}
 	
+	/**
+	 * set element of the Matrix
+	 * @param row row position of the element
+	 * @param col column position of the element
+	 * @param element value of the element
+	 */
 	public void setElement(int row, int col, Object element) {
 		this.elements[row][col] = element;
 	}

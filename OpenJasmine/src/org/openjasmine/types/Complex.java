@@ -1,10 +1,10 @@
-
 package org.openjasmine.types;
 
-
 /**
+ * @filename Complex.java
  * @author Hyeon-min.Shim(elecage@gmail.com)
  */
+
 public class Complex implements Operation, Cloneable {
 
 	
@@ -27,8 +27,9 @@ public class Complex implements Operation, Cloneable {
 	}
 
 	/**
-	 * add this complex and the other number
-	 * @param obj number to add. 
+	 * add this complex and the other number <br>
+	 * 두 복소수를 더한다.
+	 * @param obj number to add. < 더하고자 하는 수>
 	 * @return this + obj
 	 */
 	@Override
@@ -44,8 +45,9 @@ public class Complex implements Operation, Cloneable {
 	}
 	
 	/**
-	 * subtract a number from this complex  
-	 * @param obj number to add(complex or real(double)). 
+	 * subtract a number from this complex.<br> 
+	 * 두 복소수를 뺀다.
+	 * @param obj number to add(complex or real(double)) 빼고자 하는 숫자. 복소수 또는 double형이 올 수 있다. 
 	 * @return this + obj
 	 */
 	@Override
@@ -61,6 +63,12 @@ public class Complex implements Operation, Cloneable {
 	}
 
 	@Override
+	/**
+	 * multiply a number from this complex.<br>  
+	 * 두 복소수를 곱한다.
+	 * @param obj number to add(complex or real(double)) 곱하고자 하는 숫자. 복소수 또는 double형이 올 수 있다. 
+	 * @return this + obj
+	 */
 	public Object times(Object obj) {
 		Object result =  new Complex();
 		double re2, im2;
@@ -100,7 +108,7 @@ public class Complex implements Operation, Cloneable {
 		
 		
 	/**
-	 * Constructor
+	 * Constructor. 실수부와 허수부를 세팅하는 경우.
 	 * @param re The re to set
 	 * @param im The im to set
 	 */
@@ -111,7 +119,8 @@ public class Complex implements Operation, Cloneable {
 
 
 	/**
-	 * @uml.property  name="re"
+	 * Real part of the Complex class.<br>
+	 * Complex 클래스의 실수부 
 	 */
 	protected double re;
 
@@ -135,7 +144,8 @@ public class Complex implements Operation, Cloneable {
 
 
 	/**
-	 * @uml.property  name="im"
+	 * Imaginary part of the Complex class
+	 * Complex class의 허수부
 	 */
 	protected double im;
 
@@ -146,7 +156,6 @@ public class Complex implements Operation, Cloneable {
 	 * 복소수의 허수부 <tt>im</tt> 가져오기<br>
 	 *  - <tt>im</tt> : 복소수의 허수부<br>
 	 * @return  Returns the im.
-	 * @uml.property  name="im"
 	 */
 	public double getIm() {
 		return im;
@@ -240,22 +249,27 @@ public class Complex implements Operation, Cloneable {
 	}
 
 		
-		/**
-		 */
-		public static Complex getComplex(Double re, Double im){
-			Complex result = new Complex(re, im);
-			return result;
-		}
+	/**
+	 * set Complex with real and imaginary parts.
+	 * 별도의 Complex를 설정하지 않고 복소수를 설정
+	 */
+	public static Complex setComplex(Double re, Double im){
+		Complex result = new Complex(re, im);
+		return result;
+	}
 
 			
 	/**
+	 * minus number of the Complex class
+	 * (this Complex class) * (-1)
 	 */
 	public Complex diff(){
-		return Complex.getComplex(-this.re, -this.im);
+		return Complex.setComplex(-this.re, -this.im);
 	}
 
 				
 	/**
+	 * 1/(this Complex class)
 	 */
 	public Object inv(){
 		double df = this.re * this.re + this.im * this.im;

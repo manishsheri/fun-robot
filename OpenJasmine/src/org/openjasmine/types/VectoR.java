@@ -1,5 +1,8 @@
 package org.openjasmine.types;
-
+/**
+ * @filename VectoR.java
+ * @author Hyeon-min.Shim(elecage@gmail.com)
+ */
 
 public class VectoR implements Operation, Cloneable {
 
@@ -40,21 +43,29 @@ public class VectoR implements Operation, Cloneable {
 	}
 
 	/** 
-	 * @uml.property name="element" multiplicity="(0 -1)" dimension="1"
+	 * elements of the VectoR class
 	 */
 	protected Object[] element;
 
 	/**
-	 * @uml.property  name="size"
+	 * sizeof VectoR
 	 */
 	protected int size;
 
+	/**
+	 * Constructor with setting size
+	 * @param size
+	 */
 	public VectoR(int size) {
 		super();
 		this.size = size;
 		element = new Object[size];
 	}
 
+	/**
+	 * Constructor with setting element
+	 * @param element
+	 */
 	public VectoR(Object[] element) {
 		super();
 		this.element = element;
@@ -62,6 +73,9 @@ public class VectoR implements Operation, Cloneable {
 	}
 
 	@Override
+	/**
+	 * Calculate absolute value
+	 */
 	public Object abs() {
 		Object result = new Double[this.size];;
 		int size = this.element.length;;
@@ -93,6 +107,11 @@ public class VectoR implements Operation, Cloneable {
 		return result;
 	}
 
+	/**
+	 * Calculate cross product
+	 * @param operand
+	 * @return corss product result
+	 */
 	public VectoR cross(VectoR v) {
 		Complex mtemp1 = new Complex(0., 0.);
 		Complex mtemp2 = new Complex(0., 0.);
@@ -178,7 +197,7 @@ public class VectoR implements Operation, Cloneable {
 							double retemp, imtemp;
 							retemp = ((Double)((Complex)this.element[i]).getRe()).doubleValue() /((Double)o[i]).doubleValue();
 							imtemp = ((Double)((Complex)this.element[i]).getIm()).doubleValue() /((Double)o[i]).doubleValue();
-							result.setElement(i, Complex.getComplex(retemp, imtemp));							
+							result.setElement(i, Complex.setComplex(retemp, imtemp));							
 						}
 					}
 				}
@@ -232,6 +251,9 @@ public class VectoR implements Operation, Cloneable {
 	}
 
 	/**
+	 * Calculate dot product
+	 * @param v operand
+	 * @return dot product result(scalar)
 	 */
 	public Object dot(VectoR v){
 		Object result = null;;
@@ -289,7 +311,6 @@ public class VectoR implements Operation, Cloneable {
 	/** 
 	 * Getter of the property <tt>element</tt>
 	 * @return  Returns the element.
-	 * @uml.property  name="element"
 	 */
 	public Object[] getElement() {
 		return element;
@@ -302,7 +323,6 @@ public class VectoR implements Operation, Cloneable {
 	/**
 	 * Getter of the property <tt>size</tt>
 	 * @return  Returns the size.
-	 * @uml.property  name="size"
 	 */
 	public int getSize() {
 		return size;
@@ -346,10 +366,19 @@ public class VectoR implements Operation, Cloneable {
 		}
 	}
 
+	/**
+	 * calculate norm
+	 * @return norm result
+	 */
 	public double norm() {
 		return norm(2.0);
 	}
 
+	/**
+	 * calculate norm with setting power
+	 * @param n power
+	 * @return norm result
+	 */
 	public double norm(Double n) {
 		double result = 0;
 		double temp;
@@ -476,6 +505,11 @@ public class VectoR implements Operation, Cloneable {
 		}
 	}
 	
+	/**
+	 * set element 
+	 * @param index
+	 * @param element
+	 */
 	public void setElement(int index, Object element) {
 		this.element[index] = element;
 	}
@@ -483,7 +517,6 @@ public class VectoR implements Operation, Cloneable {
 	/** 
 	 * Setter of the property <tt>element</tt>
 	 * @param element  The element to set.
-	 * @uml.property  name="element"
 	 */
 	public void setElement(Object[] element) {
 		this.element = element;
@@ -491,7 +524,6 @@ public class VectoR implements Operation, Cloneable {
 	/**
 	 * Setter of the property <tt>size</tt>
 	 * @param size  The size to set.
-	 * @uml.property  name="size"
 	 */
 	public void setSize(int size) {
 		this.size = size;
