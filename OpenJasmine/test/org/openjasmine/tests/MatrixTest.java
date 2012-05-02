@@ -675,7 +675,7 @@ mc5 = mc1.transpose();
 	 */
 	@Test
 	public void ojMatTest013() {
-cr = (Complex)mc3.trace();
+		cr = (Complex)mc3.trace();
 		
 		System.out.println("[OJ-MAT-TC-013] Matrix(Complex) trace");
 		System.out.println("trace(mc3)= " + cr);
