@@ -119,7 +119,6 @@ public class Complex implements Operation, Cloneable {
 	/**
 	 * Getter of the property <tt>re</tt>
 	 * @return  Returns the re.
-	 * @uml.property  name="re"
 	 */
 	public double getRe() {
 		return re;
@@ -129,7 +128,6 @@ public class Complex implements Operation, Cloneable {
 	 * Setter of the property <tt>re</tt>
 	 * - <tt>re</tt> : real part of the complex number<br><br>
 	 * @param re  The re to set.
-	 * @uml.property  name="re"
 	 */
 	public void setRe(Double re) {
 		this.re = re.doubleValue();
@@ -145,8 +143,8 @@ public class Complex implements Operation, Cloneable {
 	/**
 	 * Getter of the property <tt>im</tt><br>
 	 * - <tt>im</tt> : imaginary part of the complex number<br><br>
-	 * <tt>im</tt> °¡Á®¿À±â<br>
-	 *  - <tt>im</tt> : º¹¼Ò¼öÀÇ Çã¼öºÎ<br>
+	 * ë³µì†Œìˆ˜ì˜ í—ˆìˆ˜ë¶€ <tt>im</tt> ê°€ì ¸ì˜¤ê¸°<br>
+	 *  - <tt>im</tt> : ë³µì†Œìˆ˜ì˜ í—ˆìˆ˜ë¶€<br>
 	 * @return  Returns the im.
 	 * @uml.property  name="im"
 	 */
@@ -157,10 +155,9 @@ public class Complex implements Operation, Cloneable {
 	/**
 	 * Setter of the property <tt>im</tt><br>
 	 * - <tt>im</tt> : imaginary part of the complex number<br><br>
-	 * ¼Ó¼º <tt>im</tt> ¼³Á¤<br>
-	 * - <tt>im</tt> : º¹¼Ò¼öÀÇ Çã¼öºÎ<br>
+	 * ë³µì†Œìˆ˜ì˜ í—ˆìˆ˜ë¶€ <tt>im</tt> ì„¤ì •<br>
+	 * - <tt>im</tt> : ë³µì†Œìˆ˜ì˜ í—ˆìˆ˜ë¶€<br>
 	 * @param im  The im to set.
-	 * @uml.property  name="im"
 	 */
 	public void setIm(Double im) {
 		this.im = im.doubleValue();
@@ -171,9 +168,9 @@ public class Complex implements Operation, Cloneable {
 	 * Setter of the property <tt>re</tt> and <tt>im</tt><br>
 	 * - <tt>re</tt> : real part of the complex number<br>
 	 * - <tt>im</tt> : imaginary part of the complex number<br><br>
-	 * ¼Ó¼º <tt>re</tt>¿Í <tt>im</tt> ¼³Á¤<br>
-	 * - <tt>re</tt> : º¹¼Ò¼öÀÇ ½Ç¼öºÎ<br>
-	 * - <tt>im</tt> : º¹¼Ò¼öÀÇ Çã¼öºÎ<br>
+	 * ë³µì†Œìˆ˜ì˜ ì‹¤ìˆ˜ë¶€<tt>re</tt>ì™€ í—ˆìˆ˜ë¶€  <tt>im</tt> ì„¤ì •<br>
+	 * - <tt>re</tt> : ë³µì†Œìˆ˜ì˜ ì‹¤ìˆ˜ë¶€<br>
+	 * - <tt>im</tt> : ë³µì†Œìˆ˜ì˜ í—ˆìˆ˜ë¶€<br>
 	 
 	 * @param re  The re to set
 	 * @param im  The im to set.
@@ -220,9 +217,9 @@ public class Complex implements Operation, Cloneable {
 
 	/**
 	 * calculate absolute number of the complex number.<br>
-	 * º¹¼Ò¼öÀÇ Àı´ë°ªÀ» °è»êÇÑ´Ù.<br>
+	 * ë³µì†Œìˆ˜ì˜ ì ˆëŒ€ê°’ ê³„ì‚°.<br>
 	 * @return absolute number<br>
-	 * Àı´ë°ª  
+	 * ì ˆëŒ€ê°’
 	 */
 	public Object abs() {
 		return Math.sqrt((this.re * this.re) + (this.im * this.im));
@@ -232,9 +229,9 @@ public class Complex implements Operation, Cloneable {
 			
 	/**
 	 * calculate conjugate complex number<br><br>
-	 * ÄÓ·¹º¹¼Ò¼ö¸¦ °è»êÇÑ´Ù.<br>
+	 * ì¼¤ë ˆë³µì†Œìˆ˜ ê³„ì‚°.<br>
 	 * @return conjugate complex number<br>
-	 * ÄÓ·¹º¹¼Ò¼ö
+	 * ì¼¤ë ˆë³µì†Œìˆ˜ í´ë˜ìŠ¤
 	 */
 	public Complex conj(){
 		Complex result = new Complex(this.re, -this.im);
