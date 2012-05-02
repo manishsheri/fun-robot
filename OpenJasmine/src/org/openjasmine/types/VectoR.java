@@ -66,7 +66,7 @@ public class VectoR implements Operation, Cloneable {
 		Object result = new Double[this.size];;
 		int size = this.element.length;;
 		/**
-		 * element가 복소수
+		 * when element is Complex
 		 */
 		if(this.element instanceof Complex[]) {
 			for(int i = 0 ; i < size ; i++) {
@@ -75,7 +75,7 @@ public class VectoR implements Operation, Cloneable {
 			
 		}
 		/**
-		 * element가 실수
+		 * when element is Double
 		 */
 		else if(this.element instanceof Double[]) {
 			for(int i = 0 ; i < size ; i++) {
@@ -83,7 +83,7 @@ public class VectoR implements Operation, Cloneable {
 			}
 		}
 		/**
-		 * element가 벡터
+		 * when element is VectoR
 		 */
 		/*
 		else if(this.element instanceof VectoR[]) {

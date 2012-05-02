@@ -86,8 +86,8 @@ public class ComplexTest {
 		c2 = new Complex(-2.0, 5.0);
 		
 		c3 = (Complex)c1.times(c2);
-		System.out.println("[¥ö¥óOJ-COMPLEX-TC-005] Complex * Complex");
-		System.out.println(c1 + " ¡¿ " +c2 + " = " + c3);
+		System.out.println("[OJ-COMPLEX-TC-005] Complex * Complex");
+		System.out.println(c1 + " *  " +c2 + " = " + c3);
 		
 		assertTrue(-17.0 == c3.getRe());
 		assertTrue(-1.0 == c3.getIm());
@@ -119,7 +119,7 @@ public class ComplexTest {
 		
 		c3 = (Complex)c1.div(c2);
 		System.out.println("[OJ-COMPLEX-TC-007] Complex / Complex");
-		System.out.println(c1 + " ¡À " + c2 + " = " + c3);
+		System.out.println(c1 + " ï¿½ï¿½ " + c2 + " = " + c3);
 		
 		assertTrue(Math.abs(0.4483 - c3.getRe()) < 0.0001);
 		assertTrue(Math.abs(-0.3793 - c3.getIm()) < 0.0001);
@@ -135,7 +135,7 @@ public class ComplexTest {
 		
 		c3 = (Complex)c1.div(3.0);
 		System.out.println("[OJ-COMPLEX-TC-008] Complex / double");
-		System.out.println(c1 + " ¡À 3.0 = " + c3 );		
+		System.out.println(c1 + " * 3.0 = " + c3 );		
 		
 		assertTrue(Math.abs(0.3333 - c3.getRe()) < 0.0001);
 		assertTrue(Math.abs(1.0 - c3.getIm()) < 0.0001);
