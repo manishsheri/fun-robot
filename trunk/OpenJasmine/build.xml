@@ -90,6 +90,7 @@
 			use="true"
 			encoding="euc-kr"
 			charset="euc-kr"
+			docencoding="euc-kr"
 			windowtitle="Open Jasmine"/>
 	</target>
 </project>
