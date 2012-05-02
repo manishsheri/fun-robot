@@ -88,6 +88,8 @@
 			author="true"
 			version="true"
 			use="true"
+			encoding="euc-kr"
+			charset="euc-kr"
 			windowtitle="Open Jasmine"/>
 	</target>
 </project>
