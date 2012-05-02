@@ -8,7 +8,7 @@
 	<property name="src.dir"			location="src"/>
 	<property name="test.dir"			location="test"/>
 	<property name="vendor.lib.dir"		location="vendor/lib"/>
-	<property name="test.report.dir"	location="reports/junit"/>
+	<property name="test.report.dir"	location="reports"/>
 	
 	<path id="project.classpath">
 		<pathelement location="${build.prod.dir}"/>
@@ -22,6 +22,7 @@
 	<target name="prepare">
 		<mkdir dir="${build.prod.dir}"/>
 		<mkdir dir="${build.test.dir}"/>
+		<mkdir dir="${test.report.dir}"/>
 		<mkdir dir="${doc.dir}"/>
 	</target>
 	
@@ -38,7 +39,7 @@
 	</target>
 	
 	
-	<target name="test" depends="compile">
+	<target name="test" depends="compile-test">
 	        <junit printsummary="yes" haltonfailure="no">
 	                <classpath refid="project.classpath" />
 	                <formatter type="xml" />
@@ -76,7 +77,8 @@
 		<delete dir="${build.prod.dir}"/>
 		<delete dir="${build.test.dir}"/>
 		<delete dir="${doc.dir}"/>
-		<delete dir="${test.report.dir}"/>
+		<delete dir="${test.report.dir}/org"/>
+		<delete dir="${test.report.dir}/"/>
 	</target>
 	<target name="javadoc-pub">
 		<javadoc packagenames="org.openjasmine.*"
