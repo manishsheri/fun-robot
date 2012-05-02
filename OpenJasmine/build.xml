@@ -88,9 +88,9 @@
 			author="true"
 			version="true"
 			use="true"
-			encoding="UTF-8"
-			charset="UTF-8"
-			docencoding="UTF-8"
+			encoding="ms949"
+			charset="ms949"
+			docencoding="ms949"
 			windowtitle="Open Jasmine"/>
 	</target>
 </project>
