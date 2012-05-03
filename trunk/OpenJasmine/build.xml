@@ -11,7 +11,7 @@
 	<property name="test.report.dir" 		location="reports" />
 	<property name="dist.dir"				location="dist" />
 	<property name="findbugs.home"			value="c:/findbugs"/>
-	<property name="findbugs.report.dir" 	location="findbugs/report"/>
+	<property name="findbugs.report.dir" 	location="findbugs"/>
 	<property name="jar.name"				value="OpenJasmine.jar"/>
 	
 	<path id="project.classpath">
