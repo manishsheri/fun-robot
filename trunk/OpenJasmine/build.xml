@@ -22,14 +22,6 @@
 			<include name="*.jar" />
 		</fileset>
 	</path>
-
-	<path id="findbugs.classpath">
-		<pathelement location="c:/findbugs/lib/findbugs.jar"/>
-	</path>
-	
-	<taskdef name="findbugs" 
-			 classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
-			 classpath="${findbugs.home}/lib/findbugs.jar" />
 	
 	<target name="prepare">
 		<mkdir dir="${build.prod.dir}" />
@@ -101,14 +93,5 @@
 	
 	<target name="jar" depends="test">
 		<jar destfile="${dist.dir}/lib/OpenJasmine.jar" basedir="${build.prod.dir}"/>
-	</target>
-	
-	<target name="findbugs" depends="jar">
-		<mkdir dir="${findbugs.report.dir}" />
-		<findbugs 	home="${findbugs.home}" output="xml" outputfile="findbugs/findbugs_result.xml">
-			<auxClasspath refid="findbugs.classpath"/>
-			<sourcePath path="${src.dir}" />
-			<class location="${build.prod.dir}/${jar.name}" />
-		</findbugs>
 	</target>
 </project>
