@@ -1,4 +1,7 @@
 package org.openjasmine.types;
+
+import org.openjasmine.exception.VectorSizeMismatchException;
+
 /**
  * Vector class
  * @filename VectoR.java
@@ -113,44 +116,44 @@ public class VectoR implements Operation, Cloneable {
 	 * @param operand
 	 * @return corss product result
 	 */
-	public VectoR cross(VectoR v) {
+	public VectoR cross(VectoR rhs) {
 		Complex mtemp1 = new Complex(0., 0.);
 		Complex mtemp2 = new Complex(0., 0.);
 		try {
-			if(this.size != 3 || v.getSize() != 3)
-				throw new Exception();
+			if(this.size != 3 || rhs.getSize() != 3)
+				throw new VectorSizeMismatchException();
 			VectoR result = new VectoR(3);
 			
 			if(this.element instanceof Complex[]) {
 				
-				mtemp1 = (Complex) ((Complex)this.element[1]).times(v.getElement(2));
-				mtemp2 = (Complex) ((Complex)this.element[2]).times(v.getElement(1));
+				mtemp1 = (Complex) ((Complex)this.element[1]).times(rhs.getElement(2));
+				mtemp2 = (Complex) ((Complex)this.element[2]).times(rhs.getElement(1));
 				result.setElement(0, mtemp1.minus(mtemp2));
 				
-				mtemp1 = (Complex) ((Complex)this.element[2]).times(v.getElement(0));
-				mtemp2 = (Complex) ((Complex)this.element[0]).times(v.getElement(2));
+				mtemp1 = (Complex) ((Complex)this.element[2]).times(rhs.getElement(0));
+				mtemp2 = (Complex) ((Complex)this.element[0]).times(rhs.getElement(2));
 				result.setElement(1, mtemp1.minus(mtemp2));
 				
-				mtemp1 = (Complex) ((Complex)this.element[0]).times(v.getElement(1));
-				mtemp2 = (Complex) ((Complex)this.element[1]).times(v.getElement(0));
+				mtemp1 = (Complex) ((Complex)this.element[0]).times(rhs.getElement(1));
+				mtemp2 = (Complex) ((Complex)this.element[1]).times(rhs.getElement(0));
 				result.setElement(2, mtemp1.minus(mtemp2));
 				
 			}
 			else if(this.element instanceof Double[]) {
-				Object[] o = v.getElement();
+				Object[] o = rhs.getElement();
 				double dtemp1, dtemp2;
 				if(o instanceof Double[]) {			
 				
-					dtemp1 = ((Double)this.element[1]).doubleValue() * ((Double)v.getElement(2)).doubleValue();
-					dtemp2 = ((Double)this.element[2]).doubleValue() * ((Double)v.getElement(1)).doubleValue();
+					dtemp1 = ((Double)this.element[1]).doubleValue() * ((Double)rhs.getElement(2)).doubleValue();
+					dtemp2 = ((Double)this.element[2]).doubleValue() * ((Double)rhs.getElement(1)).doubleValue();
 					result.setElement(0, dtemp1 - dtemp2);
 					
-					dtemp1 = ((Double)this.element[2]).doubleValue() * ((Double)v.getElement(0)).doubleValue();
-					dtemp2 = ((Double)this.element[0]).doubleValue() * ((Double)v.getElement(2)).doubleValue();
+					dtemp1 = ((Double)this.element[2]).doubleValue() * ((Double)rhs.getElement(0)).doubleValue();
+					dtemp2 = ((Double)this.element[0]).doubleValue() * ((Double)rhs.getElement(2)).doubleValue();
 					result.setElement(1, dtemp1 - dtemp2);
 					
-					dtemp1 = ((Double)this.element[0]).doubleValue() * ((Double)v.getElement(1)).doubleValue();
-					dtemp2 = ((Double)this.element[1]).doubleValue() * ((Double)v.getElement(0)).doubleValue();
+					dtemp1 = ((Double)this.element[0]).doubleValue() * ((Double)rhs.getElement(1)).doubleValue();
+					dtemp2 = ((Double)this.element[1]).doubleValue() * ((Double)rhs.getElement(0)).doubleValue();
 					result.setElement(2, dtemp1 - dtemp2);
 				}
 				else if(o instanceof Complex[]) {
@@ -168,7 +171,7 @@ public class VectoR implements Operation, Cloneable {
 				}
 			}
 			return result;
-		} catch (Exception e) {
+		} catch (VectorSizeMismatchException e) {
 
 			e.printStackTrace();
 			return null;
@@ -182,7 +185,7 @@ public class VectoR implements Operation, Cloneable {
 		if(obj instanceof VectoR) {
 			try {
 				if(this.size != ((VectoR)obj).getSize())
-					throw new Exception();
+					throw new VectorSizeMismatchException();
 				
 				Object temp;
 				Object[] o =  ((VectoR)obj).getElement();
@@ -217,7 +220,7 @@ public class VectoR implements Operation, Cloneable {
 				}
 	
 				return (Object)result;
-			} catch (Exception e) {
+			} catch (VectorSizeMismatchException e) {
 	
 				e.printStackTrace();
 				return null;
@@ -262,7 +265,7 @@ public class VectoR implements Operation, Cloneable {
 		
 		try {
 			if(this.size != v.getSize())
-				throw new Exception();
+				throw new VectorSizeMismatchException();
 			Object[] obj = v.getElement();
 			Object temp;
 			if(this.element instanceof Complex[]) {
@@ -303,7 +306,7 @@ public class VectoR implements Operation, Cloneable {
 			}
 			
 			return result;
-		} catch (Exception e) {
+		} catch (VectorSizeMismatchException e) {
 			e.printStackTrace();
 			return null;
 		}
@@ -471,7 +474,7 @@ public class VectoR implements Operation, Cloneable {
 	public Object plus(Object obj) {
 		try {
 			if(this.size != ((VectoR)obj).getSize())
-				throw new Exception();
+				throw new VectorSizeMismatchException();
 	
 			int i;
 			VectoR result = new VectoR(((VectoR)obj).getSize());
@@ -500,7 +503,7 @@ public class VectoR implements Operation, Cloneable {
 			}
 
 			return (Object)result;
-		} catch (Exception e) {
+		} catch (VectorSizeMismatchException e) {
 			e.printStackTrace();
 			return null;
 		}

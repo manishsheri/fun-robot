@@ -1,4 +1,7 @@
 package org.openjasmine.types;
+
+import org.openjasmine.exception.ComplexSizeMismatchException;
+
 /**
  * Matrix class
  * @filename Matrix.java
@@ -76,7 +79,7 @@ public class Matrix implements Operation {
 		if(obj instanceof Matrix) {
 			try {
 				if(this.row != ((Matrix)obj).getRow() || this.col != ((Matrix)obj).getCol())
-					throw new Exception();
+					throw new ComplexSizeMismatchException();
 				
 				Matrix result = new Matrix(this.row, this.col);
 				Object[][] objElm = ((Matrix) obj).getElement();
@@ -116,7 +119,7 @@ public class Matrix implements Operation {
 				
 				return result;
 				
-			} catch (Exception e) {
+			} catch (ComplexSizeMismatchException e) {
 				e.printStackTrace();
 				return null;
 			}
@@ -181,7 +184,7 @@ public class Matrix implements Operation {
 		if(obj instanceof Matrix) {
 			try {
 				if(this.row != ((Matrix)obj).getRow() || this.col != ((Matrix)obj).getCol())
-					throw new Exception();
+					throw new ComplexSizeMismatchException();
 				
 				Matrix result = new Matrix(this.row, this.col);
 				Object[][] objElm = ((Matrix) obj).getElement();
@@ -221,7 +224,7 @@ public class Matrix implements Operation {
 				
 				return result;
 				
-			} catch (Exception e) {
+			} catch (ComplexSizeMismatchException e) {
 				e.printStackTrace();
 				return null;
 			}
@@ -370,7 +373,7 @@ public class Matrix implements Operation {
 		int i;
 		try {
 			if(this.row != this.col)
-				throw new Exception();
+				throw new ComplexSizeMismatchException();
 			if(this.elements instanceof Double[][]) {
 				double rd = 0;
 				
@@ -386,7 +389,7 @@ public class Matrix implements Operation {
 				result = rc;
 			}
 			new Matrix(this.row, this.col);
-		} catch (Exception e) {
+		} catch (ComplexSizeMismatchException e) {
 			e.printStackTrace();
 		}
 		return result;

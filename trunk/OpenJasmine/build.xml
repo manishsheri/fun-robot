@@ -10,7 +10,7 @@
 	<property name="vendor.lib.dir" 		location="vendor/lib" />
 	<property name="test.report.dir" 		location="reports" />
 	<property name="dist.dir"				location="dist" />
-	<property name="findbugs.home"			value="c:/findbugs/lib"/>
+	<property name="findbugs.home"			value="c:/ant/findbugs"/>
 	<property name="findbugs.report.dir" 	location="findbugs"/>
 	<property name="jar.name"				value="OpenJasmine.jar"/>
 	
@@ -29,7 +29,7 @@
 	
 	<taskdef name="findbugs" 
 			 classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
-	 		 classpath="findbugs.classpath"/>
+			 classpath="${findbugs.home}/lib/findbugs.jar" />
 	
 	<target name="prepare">
 		<mkdir dir="${build.prod.dir}" />
@@ -103,15 +103,10 @@
 		<jar destfile="${dist.dir}/lib/OpenJasmine.jar" basedir="${build.prod.dir}"/>
 	</target>
 	
-	<target name="findbugs.report" depends="jar">
+	<target name="findbugs" depends="jar">
 		<mkdir dir="${findbugs.report.dir}" />
-		<findbugs 	home="${findbugs.home}" output="xml"
-					outputfile="findbugs/findbugs_result.xml"
-					reportLevel="experimental"
-					workHard="true"
-					effort="max"
-					adjustExperimental="true"
-					jvmargs="-Xmx512m">
+		<findbugs 	home="${findbugs.home}" output="xml" outputfile="findbugs/findbugs_result.xml">
+			<auxClasspath refid="findbugs.classpath"/>
 			<sourcePath path="${src.dir}" />
 			<class location="${build.prod.dir}/${jar.name}" />
 		</findbugs>
