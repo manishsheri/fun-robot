@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="OpenJasmine" default="compile" basedir=".">
-	<property name="build.dir" location="build" />
-	<property name="build.prod.dir" location="${build.dir}/prod" />
-	<property name="build.test.dir" location="${build.dir}/test" />
-	<property name="doc.dir" location="doc" />
-	<property name="index.dir" location="index" />
-	<property name="src.dir" location="src" />
-	<property name="test.dir" location="test" />
-	<property name="vendor.lib.dir" location="vendor/lib" />
-	<property name="test.report.dir" location="reports" />
-
+	<property name="build.dir" 				location="build" />
+	<property name="build.prod.dir"			location="${build.dir}/prod" />
+	<property name="build.test.dir" 		location="${build.dir}/test" />
+	<property name="doc.dir" 				location="doc" />
+	<property name="index.dir" 				location="index" />
+	<property name="src.dir" 				location="src" />
+	<property name="test.dir" 				location="test" />
+	<property name="vendor.lib.dir" 		location="vendor/lib" />
+	<property name="test.report.dir" 		location="reports" />
+	<property name="dist.dir"				location="dist" />
+	<property name="findbugs.home"			value="c:/findbugs"/>
+	<property name="findbugs.report.dir" 	location="findbugs/report"/>
+	<property name="jar.name"				value="OpenJasmine.jar"/>
+	
 	<path id="project.classpath">
 		<pathelement location="${build.prod.dir}" />
 		<pathelement location="${build.test.dir}" />
@@ -19,11 +23,20 @@
 		</fileset>
 	</path>
 
+	<path id="findbugs.classpath">
+		<pathelement location="${findbugs.home}/lib/findbugs.jar"/>
+	</path>
+	<taskdef name="findbugs" 
+			 classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
+	 		 classpath="findbugs.classpath"/>
+	
 	<target name="prepare">
 		<mkdir dir="${build.prod.dir}" />
 		<mkdir dir="${build.test.dir}" />
 		<mkdir dir="${test.report.dir}" />
 		<mkdir dir="${doc.dir}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/lib" />
 	</target>
 
 	<target name="compile" depends="prepare">
@@ -80,7 +93,26 @@
 		<delete dir="${test.report.dir}/org" />
 		<delete dir="${test.report.dir}/" />
 	</target>
+	
 	<target name="javadoc-pub">
 		<javadoc packagenames="org.openjasmine.*" sourcepath="src" defaultexcludes="yes" destdir="doc" author="true" version="true" use="true" locale="ko_KR" encoding="UTF-8" charset="UTF-8" docencoding="UTF-8" windowtitle="Open Jasmine" />
+	</target>
+	
+	<target name="jar" depends="test">
+		<jar destfile="${dist.dir}/lib/OpenJasmine.jar" basedir="${build.prod.dir}"/>
+	</target>
+	
+	<target name="findbugs.report" depends="jar">
+		<mkdir dir="${findbugs.report.dir}" />
+		<findbugs 	home="${findbugs.home}" output="xml"
+					outputfile="${findbugs.report.dir}/findbugs_result.xml"
+					reportLevel="experimental"
+					workHard="true"
+					effort="max"
+					adjustExperimental="true"
+					jvmargs="-Xmx512m">
+			<sourcePath path="${src.dir}" />
+			<class location="${build.prod.dir}/${jar.name}" />
+		</findbugs>
 	</target>
 </project>
