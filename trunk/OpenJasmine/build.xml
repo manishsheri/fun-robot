@@ -10,7 +10,7 @@
 	<property name="vendor.lib.dir" 		location="vendor/lib" />
 	<property name="test.report.dir" 		location="reports" />
 	<property name="dist.dir"				location="dist" />
-	<property name="findbugs.home"			value="c:/findbugs"/>
+	<property name="findbugs.home"			value="c:/findbugs/lib"/>
 	<property name="findbugs.report.dir" 	location="findbugs"/>
 	<property name="jar.name"				value="OpenJasmine.jar"/>
 	
@@ -24,8 +24,9 @@
 	</path>
 
 	<path id="findbugs.classpath">
-		<pathelement location="${findbugs.home}/lib/findbugs.jar"/>
+		<pathelement location="c:/findbugs/lib/findbugs.jar"/>
 	</path>
+	
 	<taskdef name="findbugs" 
 			 classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
 	 		 classpath="findbugs.classpath"/>
@@ -105,7 +106,7 @@
 	<target name="findbugs.report" depends="jar">
 		<mkdir dir="${findbugs.report.dir}" />
 		<findbugs 	home="${findbugs.home}" output="xml"
-					outputfile="${findbugs.report.dir}/findbugs_result.xml"
+					outputfile="findbugs/findbugs_result.xml"
 					reportLevel="experimental"
 					workHard="true"
 					effort="max"
