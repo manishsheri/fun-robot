@@ -549,4 +549,7 @@ public class Matrix implements Operation {
 		}
 		return result;
 	}
+	public Object det() {
+		
+	}
 }
