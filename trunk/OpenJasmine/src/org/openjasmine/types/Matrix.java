@@ -1,6 +1,9 @@
 package org.openjasmine.types;
 
 import org.openjasmine.exception.ComplexSizeMismatchException;
+import org.openjasmine.exception.MatrixSizeMismatchException;
+import org.openjasmine.exception.TypeMismatchException;
+
 
 /**
  * Matrix class
@@ -238,8 +241,140 @@ public class Matrix implements Operation {
 	 */
 	@Override
 	public Object times(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+		Object result = null;
+		int i, j;
+		if(obj instanceof Double) {
+			result = new Matrix(this.row, this.col);
+			if(this.elements instanceof Double[][]) {
+				for(i = 0 ; i < this.row ; i++) {
+					for(j = 0 ; j < this.col ; j++) {
+						((Matrix)result).setElement(i, j, 
+								((Double)this.elements[i][j]).doubleValue() 
+							  * ((Double)obj).doubleValue());
+					}
+				}
+				
+			}
+			else if(this.elements instanceof Complex[][]) {
+				for(i = 0 ; i < this.row ; i++) {
+					for(j = 0 ; j < this.col ; j++) {
+						((Matrix)result).setElement(i, j, 
+								((Complex)this.elements[i][j]).times(obj));
+					}
+				}
+			}
+		}
+		else if(obj instanceof Complex) {
+			result = new Matrix(this.row, this.col);
+			for(i = 0 ; i < this.row ; i++) {
+				for(j = 0 ; j < this.col ; j++) {
+					((Matrix)result).setElement(i, j, ((Complex)obj).times(this.elements[i][j]));
+				}
+			}
+		}
+		else if(obj instanceof VectoR) {
+			try {
+				if(((VectoR)obj).getSize() != this.col) {
+					throw new MatrixSizeMismatchException();
+				}
+			} catch (MatrixSizeMismatchException e) {
+				e.printStackTrace();
+			}
+						
+			if(this.elements instanceof Double[][]) {
+				result = new VectoR(this.row);
+				Object[] temp = ((VectoR)obj).getElement();
+							
+				if(temp instanceof Double[]) {
+					double dTemp;
+					for(i = 0 ; i < this.row ; i++) {
+						dTemp = 0.0;
+						for(j = 0 ; j < this.col ; j++) {
+							dTemp += (((Double)this.elements[i][j]).doubleValue() * ((Double)temp[j]).doubleValue());
+						}
+						((VectoR)result).setElement(i, (Double)dTemp);
+					}
+				}
+				else if(temp instanceof Complex[]) {
+					Complex[] cTemp = new Complex[3];
+					for(i = 0 ; i < this.row ; i++) {
+						cTemp[i] = new Complex(0.0, 0.0);
+						
+						for(j = 0 ; j < this.col ; j++) {
+							cTemp[i] = (Complex) cTemp[i].plus(((Complex)temp[j]).times(this.elements[i][j]));
+						}
+						
+					}
+					((VectoR)result).setElement(cTemp);
+				}
+			}
+			else if(this.elements instanceof Complex[][]) {
+				result = new VectoR(this.row);
+				Object[] temp = ((VectoR)obj).getElement();
+				
+				Complex[] cTemp = new Complex[3];
+				for(i = 0 ; i < this.row ; i++) {
+					cTemp[i] = new Complex(0.0, 0.0);
+					for(j = 0 ; j < this.col ; j++) {
+						cTemp[i] = (Complex) cTemp[i].plus(((Complex)this.elements[i][j]).times(temp[j]));
+					}
+				}
+				((VectoR)result).setElement(cTemp);
+			}
+			
+		}
+		else if(obj instanceof Matrix) {
+			try {
+				if(this.col != ((Matrix)obj).getRow()) {
+					throw new MatrixSizeMismatchException();
+				}
+			} catch (MatrixSizeMismatchException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			result = new Matrix(this.row, ((Matrix)obj).getCol());
+			int k;
+			Object[][] temp = ((Matrix)obj).getElement();
+			if(this.elements instanceof Double[][]) {
+				double dTemp;
+				if(temp[0][0] instanceof Double) {
+					for(i = 0 ; i < this.row ; i++) {
+						for(j = 0 ; j < ((Matrix)obj).getCol() ; j++) {
+							dTemp = 0;
+							for(k = 0 ; k < this.col ; k++) {
+								dTemp += ((Double)this.elements[i][k]).doubleValue() * ((Double)temp[k][j]).doubleValue();
+							}
+							((Matrix)result).setElement(i, j, dTemp);
+						}
+					}
+				}
+				else if(temp[0][0] instanceof Complex) {
+					Complex[][] cTemp = new Complex[this.row][((Matrix)obj).getCol()];
+					for(i = 0 ; i < this.row ; i++) {
+						for(j = 0 ; j <  ((Matrix)obj).getCol() ; j++) {
+							cTemp[i][j] = new Complex(0.0, 0.0);
+							for(k = 0 ; k < this.col ; k++) {
+								cTemp[i][j] = (Complex) cTemp[i][j].plus(((Complex)temp[k][j]).times(this.elements[i][k]));
+							}
+						}
+					}
+					((Matrix)result).setElement(cTemp);
+				}
+			}
+			else if(this.elements instanceof Complex[][]) {
+				Complex[][] cTemp = new Complex[this.row][((Matrix)obj).getCol()];
+				for(i = 0 ; i < this.row ; i++) {
+					for(j = 0 ; j <  ((Matrix)obj).getCol() ; j++) {
+						cTemp[i][j] = new Complex(0.0, 0.0);
+						for(k = 0 ; k < this.col ; k++) {
+							cTemp[i][j] = (Complex) cTemp[i][j].plus(((Complex)this.elements[i][k]).times(temp[k][j]));
+						}
+					}
+				}
+				((Matrix)result).setElement(cTemp);
+			}
+		}
+		return result;
 	}
 
 	/* (non-Javadoc)
@@ -346,6 +481,26 @@ public class Matrix implements Operation {
 			for(j = 0 ; j < this.col ; j++) {
 				result.setElement(j, i, this.elements[i][j]);
 			}
+		}
+		return result;
+	}
+	
+	public Matrix conjTranspose()	{
+		Matrix result = new Matrix(this.col, this.row);
+		int i, j;
+		
+		try {
+			if(!(this.elements instanceof Complex[][])) {
+				throw new TypeMismatchException();
+			}
+			for(i = 0 ; i < this.row ; i++) {
+				for(j = 0 ; j < this.col ; j++) {
+					result.setElement(j, i, ((Complex)this.elements[i][j]).conj());
+				}
+			}
+		} catch (TypeMismatchException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return result;
 	}
