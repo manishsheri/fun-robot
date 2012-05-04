@@ -73,16 +73,16 @@ public class VectorTest {
 		vvv1 = new VectoR(d5);
 		vvv2 = new VectoR(c5);
 		
-		System.out.println("v1  \t\t= " + v1);
-		System.out.println("v2  \t\t= " + v2);
-		System.out.println("v3  \t\t= " + v3);
-		System.out.println("v4  \t\t= " + v4);
-		System.out.println("vv1 \t\t= " + vv1);
-		System.out.println("vv2 \t\t= " + vv2);
-		System.out.println("vv3 \t\t= " + vv3);
-		System.out.println("vv4 \t\t= " + vv4);
-		System.out.println("vvv1 \t\t= " + vvv1);
-		System.out.println("vvv2 \t\t= " + vvv2);
+		System.out.print("v1  \t\t= " + v1 + "\n");
+		System.out.print("v2  \t\t= " + v2 + "\n");
+		System.out.print("v3  \t\t= " + v3 + "\n");
+		System.out.print("v4  \t\t= " + v4 + "\n");
+		System.out.print("vv1 \t\t= " + vv1 + "\n");
+		System.out.print("vv2 \t\t= " + vv2 + "\n");
+		System.out.print("vv3 \t\t= " + vv3 + "\n");
+		System.out.print("vv4 \t\t= " + vv4 + "\n");
+		System.out.print("vvv1 \t\t= " + vvv1 + "\n");
+		System.out.print("vvv2 \t\t= " + vvv2 + "\n");
 	}
 	
 	/**

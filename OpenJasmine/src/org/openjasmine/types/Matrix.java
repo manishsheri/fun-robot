@@ -550,6 +550,28 @@ public class Matrix implements Operation {
 		return result;
 	}
 	public Object det() {
+		try {
+			if(this.col != this.row) {
+				throw new MatrixSizeMismatchException();
+			}
+		} catch (MatrixSizeMismatchException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 		
+		if(this.elements[0][0] instanceof Double) {
+			if(this.col == 2) {
+				return ((Double)this.elements[0][0]).doubleValue() * ((Double)this.elements[1][1]).doubleValue()
+						- ((Double)this.elements[0][1]).doubleValue() * ((Double)this.elements[1][0]).doubleValue();
+			}
+		}
+		else if(this.elements[0][0] instanceof Complex) {
+			if(this.col == 2) {
+				return ((Complex)(((Complex)this.elements[0][0]).times(this.elements[1][1]))).minus(
+						((Complex)this.elements[0][1]).times(this.elements[1][0]));
+			}
+		}
+		return null;		
 	}
 }
