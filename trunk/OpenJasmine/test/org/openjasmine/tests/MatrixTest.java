@@ -1153,5 +1153,37 @@ public class MatrixTest {
 		assertTrue(Math.abs( 109.6 - ((Complex)mc5.getElement(2, 2)).getRe()) < 0.1);	
 		assertTrue(Math.abs(1861.9 - ((Complex)mc5.getElement(2, 2)).getIm()) < 0.1);
 	}
+	
+	/**
+	 * [OJ-MAT-TC-027] det(Matrix(Double))
+	 */
+	@Test
+	public void ojMatTest027() {
+		Double[][] da = {{1.0, 2.0}, {5.0, 3.0}};
+		Matrix mda = new Matrix(da);
+		
+		Double res = (Double)mda.det();
+		
+		System.out.println("det(" + mda + ") = " + res);
+		
+		assertTrue(Math.abs(-7.0 - res.doubleValue()) < 0.0001);
+	}
+	
+	/**
+	 * [OJ-MAT-TC-028] det(Matrix(Complex))
+	 */
+	@Test
+	public void ojMatTest028() {
+		Complex[][] ca = {{new Complex(2.0, 4.0), new Complex(3.0, -2.0)},
+						  {new Complex(-3.0, 1.0), new Complex(-6.0, -5.0)}};
+		Matrix mca = new Matrix(ca);
+		
+		Complex res = (Complex)mca.det();
+		
+		System.out.println("det(" + mca + ") = " + res);
+		
+		assertTrue(Math.abs(15.0 - res.getRe()) < 0.0001);
+		assertTrue(Math.abs(-43.0 - res.getIm()) < 0.0001);
+	}
 }
 
