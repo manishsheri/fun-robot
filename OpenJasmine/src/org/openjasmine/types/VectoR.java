@@ -522,8 +522,8 @@ public class VectoR implements Operation, Cloneable {
 	 * Setter of the property <tt>element</tt>
 	 * @param element  The element to set.
 	 */
-	public void setElement(Object[] element) {
-		this.element = element;
+	public void setElement(Object[] element) { 
+		this.element = element.clone();
 	}
 	/**
 	 * Setter of the property <tt>size</tt>
