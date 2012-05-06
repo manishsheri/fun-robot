@@ -87,8 +87,8 @@ public class Matrix implements Operation {
 				Matrix result = new Matrix(this.row, this.col);
 				Object[][] objElm = ((Matrix) obj).getElement();
 				int i, j;
-				if(elements instanceof Double[][]) {
-					if(objElm instanceof Double[][]) {
+				if(elements[0][0] instanceof Double) {
+					if(objElm[0][0] instanceof Double) {
 						double value;
 						
 						for(i = 0 ; i < this.row ; i++) {
@@ -98,7 +98,7 @@ public class Matrix implements Operation {
 							}
 						}
 					}
-					else if(objElm instanceof Complex[][]) {
+					else if(objElm[0][0] instanceof Complex) {
 						Complex value;
 						
 						for(i = 0 ; i < this.row ; i++) {
@@ -109,7 +109,7 @@ public class Matrix implements Operation {
 						}
 					}
 				}
-				else if(elements instanceof Complex[][]) {
+				else if(elements[0][0] instanceof Complex) {
 					Complex value;
 					
 					for(i = 0 ; i < this.row ; i++) {
@@ -192,8 +192,8 @@ public class Matrix implements Operation {
 				Matrix result = new Matrix(this.row, this.col);
 				Object[][] objElm = ((Matrix) obj).getElement();
 				int i, j;
-				if(elements instanceof Double[][]) {
-					if(objElm instanceof Double[][]) {
+				if(elements[0][0] instanceof Double) {
+					if(objElm[0][0] instanceof Double) {
 						double value;
 						
 						for(i = 0 ; i < this.row ; i++) {
@@ -203,7 +203,7 @@ public class Matrix implements Operation {
 							}
 						}
 					}
-					else if(objElm instanceof Complex[][]) {
+					else if(objElm[0][0] instanceof Complex) {
 						Complex value;
 						
 						for(i = 0 ; i < this.row ; i++) {
@@ -214,7 +214,7 @@ public class Matrix implements Operation {
 						}
 					}
 				}
-				else if(elements instanceof Complex[][]) {
+				else if(elements[0][0] instanceof Complex) {
 					Object value;
 					
 					for(i = 0 ; i < this.row ; i++) {
@@ -245,7 +245,7 @@ public class Matrix implements Operation {
 		int i, j;
 		if(obj instanceof Double) {
 			result = new Matrix(this.row, this.col);
-			if(this.elements instanceof Double[][]) {
+			if(this.elements[0][0] instanceof Double) {
 				for(i = 0 ; i < this.row ; i++) {
 					for(j = 0 ; j < this.col ; j++) {
 						((Matrix)result).setElement(i, j, 
@@ -255,7 +255,7 @@ public class Matrix implements Operation {
 				}
 				
 			}
-			else if(this.elements instanceof Complex[][]) {
+			else if(this.elements[0][0] instanceof Complex) {
 				for(i = 0 ; i < this.row ; i++) {
 					for(j = 0 ; j < this.col ; j++) {
 						((Matrix)result).setElement(i, j, 
@@ -281,11 +281,11 @@ public class Matrix implements Operation {
 				e.printStackTrace();
 			}
 						
-			if(this.elements instanceof Double[][]) {
+			if(this.elements[0][0] instanceof Double) {
 				result = new VectoR(this.row);
 				Object[] temp = ((VectoR)obj).getElement();
 							
-				if(temp instanceof Double[]) {
+				if(temp[0] instanceof Double) {
 					double dTemp;
 					for(i = 0 ; i < this.row ; i++) {
 						dTemp = 0.0;
@@ -295,7 +295,7 @@ public class Matrix implements Operation {
 						((VectoR)result).setElement(i, (Double)dTemp);
 					}
 				}
-				else if(temp instanceof Complex[]) {
+				else if(temp[0] instanceof Complex) {
 					Complex[] cTemp = new Complex[3];
 					for(i = 0 ; i < this.row ; i++) {
 						cTemp[i] = new Complex(0.0, 0.0);
@@ -308,7 +308,7 @@ public class Matrix implements Operation {
 					((VectoR)result).setElement(cTemp);
 				}
 			}
-			else if(this.elements instanceof Complex[][]) {
+			else if(this.elements[0][0] instanceof Complex) {
 				result = new VectoR(this.row);
 				Object[] temp = ((VectoR)obj).getElement();
 				
@@ -329,13 +329,12 @@ public class Matrix implements Operation {
 					throw new MatrixSizeMismatchException();
 				}
 			} catch (MatrixSizeMismatchException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			result = new Matrix(this.row, ((Matrix)obj).getCol());
 			int k;
 			Object[][] temp = ((Matrix)obj).getElement();
-			if(this.elements instanceof Double[][]) {
+			if(this.elements[0][0] instanceof Double) {
 				double dTemp;
 				if(temp[0][0] instanceof Double) {
 					for(i = 0 ; i < this.row ; i++) {
@@ -361,7 +360,7 @@ public class Matrix implements Operation {
 					((Matrix)result).setElement(cTemp);
 				}
 			}
-			else if(this.elements instanceof Complex[][]) {
+			else if(this.elements[0][0] instanceof Complex) {
 				Complex[][] cTemp = new Complex[this.row][((Matrix)obj).getCol()];
 				for(i = 0 ; i < this.row ; i++) {
 					for(j = 0 ; j <  ((Matrix)obj).getCol() ; j++) {
@@ -490,7 +489,7 @@ public class Matrix implements Operation {
 		int i, j;
 		
 		try {
-			if(!(this.elements instanceof Complex[][])) {
+			if(!(this.elements[0][0] instanceof Complex)) {
 				throw new TypeMismatchException();
 			}
 			for(i = 0 ; i < this.row ; i++) {
@@ -529,14 +528,14 @@ public class Matrix implements Operation {
 		try {
 			if(this.row != this.col)
 				throw new ComplexSizeMismatchException();
-			if(this.elements instanceof Double[][]) {
+			if(this.elements[0][0] instanceof Double) {
 				double rd = 0;
 				
 				for(i = 0 ; i < this.row ; i++)
 					rd += ((Double)this.elements[i][i]).doubleValue();
 				result = rd;
 			}
-			else if(this.elements instanceof Complex[][]) {
+			else if(this.elements[0][0] instanceof Complex) {
 				Complex rc = new Complex(0.0, 0.0);
 				
 				for(i = 0 ; i < this.row ; i++)
@@ -560,10 +559,34 @@ public class Matrix implements Operation {
 			return null;
 		}
 		
+		int i;
+		double dCoeff = 1.0;
+		Complex cCoeff = new Complex(1.0, 0.0);
+		Double dResult;
+		Complex cResult;
+		Matrix minorMat;
+		Complex cTemp;
 		if(this.elements[0][0] instanceof Double) {
 			if(this.col == 2) {
 				return ((Double)this.elements[0][0]).doubleValue() * ((Double)this.elements[1][1]).doubleValue()
 						- ((Double)this.elements[0][1]).doubleValue() * ((Double)this.elements[1][0]).doubleValue();
+			}
+			/**
+			 * 행렬사이즈가 2보다 클 때
+			 */
+			else {
+				dResult = 0.0;
+				for (i = 0 ; i < this.row ; i++) {
+					minorMat = this.minor(i, 0);
+					if((i % 2) == 0) {
+						dCoeff = 1.0;
+					}
+					else {
+						dCoeff = -1.0;
+					}
+					dResult = dResult + (dCoeff * (Double)this.elements[i][0]) * ((Double)minorMat.det()).doubleValue();						
+				}
+				return dResult;
 			}
 		}
 		else if(this.elements[0][0] instanceof Complex) {
@@ -571,7 +594,151 @@ public class Matrix implements Operation {
 				return ((Complex)(((Complex)this.elements[0][0]).times(this.elements[1][1]))).minus(
 						((Complex)this.elements[0][1]).times(this.elements[1][0]));
 			}
+			/**
+			 * 행렬사이즈가 2보다 클 때
+			 */
+			else {
+				cResult = new Complex(0.0, 0.0);
+				for(i = 0 ; i < this.row ; i++) {
+					minorMat = this.minor(i, 0);
+					if((i % 2) == 0) {
+						cCoeff.set(1.0, 0.0);
+					} 
+					else {
+						cCoeff.set(-1.0, 0.0);
+					}
+					cTemp = (Complex)((Complex)cCoeff.times(this.elements[i][0])).times(minorMat.det());
+					cResult = (Complex) ((Complex) cResult.plus(cTemp));
+				}
+				return cResult;
+			}
 		}
 		return null;		
+	}
+	
+	/**
+	 * 소행렬 구하기
+	 * @param row
+	 * @param col
+	 * @return minor matrix
+	 */
+	public Matrix minor(int mRow, int mCol) {
+		int rf = 0, cf = 0;
+		int i, j;
+		Matrix result = new Matrix(this.row - 1, this.col - 1) ;
+		
+		for(i = 0 ; i < this.row -1 ; i++) {
+			if(i >= mRow) {
+				rf = 1;
+			}
+			else {
+				rf = 0;
+			}
+			for(j = 0 ; j < this.col -1  ; j++)  {
+				
+				if(j >= mCol) {
+					cf = 1;
+				}
+				else {
+					cf = 0;
+				}
+				result.setElement(i, j, this.elements[i+rf][j + cf]);
+			}
+		}
+		
+		return result;
+	}
+	
+	public Object cofactor(int row, int col) {
+		try {
+			if( this.row != this.col) {
+				throw new MatrixSizeMismatchException();
+			}
+		} catch (MatrixSizeMismatchException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		int i = 0, j = 0;
+		Object result = null;
+		if(this.row == 2) {
+			if(row == 0 && col == 0) {
+				i = 1;
+				j = 1;
+			}
+			else if(row == 0 && col == 1) {
+				i = 1;
+				j = 0;
+			}
+			else if(row == 1 && col == 0) {
+				i = 0;
+				j = 1;
+			}
+			else if(row == 1 && col == 1) {
+				i = 0;
+				j = 0;
+			}
+			return this.elements[i][j];
+		}
+		else {
+			if(elements[0][0] instanceof Double) {
+				result = new Double(0.0);
+				double rf = 0;
+				if((row + col) % 2 == 0) {
+					rf = 1.0;
+				}
+				else {
+					rf = -1.0;
+				}
+				result = rf * ((Double)(this.minor(row, col)).det());
+				
+			}
+			else if(elements[0][0] instanceof Complex) {
+				result = new Complex(0.0, 0.0);
+				Complex rf = new Complex(0.0, 0.0);
+				if((row + col) % 2 == 0) {
+					rf.set(1.0, 0.0);
+				}
+				else {
+					rf.set(-1.0, 0.0);
+				}
+				result = rf.times((this.minor(row, col)).det());
+			}
+			return result;
+		}
+		
+	}
+	public Matrix adj() {
+		
+		int i, j;
+		Matrix result = new Matrix(this.row, this.col);
+		for(i = 0 ; i < this.row ; i++) {
+			for(j = 0 ; j < this.col ; j++) {
+				result.setElement(i, j, this.cofactor(i, j));
+			}
+		}
+		return result.transpose();
+	}
+	
+	public Matrix inv()	{
+		Object dt = this.det();
+		Matrix result;
+		
+		if(dt instanceof Complex) {
+			if(((Complex)dt).getRe() == 0.0 && ((Complex)dt).getIm() == 0.0) {
+				return null;
+			}
+			dt = ((Complex) dt).inv();
+			
+		}
+		else if(dt instanceof Double) {
+			if(((Double)dt).doubleValue() == 0.0) {
+				return null;
+			}
+			dt = 1.0 / ((Double)dt).doubleValue();
+		}
+		result = (Matrix)(this.adj());
+		result = (Matrix) result.times(dt);
+		return result;
 	}
 }
