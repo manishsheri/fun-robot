@@ -1155,35 +1155,247 @@ public class MatrixTest {
 	}
 	
 	/**
-	 * [OJ-MAT-TC-027] det(Matrix(Double))
+	 * [OJ-MAT-TC-027] minor(Matrix(double), i, j)
 	 */
 	@Test
 	public void ojMatTest027() {
+		md3 = md1.minor(1, 2);
+		System.out.println("[OJ-MAT-TC-027] minor(Matrix(double), i, j)");
+		System.out.println("minor(" + md1 + ", 1, 2) = \n" + md3);
+		
+		assertTrue(md3.getElement(0, 0) == md1.getElement(0, 0));
+		assertTrue(md3.getElement(0, 1) == md1.getElement(0, 1));
+		assertTrue(md3.getElement(0, 2) == md1.getElement(0, 3));
+		
+		assertTrue(md3.getElement(1, 0) == md1.getElement(2, 0));
+		assertTrue(md3.getElement(1, 1) == md1.getElement(2, 1));
+		assertTrue(md3.getElement(1, 2) == md1.getElement(2, 3));
+	}
+	
+	
+	/**
+	 * [OJ-MAT-TC-028] minor(Matrix(Complex), i, j)
+	 */
+	@Test
+	public void ojMatTest028() {
+		mc3 = mc1.minor(1, 2);
+		System.out.println("[OJ-MAT-TC-028] minor(Matrix(Complex), i, j)");
+		System.out.println("minor(" + mc1 + ", 1, 2) = \n" + mc3);
+		
+		assertTrue(mc3.getElement(0, 0) == mc1.getElement(0, 0));
+		assertTrue(mc3.getElement(0, 1) == mc1.getElement(0, 1));
+		assertTrue(mc3.getElement(0, 2) == mc1.getElement(0, 3));
+		
+		assertTrue(mc3.getElement(1, 0) == mc1.getElement(2, 0));
+		assertTrue(mc3.getElement(1, 1) == mc1.getElement(2, 1));
+		assertTrue(mc3.getElement(1, 2) == mc1.getElement(2, 3));
+	}
+	/**
+	 * [OJ-MAT-TC-029] det(Matrix(Double))
+	 */
+	@Test
+	public void ojMatTest029() {
 		Double[][] da = {{1.0, 2.0}, {5.0, 3.0}};
 		Matrix mda = new Matrix(da);
 		
 		Double res = (Double)mda.det();
-		
+		System.out.println("[OJ-MAT-TC-029] det(Matrix(Double))");
 		System.out.println("det(" + mda + ") = " + res);
 		
 		assertTrue(Math.abs(-7.0 - res.doubleValue()) < 0.0001);
 	}
 	
+	
+	
+	
 	/**
-	 * [OJ-MAT-TC-028] det(Matrix(Complex))
+	 * [OJ-MAT-TC-030] det(Matrix(Complex))
 	 */
 	@Test
-	public void ojMatTest028() {
+	public void ojMatTest030() {
 		Complex[][] ca = {{new Complex(2.0, 4.0), new Complex(3.0, -2.0)},
 						  {new Complex(-3.0, 1.0), new Complex(-6.0, -5.0)}};
 		Matrix mca = new Matrix(ca);
 		
 		Complex res = (Complex)mca.det();
-		
+		System.out.println("[OJ-MAT-TC-030] det(Matrix(Complex))");
 		System.out.println("det(" + mca + ") = " + res);
 		
 		assertTrue(Math.abs(15.0 - res.getRe()) < 0.0001);
 		assertTrue(Math.abs(-43.0 - res.getIm()) < 0.0001);
 	}
+	
+	/**
+	 * [OJ-MAT-TC-031] det(Matrix(Double))
+	 */
+	@Test
+	public void ojMatTest031() {
+		Double[][] da = {{1.0, 2.0, 3.0}, {5.0, 3.0, 2.0}, {5.0, 7.0, 6.0}};
+		Matrix mda = new Matrix(da);
+		
+		Double res = (Double)mda.det();
+		System.out.println("[OJ-MAT-TC-031] det(Matrix(Double))");
+		System.out.println("det(" + mda + ") = " + res);
+		
+		assertTrue(Math.abs(24.0 - res.doubleValue()) < 0.0001);
+	}
+	
+	/**
+	 * [OJ-MAT-TC-032] det(Matrix(Double))
+	 */
+	@Test
+	public void ojMatTest032() {
+		Double[][] da = {{1.0, 2.0, 3.0, 5.0, 7.0}, 
+				         {5.0, 3.0, 2.0, -3.0, -5.0}, 
+				         {5.0, 7.0, 6.0, 9.0, 1.0},
+				         {-3.0, 3.0, 5.0, 9.0, 3.0},
+				         {6.0, 7.0, 3.0, 9.0, 8.0}};
+		Matrix mda = new Matrix(da);
+		
+		Double res = (Double)mda.det();
+		System.out.println("[OJ-MAT-TC-032] det(Matrix(Double))");
+		System.out.println("det(" + mda + ") = " + res);
+		
+		assertTrue(Math.abs(-2890.0 - res.doubleValue()) < 0.0001);
+	}
+	
+	/**
+	 * [OJ-MAT-TC-033] det(Matrix(Complex))
+	 */
+	@Test
+	public void ojMatTest033() {
+		Complex[][] ca = {{new Complex(1.0, 2.0), new Complex(-2.0, 3.0), new Complex(-1.0, -5.0)},
+						  {new Complex(-3.0, 5.0), new Complex(-3.0, 9.0), new Complex(4.0, 3.0)},
+					 	  {new Complex(3.0, -2.0), new Complex(-3.0, -4.0), new Complex(-7.0, 4.0)}};
+		
+		Matrix mca = new Matrix(ca);
+		
+		Complex res = (Complex)mca.det();
+		System.out.println("[OJ-MAT-TC-033] det(Matrix(Complex))");
+		System.out.println("det(" + mca + ") = " + res);
+		/**
+		 * -2.9300e+002 -1.8900e+002i
+		 */
+		assertTrue(Math.abs(-293.0 - res.getRe()) < 0.0001);
+		assertTrue(Math.abs(-189.0 - res.getIm()) < 0.0001);
+	}
+	
+	/**
+	 * [OJ-MAT-TC-034] cofactor(Matrix(Double))
+	 */
+	@Test
+	public void ojMatTest034() {
+		Double[][] da = {{3.0, 1.0, -4.0}, {2.0, 5.0, 6.0}, {1.0, 4.0, 8.0}};
+		
+		Matrix mda = new Matrix(da);
+		
+		Double res = (Double)mda.cofactor(0, 0);
+		System.out.println("[OJ-MAT-TC-034] cofactor(Matrix(Complex))");
+		System.out.println("cofactor(" + mda + ", 0, 0) = " + res);
+		/**
+		 * 16
+		 */
+		assertTrue(Math.abs( 16.0- res.doubleValue()) < 0.0001);
+		
+		res = (Double)mda.cofactor(2, 1);
+		System.out.println("cofactor(" + mda + ", 2, 1) = " + res);
+		assertTrue(Math.abs( -26.0- res.doubleValue()) < 0.0001);
+	}
+	/**
+	 * [OJ-MAT-TC-035] adj(Matrix(Double))
+	 */
+	@Test
+	public void ojMatTest035() {
+		Double[][] da = {{3.0, 2.0, -1.0}, {1.0, 6.0, 3.0}, {2.0, -4.0, 0.0}};
+		
+		Matrix mda = new Matrix(da);
+		
+		Matrix res = mda.adj();
+		System.out.println("[OJ-MAT-TC-035] adj(Matrix(Double))");
+		System.out.println("adj(" + mda + ") = " + res);
+		
+		assertTrue(Math.abs( 12.0- ((Double)res.getElement(0,0)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 4.0- ((Double)res.getElement(0,1)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 12.0- ((Double)res.getElement(0,2)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 6.0- ((Double)res.getElement(1,0)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 2.0- ((Double)res.getElement(1,1)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( -10.0- ((Double)res.getElement(1,2)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( -16.0- ((Double)res.getElement(2,0)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 16.0- ((Double)res.getElement(2,1)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 16.0- ((Double)res.getElement(2,2)).doubleValue()) < 0.0001);
+	}
+	
+	/**
+	 * [OJ-MAT-TC-036] inv(Matrix(Double))
+	 */
+	@Test
+	public void ojMatTest036() {
+		Double[][] da = {{3.0, 2.0, -1.0}, {1.0, 6.0, 3.0}, {2.0, -4.0, 0.0}};
+		
+		Matrix mda = new Matrix(da);
+		
+		Matrix res = mda.inv();
+		System.out.println("[OJ-MAT-TC-036] inv(Matrix(Double))");
+		System.out.println("inv(" + mda + ") = " + res);
+		
+		/**
+		 * 0.1875    0.0625    0.1875
+    	 * 0.0937    0.0313   -0.1563
+   		 * -0.2500    0.2500    0.2500
+		 */
+		
+		assertTrue(Math.abs( 0.1875 - ((Double)res.getElement(0,0)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 0.0625- ((Double)res.getElement(0,1)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 0.1875 - ((Double)res.getElement(0,2)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 0.0937 - ((Double)res.getElement(1,0)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 0.0313 - ((Double)res.getElement(1,1)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( -0.1563 - ((Double)res.getElement(1,2)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( -0.2500 - ((Double)res.getElement(2,0)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 0.2500- ((Double)res.getElement(2,1)).doubleValue()) < 0.0001);
+		assertTrue(Math.abs( 0.2500 - ((Double)res.getElement(2,2)).doubleValue()) < 0.0001);
+	}
+	
+	/**
+	 * [OJ-MAT-TC-037] inv(Matrix(Complex))
+	 */
+	@Test
+	public void ojMatTest037() {
+		Complex[][] ca = {{new Complex(1.0, 2.0), new Complex(-2.0, 3.0), new Complex(-1.0, -5.0)},
+				  {new Complex(-3.0, 5.0), new Complex(-3.0, 9.0), new Complex(4.0, 3.0)},
+			 	  {new Complex(3.0, -2.0), new Complex(-3.0, -4.0), new Complex(-7.0, 4.0)}};
+		
+		Matrix mca = new Matrix(ca);
+		
+		Matrix res = mca.inv();
+		System.out.println("[OJ-MAT-TC-037] inv(Matrix(Complex))");
+		System.out.println("inv(" + mca + ") = " + res);
+		
+		/**
+		 * 0.1139 + 0.0972i  -0.0288 - 0.1452i   0.1567 - 0.1011i
+  		 * -0.1156 - 0.0893i   0.0002 - 0.0103i  -0.0707 + 0.0490i
+   		 * 0.0078 + 0.1179i  -0.0237 - 0.0632i  -0.0053 - 0.0717i
+		 */
+		
+		assertTrue(Math.abs( 0.1139 - ((Complex)res.getElement(0,0)).getRe()) < 0.0001);
+		assertTrue(Math.abs( 0.0972 - ((Complex)res.getElement(0,0)).getIm()) < 0.0001);
+		assertTrue(Math.abs( -0.0288- ((Complex)res.getElement(0,1)).getRe()) < 0.0001);
+		assertTrue(Math.abs( -0.1452 - ((Complex)res.getElement(0,1)).getIm()) < 0.0001);
+		assertTrue(Math.abs( 0.1567 - ((Complex)res.getElement(0,2)).getRe()) < 0.0001);
+		assertTrue(Math.abs( -0.1011 - ((Complex)res.getElement(0,2)).getIm()) < 0.0001);
+		assertTrue(Math.abs( -0.1156 - ((Complex)res.getElement(1,0)).getRe()) < 0.0001);
+		assertTrue(Math.abs( -0.0893 - ((Complex)res.getElement(1,0)).getIm()) < 0.0001);
+		assertTrue(Math.abs( 0.0002 - ((Complex)res.getElement(1,1)).getRe()) < 0.0001);
+		assertTrue(Math.abs( -0.0103 - ((Complex)res.getElement(1,1)).getIm()) < 0.0001);
+		assertTrue(Math.abs( -0.0707 - ((Complex)res.getElement(1,2)).getRe()) < 0.0001);
+		assertTrue(Math.abs( 0.0490 - ((Complex)res.getElement(1,2)).getIm()) < 0.0001);
+		assertTrue(Math.abs( 0.0078 - ((Complex)res.getElement(2,0)).getRe()) < 0.0001);
+		assertTrue(Math.abs( 0.1179 - ((Complex)res.getElement(2,0)).getIm()) < 0.0001);
+		assertTrue(Math.abs( -0.0237- ((Complex)res.getElement(2,1)).getRe()) < 0.0001);
+		assertTrue(Math.abs( -0.0632 - ((Complex)res.getElement(2,1)).getIm()) < 0.0001);
+		assertTrue(Math.abs( -0.0053 - ((Complex)res.getElement(2,2)).getRe()) < 0.0001);
+		assertTrue(Math.abs( -0.0717 - ((Complex)res.getElement(2,2)).getIm()) < 0.0001);
+		
+	}
 }
+
 
