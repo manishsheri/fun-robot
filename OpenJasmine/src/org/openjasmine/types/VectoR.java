@@ -86,7 +86,7 @@ public class VectoR implements Operation, Cloneable {
 		/**
 		 * when element is Complex
 		 */
-		if(this.element instanceof Complex[]) {
+		if(this.element[0] instanceof Complex) {
 			for(int i = 0 ; i < size ; i++) {
 				((Double[])result)[i] = (Double)(((Complex[])element)[i].abs());
 			}
@@ -95,7 +95,7 @@ public class VectoR implements Operation, Cloneable {
 		/**
 		 * when element is Double
 		 */
-		else if(this.element instanceof Double[]) {
+		else if(this.element[0] instanceof Double) {
 			for(int i = 0 ; i < size ; i++) {
 				((Double[])result)[i] = (Double)(Math.abs(((Double[])element)[i]));
 			}
@@ -124,7 +124,7 @@ public class VectoR implements Operation, Cloneable {
 				throw new VectorSizeMismatchException();
 			VectoR result = new VectoR(3);
 			
-			if(this.element instanceof Complex[]) {
+			if(this.element[0] instanceof Complex) {
 				
 				mtemp1 = (Complex) ((Complex)this.element[1]).times(rhs.getElement(2));
 				mtemp2 = (Complex) ((Complex)this.element[2]).times(rhs.getElement(1));
@@ -139,10 +139,10 @@ public class VectoR implements Operation, Cloneable {
 				result.setElement(2, mtemp1.minus(mtemp2));
 				
 			}
-			else if(this.element instanceof Double[]) {
+			else if(this.element[0] instanceof Double) {
 				Object[] o = rhs.getElement();
 				double dtemp1, dtemp2;
-				if(o instanceof Double[]) {			
+				if(o[0] instanceof Double) {			
 				
 					dtemp1 = ((Double)this.element[1]).doubleValue() * ((Double)rhs.getElement(2)).doubleValue();
 					dtemp2 = ((Double)this.element[2]).doubleValue() * ((Double)rhs.getElement(1)).doubleValue();
@@ -156,7 +156,7 @@ public class VectoR implements Operation, Cloneable {
 					dtemp2 = ((Double)this.element[1]).doubleValue() * ((Double)rhs.getElement(0)).doubleValue();
 					result.setElement(2, dtemp1 - dtemp2);
 				}
-				else if(o instanceof Complex[]) {
+				else if(o[0] instanceof Complex) {
 					mtemp1 = (Complex) ((Complex)o[2]).times(this.element[1]);
 					mtemp2 = (Complex) ((Complex)o[1]).times(this.element[2]);
 					result.setElement(0, mtemp1.minus(mtemp2));
@@ -189,14 +189,14 @@ public class VectoR implements Operation, Cloneable {
 				
 				Object temp;
 				Object[] o =  ((VectoR)obj).getElement();
-				if(this.element instanceof Complex[]) {
-					if(o instanceof Complex[]) {
+				if(this.element[0] instanceof Complex) {
+					if(o[0] instanceof Complex) {
 						for(i = 0 ; i < this.size ; i++) {
 							temp = ((Complex)((VectoR)obj).getElement(i)).inv();
 							result.setElement(i, ((Complex[])this.element)[i].times(temp));
 						}
 					}
-					else if(o instanceof Double[]) {
+					else if(o[0] instanceof Double) {
 						for(i = 0 ; i < this.size ; i++) {
 							double retemp, imtemp;
 							retemp = ((Double)((Complex)this.element[i]).getRe()).doubleValue() /((Double)o[i]).doubleValue();
@@ -205,15 +205,15 @@ public class VectoR implements Operation, Cloneable {
 						}
 					}
 				}
-				else if(this.element instanceof Double[]){
+				else if(this.element[0] instanceof Double){
 					
-					if( o instanceof Complex[]) {
+					if( o[0] instanceof Complex) {
 						for(i = 0 ; i < this.size ; i++) {
 							temp = ((Complex)((VectoR)obj).getElement(i)).inv();
 							result.setElement(i, ((Complex)temp).times(this.element[i]));
 						}
 					}
-					else if(this.element instanceof Double[]) {
+					else if(this.element[0] instanceof Double) {
 						for(i = 0 ; i < this.size ; i++)
 							result.setElement(i, (Double)this.element[i] / (Double)((VectoR)obj).getElement(i));
 					}
@@ -236,14 +236,14 @@ public class VectoR implements Operation, Cloneable {
 			return result;
 		}
 		else if(obj instanceof Double) {
-			if(this.element instanceof Complex[]) {
+			if(this.element[0] instanceof Complex) {
 				Complex c;
 				for(i = 0 ; i < this.size ; i++) {
 					c = (Complex)((Complex)this.element[i]).div(obj);
 					result.setElement(i, c);
 				}
 			}
-			else if(this.element instanceof Double[]) {
+			else if(this.element[0] instanceof Double) {
 				for(i = 0 ; i < this.size ; i++) {
 					result.setElement(i, ((Double)this.element[i]).doubleValue() / ((Double)obj).doubleValue());
 				}
@@ -268,16 +268,16 @@ public class VectoR implements Operation, Cloneable {
 				throw new VectorSizeMismatchException();
 			Object[] obj = v.getElement();
 			Object temp;
-			if(this.element instanceof Complex[]) {
+			if(this.element[0] instanceof Complex) {
 				result = new Complex(0.0, 0.0);
 				
-				if(obj instanceof Complex[]) {
+				if(obj[0] instanceof Complex) {
 					for(i = 0 ; i < this.size ; i++) {
 						temp = (((Complex[])this.element)[i]).times(((Complex[])obj)[i].conj());
 						result = ((Complex)result).plus(temp);
 					}
 				}
-				else if(obj instanceof Double[]) {
+				else if(obj[0] instanceof Double) {
 					for(i = 0 ; i < this.size ; i++) {
 						temp = (((Complex[])this.element)[i]).times(((Double[])obj)[i]);
 						result = ((Complex)result).plus(temp);
@@ -286,8 +286,8 @@ public class VectoR implements Operation, Cloneable {
 				result = ((Complex)result).conj();
 				
 			}
-			else if(this.element instanceof Double[]) {
-				if(obj instanceof Complex[]) {
+			else if(this.element[0] instanceof Double) {
+				if(obj[0] instanceof Complex) {
 					result = new Complex(0.0, 0.0);
 					for(i = 0 ; i < this.size ; i++) {
 						temp = (((Complex) ((Complex)obj[i])).conj()).times(((Double[])this.element)[i]);
@@ -295,7 +295,7 @@ public class VectoR implements Operation, Cloneable {
 					}
 					result = ((Complex)result).conj();
 				}
-				else if(obj instanceof Double[]) {
+				else if(obj[0] instanceof Double) {
 					result = new Double(0.0);
 	
 					for(i = 0 ; i < this.size ; i++) {
@@ -342,22 +342,22 @@ public class VectoR implements Operation, Cloneable {
 			VectoR result = new VectoR(((VectoR)obj).getSize());
 			
 			Object temp;
-			if(this.element instanceof Complex[]) {
+			if(this.element[0] instanceof Complex) {
 				for(i = 0 ; i < this.size ; i++)
 				{
 					temp = ((VectoR)obj).getElement(i);
 					result.setElement(i, ((Complex[])this.element)[i].minus(temp));
 				}
 			}
-			else if(this.element instanceof Double[]){
-				Object o =  ((VectoR)obj).getElement();
-				if( o instanceof Complex[]) {
+			else if(this.element[0] instanceof Double){
+				Object[] o =  ((VectoR)obj).getElement();
+				if( o[0] instanceof Complex) {
 					for(i = 0 ; i < this.size ; i++) {
 						temp = ((Complex)((VectoR)obj).getElement(i)).diff();
 						result.setElement(i, ((Complex)temp).plus(this.element[i]));
 					}
 				}
-				else if(this.element instanceof Double[]) {
+				else if(this.element[0] instanceof Double) {
 					for(i = 0 ; i < this.size ; i++)
 						result.setElement(i, (Double)this.element[i] - (Double)((VectoR)obj).getElement(i));
 				}
@@ -387,7 +387,7 @@ public class VectoR implements Operation, Cloneable {
 		double result = 0;
 		double temp;
 		int i = 0;
-		if(this.element instanceof Double[]){		
+		if(this.element[0] instanceof Double){		
 			
 			if(n == Double.POSITIVE_INFINITY) {
 				result = Math.abs((Double)this.element[0]);
@@ -426,7 +426,7 @@ public class VectoR implements Operation, Cloneable {
 			}
 			
 		}
-		else if(this.element instanceof Complex[]) {
+		else if(this.element[0] instanceof Complex) {
 		
 			if(n == Double.POSITIVE_INFINITY) {
 				result =(Double) ((Complex)this.element[0]).abs();
@@ -480,23 +480,23 @@ public class VectoR implements Operation, Cloneable {
 			VectoR result = new VectoR(((VectoR)obj).getSize());
 			
 			Object temp;
-			if(this.element instanceof Complex[]) {
+			if(this.element[0] instanceof Complex) {
 				for(i = 0 ; i < this.size ; i++)
 				{
 					temp = ((VectoR)obj).getElement(i);
 					result.setElement(i, ((Complex[])this.element)[i].plus(temp));
 				}
 			}
-			else if(this.element instanceof Double[]){
-				Object o =  ((VectoR)obj).getElement();
-				if( o instanceof Complex[]) {
+			else if(this.element[0] instanceof Double){
+				Object[] o =  ((VectoR)obj).getElement();
+				if( o[0] instanceof Complex) {
 					for(i = 0 ; i < this.size ; i++) {
 						//temp = (Complex)((VectoR)obj).getElement(i);
 						temp = (Complex)((VectoR)obj).getElement(i);
 						result.setElement(i, ((Complex)temp).plus(this.element[i]));
 					}
 				}
-				else if(this.element instanceof Double[]) {
+				else if(this.element[0] instanceof Double) {
 					for(i = 0 ; i < this.size ; i++)
 						result.setElement(i, (Double)this.element[i] + (Double)((VectoR)obj).getElement(i));
 				}
@@ -547,22 +547,22 @@ public class VectoR implements Operation, Cloneable {
 				result = new VectoR(((VectoR)obj).getSize());
 				
 				
-				if(this.element instanceof Complex[]) {
+				if(this.element[0] instanceof Complex) {
 					for(i = 0 ; i < this.size ; i++)
 					{
 						temp = ((VectoR)obj).getElement(i);
 						result.setElement(i, ((Complex[])this.element)[i].times(temp));
 					}
 				}
-				else if(this.element instanceof Double[]){
-					Object o =  ((VectoR)obj).getElement();
-					if( o instanceof Complex[]) {
+				else if(this.element[0] instanceof Double){
+					Object[] o =  ((VectoR)obj).getElement();
+					if( o[0] instanceof Complex) {
 						for(i = 0 ; i < this.size ; i++) {
 							temp = ((VectoR)obj).getElement(i);
 							result.setElement(i, ((Complex)temp).times(this.element[i]));
 						}
 					}
-					else if(this.element instanceof Double[]) {
+					else if(this.element[0] instanceof Double) {
 						for(i = 0 ; i < this.size ; i++)
 							result.setElement(i, (Double)this.element[i] * (Double)((VectoR)obj).getElement(i));
 					}
@@ -575,12 +575,12 @@ public class VectoR implements Operation, Cloneable {
 		}
 		else if(obj instanceof Double) {
 			result = new VectoR(this.size);
-			if(this.element instanceof Double[]) {
+			if(this.element[0] instanceof Double) {
 				for(i = 0 ; i < this.size ; i++) {
 					result.setElement(i, ((Double)obj).doubleValue() * ((Double)this.element[i]).doubleValue());
 				}
 			}
-			else if(this.element instanceof Complex[]) {
+			else if(this.element[0] instanceof Complex) {
 		
 				for(i = 0 ; i < this.size ; i++) {
 					temp = ((Complex)this.element[i]).times((Double)obj);
