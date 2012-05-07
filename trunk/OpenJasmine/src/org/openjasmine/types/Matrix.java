@@ -567,6 +567,10 @@ public class Matrix implements Operation {
 		Matrix minorMat;
 		Complex cTemp;
 		if(this.elements[0][0] instanceof Double) {
+			if(this.col == 1) {
+				dResult = (Double)this.elements[0][0];
+				return dResult;
+			}
 			if(this.col == 2) {
 				return ((Double)this.elements[0][0]).doubleValue() * ((Double)this.elements[1][1]).doubleValue()
 						- ((Double)this.elements[0][1]).doubleValue() * ((Double)this.elements[1][0]).doubleValue();
@@ -590,6 +594,9 @@ public class Matrix implements Operation {
 			}
 		}
 		else if(this.elements[0][0] instanceof Complex) {
+			if(this.col == 1) {
+				cResult = new Complex(((Complex)this.elements[0][0]).getRe(), ((Complex)this.elements[0][0]).getIm());
+			}
 			if(this.col == 2) {
 				return ((Complex)(((Complex)this.elements[0][0]).times(this.elements[1][1]))).minus(
 						((Complex)this.elements[0][1]).times(this.elements[1][0]));
@@ -712,6 +719,9 @@ public class Matrix implements Operation {
 		
 		int i, j;
 		Matrix result = new Matrix(this.row, this.col);
+		if(this.row == 1) {
+			return this;
+		}
 		for(i = 0 ; i < this.row ; i++) {
 			for(j = 0 ; j < this.col ; j++) {
 				result.setElement(i, j, this.cofactor(i, j));
@@ -737,8 +747,14 @@ public class Matrix implements Operation {
 			}
 			dt = 1.0 / ((Double)dt).doubleValue();
 		}
-		result = (Matrix)(this.adj());
-		result = (Matrix) result.times(dt);
+		if(this.col == 1) {
+			result = new Matrix(1, 1);
+			result.setElement(0, 0, dt);
+		}
+		else {
+			result = (Matrix)(this.adj());
+			result = (Matrix) result.times(dt);
+		}
 		return result;
 	}
 }
