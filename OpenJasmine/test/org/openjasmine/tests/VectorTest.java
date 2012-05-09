@@ -1031,12 +1031,14 @@ public class VectorTest {
 	 */
 	@Test
 	public void ojVecTest057() {
+		// FIXME
 		try {
 			v5 = (VectoR)v1.clone();
 		} catch (CloneNotSupportedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("[OJ-VEC-TC-057] Vector<Complex> * Complex");
 		System.out.println("Clone : ");
 		System.out.println("v1 = " + v1);
 		System.out.println("v5 = " + v5);
@@ -1054,4 +1056,38 @@ public class VectorTest {
 		System.out.println("v1 = " + v1);
 		System.out.println("v5 = " + v5); // 아직 문제 있음
 	}
+	
+	/**
+	 * [OJ-VEC-TC-058] proj(Vector<double>)
+	 */
+	@Test
+	public void ojVecTest058() {
+		Double[] vaArray = {2.0, 2.0};
+		Double[] vbArray = {1.0, -2.0};
+		VectoR vp = new VectoR(vaArray);
+		VectoR vq = new VectoR(vbArray);
+		
+		VectoR res = vq.proj(vp);
+		System.out.println("[OJ-VEC-TC-058] proj(Vector<double>)");
+		
+		System.out.println(res);
+
+	}
+	
+	/**
+	 * [OJ-VEC-TC-059] perp(Vector<double>)
+	 */
+	@Test
+	public void ojVecTest059() {
+		Double[] vaArray = {2.0, 2.0};
+		Double[] vbArray = {1.0, -2.0};
+		VectoR vp = new VectoR(vaArray);
+		VectoR vq = new VectoR(vbArray);
+		
+		VectoR res = vq.perp(vp);
+		System.out.println("[OJ-VEC-TC-059] perp(Vector<double>)");
+		System.out.println(res);
+
+	}
+	
 }

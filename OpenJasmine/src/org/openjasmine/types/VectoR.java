@@ -632,5 +632,29 @@ public class VectoR implements Operation, Cloneable {
 			return null;
 		}
 	}
+	
+	public VectoR proj(VectoR p) {
+		Object pdq = p.dot(this);
+		double normq = this.norm();
+		Object coeff = null;
+		normq = normq*normq;
+		if(pdq instanceof Double) {
+			coeff = (Double)(((Double) pdq).doubleValue() / normq);
+		}
+		else if(pdq instanceof Complex) {
+			coeff = ((Complex) pdq).div(normq);
+		}
+		
+		System.out.println("p dot q" + pdq);
+		VectoR result = (VectoR)this.times(coeff);
+		return result;
+	}
+	
+	public VectoR perp(VectoR p) {
+		VectoR projpq = this.proj(p);
+		VectoR result = (VectoR) p.minus(projpq);
+		
+		return result;
+	}
 
 }
