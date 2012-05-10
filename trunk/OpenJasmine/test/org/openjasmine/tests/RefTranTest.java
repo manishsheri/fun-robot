@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.openjasmine.geometry.GeoOp;
 import org.openjasmine.geometry.RefTran;
 import org.openjasmine.types.VectoR;
 
@@ -28,7 +29,7 @@ public class RefTranTest {
 		Double[] vArray = {3.0, 2.0, 0.0};
 		
 		VectoR v = new VectoR(vArray);
-		VectoR v2 = RefTran.rotZ(RefTran.d2r(45.0), v);
+		VectoR v2 = RefTran.rotZ(GeoOp.d2r(45.0), v);
 		
 		System.out.println(v + "rot 45 = " + v2);
 		

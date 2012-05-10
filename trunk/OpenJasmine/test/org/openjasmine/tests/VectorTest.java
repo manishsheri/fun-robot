@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.openjasmine.geometry.GeoOp;
+import org.openjasmine.geometry.RefTran;
 import org.openjasmine.types.Complex;
 import org.openjasmine.types.VectoR;
 
@@ -1062,8 +1064,8 @@ public class VectorTest {
 	 */
 	@Test
 	public void ojVecTest058() {
-		Double[] vaArray = {2.0, 2.0};
-		Double[] vbArray = {1.0, -2.0};
+		Double[] vaArray = {2.0, -1.0, 3.0};
+		Double[] vbArray = {4.0, -1.0, 2.0};
 		VectoR vp = new VectoR(vaArray);
 		VectoR vq = new VectoR(vbArray);
 		
@@ -1079,8 +1081,8 @@ public class VectorTest {
 	 */
 	@Test
 	public void ojVecTest059() {
-		Double[] vaArray = {2.0, 2.0};
-		Double[] vbArray = {1.0, -2.0};
+		Double[] vaArray =  {2.0, -1.0, 3.0};
+		Double[] vbArray = {4.0, -1.0, 2.0};
 		VectoR vp = new VectoR(vaArray);
 		VectoR vq = new VectoR(vbArray);
 		
@@ -1088,6 +1090,29 @@ public class VectorTest {
 		System.out.println("[OJ-VEC-TC-059] perp(Vector<double>)");
 		System.out.println(res);
 
+	}
+	
+	/**
+	 * [OJ-VEC-TC-060] getIncludeAngle(Vector<double>)
+	 */
+	@Test
+	public void ojVecTest060() {
+		Double[] uArray = {2.0, -1.0, 1.0};
+		Double[] vArray = {1.0, 1.0, 2.0};
+		VectoR u = new VectoR(uArray);
+		VectoR v = new VectoR(vArray);
+		
+		double angle = u.getIncludeAngle(v);
+		double vnorm = v.norm();
+		double unorm = u.norm();
+		double rootsix = Math.sqrt(6.0);
+		System.out.println("[OJ-VEC-TC-060] getIncludeAngle(Vector<double>)");
+		System.out.println("norm(u) = " + unorm);
+		System.out.println("norm(v) = " + vnorm);
+		System.out.println("root six = " + rootsix);
+		System.out.println("u dot.v = " + (Double)u.dot(v));
+		System.out.println("angle = " + angle + " rad");
+		System.out.println("angle = " + GeoOp.r2d(angle) + " degree");
 	}
 	
 }
