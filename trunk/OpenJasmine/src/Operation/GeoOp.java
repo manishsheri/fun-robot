@@ -1,4 +1,4 @@
-package org.openjasmine.geometry;
+package Operation;
 
 public class GeoOp {
 	public static double d2r(double degree) {
