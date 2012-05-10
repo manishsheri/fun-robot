@@ -64,6 +64,10 @@ public class VectoR implements Operation, Cloneable {
 		super();
 		this.size = size;
 		element = new Object[size];
+		int i;
+		for(i = 0 ; i < size ; i++) {
+			element[i] = 0.0;
+		}
 	}
 
 	/**
