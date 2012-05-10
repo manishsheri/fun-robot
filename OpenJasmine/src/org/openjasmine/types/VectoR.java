@@ -656,5 +656,15 @@ public class VectoR implements Operation, Cloneable {
 		
 		return result;
 	}
+	
+	public double getIncludeAngle(VectoR v) {
+		double udotv = (Double)this.dot(v);
+		double normu = this.norm();
+		double normv = v.norm();
+		double normunormv = normu * normv;
+		double cost = udotv / normunormv;
+		double result = Math.acos(cost);
+		return result;
+	}
 
 }

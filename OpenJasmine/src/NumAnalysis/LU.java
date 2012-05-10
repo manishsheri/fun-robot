@@ -1,4 +1,6 @@
-package org.openjasmine.types;
+package NumAnalysis;
+
+import org.openjasmine.types.Matrix;
 
 public class LU {
 	private Matrix lower;
