@@ -772,4 +772,29 @@ public class Matrix implements Operation {
 		}
 		return result;
 	}
+	
+	public boolean isOrthogonal() {
+		boolean result = true;
+		Matrix m1 = this.transpose();
+		Matrix m2 = this.inv();
+		int i, j;
+		double tol = 0.0001;
+		
+		try {
+			for(i = 0 ; i < this.row ; i++) {
+				for(j = 0 ; j < this.col ; j++) {
+					if(Math.abs((Double)m1.getElement(i, j) - (Double)m2.getElement(i, j)) > tol) {
+						result = false;
+						return result;
+					}
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = false;
+		}
+		
+		return result;
+	}
 }
