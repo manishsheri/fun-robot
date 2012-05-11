@@ -1394,8 +1394,23 @@ public class MatrixTest {
 		assertTrue(Math.abs( -0.0632 - ((Complex)res.getElement(2,1)).getIm()) < 0.0001);
 		assertTrue(Math.abs( -0.0053 - ((Complex)res.getElement(2,2)).getRe()) < 0.0001);
 		assertTrue(Math.abs( -0.0717 - ((Complex)res.getElement(2,2)).getIm()) < 0.0001);
-		
 	}
+	
+	/**
+	 * [OJ-MAT-TC-038] Orthogonal Test (Matrix(double))
+	 */
+	@Test
+	public void ojMatTest038() {
+		Double[][] aArray = {{3.0/7.0, 2.0/7.0, 6.0/7.0},
+						     {-6.0/7.0, 3.0/7.0, 2.0/7.0},
+						     {2.0/7.0, 6.0/7.0, -3.0/7.0}};
+		
+		Matrix a = new Matrix(aArray);
+		boolean b = a.isOrthogonal();
+		
+		assertTrue(b);
+	}
+	
 }
 
 
