@@ -540,7 +540,7 @@ public class VectoR implements Operation, Cloneable {
 		
 	@Override
 	public Object times(Object obj) {
-		VectoR result = null;
+		Object result = null;
 		int i;
 		Object temp;
 		if(obj instanceof VectoR) {
@@ -555,7 +555,7 @@ public class VectoR implements Operation, Cloneable {
 					for(i = 0 ; i < this.size ; i++)
 					{
 						temp = ((VectoR)obj).getElement(i);
-						result.setElement(i, ((Complex[])this.element)[i].times(temp));
+						((VectoR)result).setElement(i, ((Complex[])this.element)[i].times(temp));
 					}
 				}
 				else if(this.element[0] instanceof Double){
@@ -563,12 +563,12 @@ public class VectoR implements Operation, Cloneable {
 					if( o[0] instanceof Complex) {
 						for(i = 0 ; i < this.size ; i++) {
 							temp = ((VectoR)obj).getElement(i);
-							result.setElement(i, ((Complex)temp).times(this.element[i]));
+							((VectoR)result).setElement(i, ((Complex)temp).times(this.element[i]));
 						}
 					}
 					else if(this.element[0] instanceof Double) {
 						for(i = 0 ; i < this.size ; i++)
-							result.setElement(i, (Double)this.element[i] * (Double)((VectoR)obj).getElement(i));
+							((VectoR)result).setElement(i, (Double)this.element[i] * (Double)((VectoR)obj).getElement(i));
 					}
 				}
 	
@@ -581,14 +581,14 @@ public class VectoR implements Operation, Cloneable {
 			result = new VectoR(this.size);
 			if(this.element[0] instanceof Double) {
 				for(i = 0 ; i < this.size ; i++) {
-					result.setElement(i, ((Double)obj).doubleValue() * ((Double)this.element[i]).doubleValue());
+					((VectoR)result).setElement(i, ((Double)obj).doubleValue() * ((Double)this.element[i]).doubleValue());
 				}
 			}
 			else if(this.element[0] instanceof Complex) {
 		
 				for(i = 0 ; i < this.size ; i++) {
 					temp = ((Complex)this.element[i]).times((Double)obj);
-					result.setElement(i, temp);
+					((VectoR)result).setElement(i, temp);
 				}	
 			}
 		}
@@ -596,9 +596,13 @@ public class VectoR implements Operation, Cloneable {
 			result = new VectoR(this.size);
 			for(i = 0 ; i < this.size ; i++) {
 				temp = ((Complex)obj).times(this.element[i]);
-				result.setElement(i, temp);
+				((VectoR)result).setElement(i, temp);
 			}
 			
+		}
+		else if(obj instanceof Quaternion) {
+			result = new Quaternion(0.0, this);
+			result = ((Quaternion)result).times((Quaternion)obj);
 		}
 		return (Object)result;
 	}
