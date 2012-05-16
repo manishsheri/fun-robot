@@ -8,9 +8,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.openjasmine.geometry.RefTran;
+import org.openjasmine.op.GeoOp;
 import org.openjasmine.types.VectoR;
 
-import Operation.GeoOp;
 
 /**
  * @author khj

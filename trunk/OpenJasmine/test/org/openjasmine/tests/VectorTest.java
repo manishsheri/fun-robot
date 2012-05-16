@@ -5,10 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.openjasmine.geometry.RefTran;
+import org.openjasmine.op.GeoOp;
 import org.openjasmine.types.Complex;
 import org.openjasmine.types.VectoR;
 
-import Operation.GeoOp;
 
 public class VectorTest {
 	VectoR v1, v2, v3, v4, v5;
