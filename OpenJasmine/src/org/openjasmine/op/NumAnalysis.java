@@ -1,4 +1,4 @@
-package Operation;
+package org.openjasmine.op;
 
 import org.openjasmine.types.Matrix;
 import org.openjasmine.types.VectoR;
