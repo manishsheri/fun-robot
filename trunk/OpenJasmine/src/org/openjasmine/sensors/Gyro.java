@@ -40,8 +40,6 @@ public class Gyro {
 	
 	public Gyro(double phi, double theta, double psi) {
 		this.angle 		= new VectoR(3);
-
-		int i;
 		
 		this.angle.setElement(0, phi);
 		this.angle.setElement(1, theta);
