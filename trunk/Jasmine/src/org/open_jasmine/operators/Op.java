@@ -632,4 +632,32 @@ public class Op {
 				return null;
 			}
 		}
+		
+		public static VectoR times(Matrix m, VectoR v) {
+			int i, j, rowsize, colsize;
+			VectoR ret = new VectoR(v.getSize());
+			rowsize = m.getRow();
+			colsize = m.getCol();
+			double temp;
+			for(i = 0 ; i < rowsize ; i++) {
+				temp = 0.0;
+				for(j = 0 ; j < colsize ; j++) {
+					temp += m.getElement(i, j) * v.getElement(j);
+				}
+				ret.setElement(i, temp);
+			}
+			return ret;
+		}
+		public static double deg2rad(double deg) {
+			double ret;
+			ret = deg * Math.PI / 180.0;
+			return ret;
+			
+		}
+		
+		public static double rad2deg(double rad) {
+			double ret;
+			ret = rad * 180.0 / Math.PI;
+			return ret;
+		}
 }
